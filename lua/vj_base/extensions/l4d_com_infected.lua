@@ -270,27 +270,26 @@ function ENT:OnThinkActive()
 		selfData.Zombie_IdleStateChangeT = curTime + math.Rand(10, 80)
 	end
 	
-	-- Experimental Climbing System
+	----////// Experimental Climbing System \\\\\\----
 	-- NOTE: This is VERY old and unoptimized, recommended not to use but it's here if you want to play around with it
-	//print(self:GetBlockingEntity())
-	// IsValid(self:GetBlockingEntity()) && !self:GetBlockingEntity():IsNPC() && !self:GetBlockingEntity():IsPlayer()
 	if selfData.Zombie_CanClimb && !selfData.Dead && !selfData.Zombie_IsClimbing && curTime > selfData.Zombie_NextClimbT then
-		//print("-------------------------------------------------------------------------------------")
-		local anim = false
-		local finalpos = self:GetPos()
-		local tr5 = util.TraceLine({start = self:GetPos() + self:GetUp()*144, endpos = self:GetPos() + self:GetUp()*144 + self:GetForward()*40, filter = function(ent) if (ent:GetClass() == "prop_physics") then return true end end}) -- 144
-		local tr4 = util.TraceLine({start = self:GetPos() + self:GetUp()*120, endpos = self:GetPos() + self:GetUp()*120 + self:GetForward()*40, filter = function(ent) if (ent:GetClass() == "prop_physics") then return true end end}) -- 120
-		local tr3 = util.TraceLine({start = self:GetPos() + self:GetUp()*96, endpos = self:GetPos() + self:GetUp()*96 + self:GetForward()*40, filter = function(ent) if (ent:GetClass() == "prop_physics") then return true end end}) -- 96
-		local tr2 = util.TraceLine({start = self:GetPos() + self:GetUp()*72, endpos = self:GetPos() + self:GetUp()*72 + self:GetForward()*40, filter = function(ent) if (ent:GetClass() == "prop_physics") then return true end end}) -- 72
-		local tr1 = util.TraceLine({start = self:GetPos() + self:GetUp()*48, endpos = self:GetPos() + self:GetUp()*48 + self:GetForward()*40, filter = function(ent) if (ent:GetClass() == "prop_physics") then return true end end}) -- 48
-		local tru = util.TraceLine({start = self:GetPos(), endpos = self:GetPos() + self:GetUp()*200, filter = self})
+		local myPos = self:GetPos()
+		local myPosUp = self:GetUp()
+		local tru = util.TraceLine({start = myPos, endpos = myPos + myPosUp * 200, filter = self})
 		
 		//VJ.DEBUG_TempEnt(tru.StartPos, self:GetAngles(), Color(0, 0, 255))
 		//VJ.DEBUG_TempEnt(tru.HitPos, self:GetAngles(), Color(0, 255, 0))
-		//PrintTable(tr2)
 		if !IsValid(tru.Entity) then
+			local anim = false
+			local finalpos = myPos
+			local myPosForward = self:GetForward() * 40
+			local tr5 = util.TraceLine({start = myPos + myPosUp * 144, endpos = myPos + myPosUp * 144 + myPosForward, filter = function(ent) if (ent:GetClass() == "prop_physics") then return true end end}) -- 144
+			local tr4 = util.TraceLine({start = myPos + myPosUp * 120, endpos = myPos + myPosUp * 120 + myPosForward, filter = function(ent) if (ent:GetClass() == "prop_physics") then return true end end}) -- 120
+			local tr3 = util.TraceLine({start = myPos + myPosUp * 96, endpos = myPos + myPosUp * 96 + myPosForward, filter = function(ent) if (ent:GetClass() == "prop_physics") then return true end end}) -- 96
+			local tr2 = util.TraceLine({start = myPos + myPosUp * 72, endpos = myPos + myPosUp * 72 + myPosForward, filter = function(ent) if (ent:GetClass() == "prop_physics") then return true end end}) -- 72
+			local tr1 = util.TraceLine({start = myPos + myPosUp * 48, endpos = myPos + myPosUp * 48 + myPosForward, filter = function(ent) if (ent:GetClass() == "prop_physics") then return true end end}) -- 48
 			if IsValid(tr5.Entity) then
-				local tr5b = util.TraceLine({start = self:GetPos() + self:GetUp()*160, endpos = self:GetPos() + self:GetUp()*160 + self:GetForward()*40, filter = function(ent) if (ent:GetClass() == "prop_physics") then return true end end})
+				local tr5b = util.TraceLine({start = myPos + myPosUp * 160, endpos = myPos + myPosUp * 160 + myPosForward, filter = function(ent) if (ent:GetClass() == "prop_physics") then return true end end})
 				if !IsValid(tr5b.Entity) then
 					anim = VJ.PICK({"vjseq_climb144_00_inplace", "vjseq_climb144_00a_inplace", "vjseq_climb144_01_inplace", "vjseq_climb144_03_inplace", "vjseq_climb144_03a_inplace", "vjseq_climb144_04_inplace"})
 					finalpos = tr5.HitPos
@@ -309,8 +308,7 @@ function ENT:OnThinkActive()
 				finalpos = tr1.HitPos
 			end
 		
-			if anim != false then
-				//print(anim)
+			if anim then
 				self:SetGroundEntity(NULL)
 				selfData.Zombie_IsClimbing = true
 				timer.Simple(0.4, function()
@@ -378,7 +376,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 				bloodSpray:Spawn()
 				bloodSpray:Activate()
 				bloodSpray:Fire("Start")
-				bloodSpray:Fire("Kill", "", 3.5)
+				bloodSpray:Fire("Kill", nil, 3.5)
 			end
 		end)
 	elseif hitgroup == HITGROUP_LEFTARM then
@@ -402,11 +400,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	else
 		return false
 	end
-	if hitgroup == HITGROUP_HEAD then
-		self:PlaySoundSystem("Gib", sdGoreHead)
-	else
-		self:PlaySoundSystem("Gib", sdGoreReg)
-	end
+	self:PlaySoundSystem("Gib", hitgroup == HITGROUP_HEAD and sdGoreHead or sdGoreReg)
 	return true, {AllowCorpse = true, AllowAnim = playDeathAnim, AllowSound = false}
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------

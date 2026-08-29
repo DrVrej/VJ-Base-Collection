@@ -10,7 +10,7 @@ ENT.Type 			= "anim"
 ENT.PrintName 		= "Random Common Infected"
 ENT.Author 			= "DrVrej"
 ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
-ENT.Category		= "VJ Base Spawners"
+ENT.Category		= "Left 4 Dead"
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if !SERVER then return end
 

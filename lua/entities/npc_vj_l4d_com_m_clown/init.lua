@@ -26,5 +26,5 @@ function ENT:OnBleed(dmginfo, hitgroup)
 	clownBloodSpray:Spawn()
 	clownBloodSpray:Activate()
 	clownBloodSpray:Fire("Start")
-	clownBloodSpray:Fire("Kill", "", 0.2)
+	clownBloodSpray:Fire("Kill", nil, 0.2)
 end
