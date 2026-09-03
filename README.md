@@ -22,7 +22,7 @@ for /D %D in ("F:\examplePath\VJ-Base-Collection\addons\*") do mklink /J "C:\Pro
 Individually create a junction:
 
 ```bat
-mklink /j "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\Example Mod" "F:\examplePath\VJ-Base-Collection\addons\Example Mod"
+mklink /j "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\Mod Name" "F:\examplePath\VJ-Base-Collection\addons\Mod Name"
 ```
 
 ### Verifying Junctions
@@ -38,5 +38,5 @@ They will appear as `<JUNCTION>` entries.
 Removing a junction does **not** remove the actual files, it just removes the link.
 
 ```bat
-rmdir "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\Addon Name"
+rmdir "C:\Program Files (x86)\Steam\steamapps\common\GarrysMod\garrysmod\addons\Mod Name"
 ```
