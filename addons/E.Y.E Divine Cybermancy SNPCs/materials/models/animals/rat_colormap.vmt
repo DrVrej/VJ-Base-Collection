@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models\animals\rat_colormap"
+	"$bumpmap"	"models\animals\rat_normalmap"
+
+	"$phong"				"1"
+	"$phongexponent" 		"30"
+	"$phongboost"			"10"
+	"$phongfresnelranges"	"[0.5 0.75 1]"
+	"$phongexponenttexture" "vj_base/exponent"
+	"$phongalbedotint"		"1"
+}

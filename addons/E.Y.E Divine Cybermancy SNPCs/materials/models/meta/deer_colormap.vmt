@@ -1,0 +1,14 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\meta/deer_colormap"
+	"$bumpmap" "models\meta\deer_normalmaps"
+
+	"$alpha" "1"
+
+	"$phong"				"1"
+	"$phongexponent" 		"25"
+	"$phongboost"			"8"
+	"$phongfresnelranges"	"[0.1 0.5 1]"
+	"$phongexponenttexture" "vj_base/exponent"
+	"$phongalbedotint"		"1"
+}

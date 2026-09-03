@@ -1,0 +1,15 @@
+EyeRefract
+{
+	$Envmap "models/vj_nmrih/engine/eye-reflection-cubemap" 
+	$CorneaTexture "models/vj_nmrih/engine/eye-cornea" 
+	$EyeballRadius "0.5" 
+	$AmbientOcclColor "[.4 .3 .27]" 
+	$Dilation ".6" 
+	$ParallaxStrength "0.25" 
+	$CorneaBumpStrength ".5" 
+	$halflambert 1
+	$nodecal 1
+	$ambientocclusion 1
+	$RaytraceSphere 1 
+	$SphereTexkillCombo 0 
+}

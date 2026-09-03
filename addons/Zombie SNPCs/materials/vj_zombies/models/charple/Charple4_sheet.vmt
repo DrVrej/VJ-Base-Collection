@@ -1,0 +1,10 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "vj_zombies/models/charple/Charple4_sheet"
+	"$bumpmap" "vj_zombies/models/charple/Charple4_normal"
+	"$halflambert" 1
+	"$phong" "1"
+	"$phongexponent" "15"
+	"$phongboost"	"3.2"
+	"$phongfresnelranges"	"[ 0.15 1.1 0.8 ]"
+}

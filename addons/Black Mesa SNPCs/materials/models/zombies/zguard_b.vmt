@@ -1,0 +1,30 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models/zombies/ZGuard_b"
+	"$bumpmap" "models/zombies/ZGuard_b_normals"
+	"$model" 1
+	"$surfaceprop" "alienflesh"
+	"$multipass" 1
+
+	"$phong" "1"
+	"$phongboost" "2"
+	"$phongexponent" 33
+	"$phongfresnelranges" "[.18 .4 1]"
+	"$halflambert" "1"
+
+	// Rim lighting parameters
+	"$rimlight" "1"				// To enable rim lighting (requires phong)
+	"$rimlightexponent" "60"             // Exponent for phong component of rim lighting
+	"$rimlightboost" ".5"	               // Boost for ambient cube component of rim lighting
+
+//	$detail "effects/models/model_blood_red.vtf"
+	$detailscale 5
+	$detailblendfactor 0.0
+	$detailblendmode 0
+	Proxies
+	{
+		ModelDetailFx
+		{
+		}
+	}
+}

@@ -1,0 +1,8 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/panic/zombie1/zombie2_hairflat"
+	"$translucent" 1
+	"$nodecal" 1
+	"$nocull" 1
+	"$model" 1
+}

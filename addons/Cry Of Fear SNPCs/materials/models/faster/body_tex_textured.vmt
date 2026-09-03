@@ -1,0 +1,6 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/faster/body_tex_textured"
+	"$surfaceprop" "BloodyFlesh"
+	"$surfaceprop2" "BloodyFlesh"
+}

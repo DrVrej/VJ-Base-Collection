@@ -1,0 +1,31 @@
+VertexLitGeneric
+{
+	$basetexture "swarm\models\drone\Drone_BlackRedSkin"
+	$bumpmap "swarm\models\drone\drone_sml_compressed_normal"
+
+	$surfaceprop flesh
+
+	$envmap "swarm\models\drone\droneenv01"
+
+	$detail "effects/model_layer_ice_1.vtf"
+	$detailscale 5
+	$detailblendfactor 0.0
+	$detailblendmode 5
+
+	"$phong"				"1"
+	"$phongexponent" 		"20"
+	"$phongboost"			"35"
+	"$phongfresnelranges"	"[0.1 0.5 1]"
+	"$phongexponenttexture" "vj_base/exponent"
+	"$phongalbedotint"		"1"
+
+	Proxies
+	{
+		AnimatedTexture
+		{
+		animatedtexturevar $detail
+		animatedtextureframenumvar $detailframe
+		animatedtextureframerate 30
+		}
+	}
+}

@@ -1,0 +1,12 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/meta/kraak_bust"
+	"$bumpmap" "models/meta/kraak_bust_nm"
+
+	"$phong"				"1"
+	"$phongexponent" 		"20"
+	"$phongboost"			"5"
+	"$phongfresnelranges"	"[0.1 0.5 1]"
+	"$phongexponenttexture" "vj_base/exponent"
+	"$phongalbedotint"		"1"
+}

@@ -1,0 +1,15 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\vj_ger_panzergrenadier/c_pnzgren_body1_c"
+	"$bumpmap" "models/vj_ger_panzergrenadier/c_pnzgren_body1_n"
+	"$phong" "1"
+	"$phongexponent" "7"
+	"$phongboost" ".3"	
+	"$phongfresnelranges"	"[.3 1 7]"
+	"$halflambert" "1"
+
+	// Rim lighting parameters
+	"$rimlight" "1"												// To enable rim lighting (requires phong)
+	"$rimlightexponent" "8"										// Exponent for phong component of rim lighting	
+	"$rimlightboost" "1"										// Boost for ambient cube component of rim lighting
+}

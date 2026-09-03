@@ -1,0 +1,32 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/panic/vanessa/vanessa_zombie_hair"
+	"$nocull" "1"
+	
+	// this hair is seperate texture specifically so Source
+	// render order issues are not a problem
+	// -- always use translucent here
+	"$translucent" "1"
+
+	"$model" "1"
+	"$surfaceprop" "flesh"
+
+	//phong parameters
+	"$phong"     "1"
+
+	"$phongexponent"   "8"
+	"$phongboost"   ".01"
+	"$phongfresnelranges"   "[0.04 5 1]"
+	
+	//rimlight parameters
+	"$rimlight" "1"
+	"$rimlightexponent" "20"
+	"$rimlightboost" "0.8"
+	"Proxies"
+	{
+		"ZombieVision"
+		{
+			"resultVar"	"$selfillumtint"
+		}
+	}
+}

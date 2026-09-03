@@ -1,0 +1,9 @@
+Patch
+{
+include "materials\models\nmr_zombie\common_zombie_shared.vmt"
+insert
+{
+$basetexture "models\player\f_badass\f_badass_zom_c"
+$bumpmap "models\player\f_badass\f_badass_n"
+}
+}

@@ -1,0 +1,10 @@
+Patch
+{
+include "materials\models\nmr_zombie\common_zombie_shared.vmt"
+insert
+{
+$basetexture "models\player\wally\Wally head Diffuse_zom"
+$bumpmap "models\player\wally\Wally head normal"
+$alphatest "1"
+}
+}

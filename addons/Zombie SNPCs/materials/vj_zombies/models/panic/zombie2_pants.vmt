@@ -1,0 +1,8 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/panic/zombie2_pants"
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" 1
+	"$bumpmap" "vj_zombies/models/panic/zombie2_pants_nm"
+//	"$envmapcontrast" 1
+}

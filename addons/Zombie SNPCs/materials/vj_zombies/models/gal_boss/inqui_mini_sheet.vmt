@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/gal_boss/inqui_mini_sheet"
+	"$halflambert" 1
+}

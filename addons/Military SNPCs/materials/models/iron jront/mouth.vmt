@@ -1,0 +1,5 @@
+vertexlitgeneric
+{
+	$baseTexture "models\Iron jront\mouth"
+	$bumpmap "models\Iron jront\mouth_n"
+}

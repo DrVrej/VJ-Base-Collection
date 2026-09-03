@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/humans/scientists/sci_glasses_goggles"
+	"$envmap" "env_cubemap"
+	"$envmapcontrast" "1"
+//	"$envmaptint" "7 5 9"
+}

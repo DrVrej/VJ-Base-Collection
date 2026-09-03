@@ -1,0 +1,11 @@
+VertexLitGeneric
+{
+	$detail "effects/model_layer_ice_1.vtf"
+	$detailscale 5
+	$detailblendfactor 0.0
+	$detailblendmode 5
+
+	$selfillum 1
+	$selfillummask "models/aliens/drone/alien_selfillumask"
+	$selfIllumMaskScale 1
+}

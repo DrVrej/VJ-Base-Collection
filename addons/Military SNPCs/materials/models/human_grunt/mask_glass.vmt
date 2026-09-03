@@ -1,0 +1,15 @@
+"vertexlitgeneric"
+{
+	"$baseTexture" "models/human_grunt/mask_glass"
+	
+
+// Specularity
+	"$envmap" 			"env_cubemap"
+	"$envmapmask" "models/human_grunt/mask_glass_spec"
+//	"$envmapsaturation" 0.25
+
+// Transparency
+	"$translucent" 1
+	
+	
+}

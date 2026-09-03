@@ -1,0 +1,10 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\HoS\russians\char_rus_guard_commissar_body_c"
+	"$bumpmap" "models\HoS\russians\char_rus_guard_commissar_body_n"
+	"$nocull" 1
+	"$phong" "1"
+	"$phongexponent" "6"
+	"$phongboost" ".1"
+	"$phongfresnelranges"	"[0.7 4 1]"
+}

@@ -1,0 +1,9 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\HoS\russians\pin"
+	"$bumpmap" "models\HoS\russians\pin_n"
+    "$phong" "1"
+	"$phongexponent" "5"
+	"$phongboost" ".5"	
+	"$phongfresnelranges"	"[1 1 1]"
+}

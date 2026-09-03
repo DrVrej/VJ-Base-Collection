@@ -1,0 +1,14 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models/aliens/drone/droneK_colors"
+	"$bumpmap" "models/aliens/drone/droneK_normal"
+
+	"$phong"				"1"
+	"$phongexponent" 		"20"
+	"$phongboost"			"50"
+	"$phongfresnelranges"	"[0.1 0.5 1]"
+	"$phongexponenttexture" "vj_base/exponent"
+	"$phongalbedotint"		"1"
+
+	"$ambientocclusion" "1"
+}

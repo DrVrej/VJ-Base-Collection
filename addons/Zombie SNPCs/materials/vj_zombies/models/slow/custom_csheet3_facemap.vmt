@@ -1,0 +1,8 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/slow/custom_csheet3_facemap"
+	"$bumpmap"    "vj_zombies/models/slow/custom_csheet3_facemap_normal"
+	"$surfaceprop" "flesh"
+	"$halflambert" "1"
+	"$model" "1"
+}

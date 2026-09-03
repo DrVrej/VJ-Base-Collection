@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models/player/american/ussr_podsumok_ppsh-41"
+"$nocull" "1" 
+}

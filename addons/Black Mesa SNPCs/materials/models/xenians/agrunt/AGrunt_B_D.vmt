@@ -1,0 +1,11 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\xenians\agrunt/agrunt_b_D"
+	"$bumpmap" "models\xenians\agrunt/agrunt_b_N"
+
+	"$surfaceprop" "alienflesh"
+        "$lightwarptexture" "models\humans\base_male\Base_M_caucasian_wrp"
+
+	"$multipass" 0
+        "$halflambert" "1"
+}

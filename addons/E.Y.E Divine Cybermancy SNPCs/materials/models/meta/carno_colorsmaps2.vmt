@@ -1,0 +1,16 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\meta\carno_colorsmaps2"
+	"$bumpmap" "models\meta\carno_normalsmaps"
+	"$alpha" 1
+	"$halflambert" 1
+	"$nocull" 1
+	"$alphatest" 1
+
+	"$phong"				"1"
+	"$phongexponent" 		"25"
+	"$phongboost"			"50"
+	"$phongfresnelranges"	"[0.1 0.5 1]"
+	"$phongexponenttexture" "vj_base/exponent"
+	"$phongalbedotint"		"1"
+}

@@ -1,0 +1,15 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/panic/zombie4/009_punkerzombie_pants_color"
+	"$normalmapalphaenvmapmask" 1
+	"$surfaceprop" "flesh"
+
+
+	"Proxies"
+	{
+		"ZombieVision"
+		{
+			"resultVar"	"$selfillumtint"
+		}
+	}
+}

@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "vj_zombies/models/fast/corpse2"
+	"$model" 1
+	"$halflambert" 1
+}

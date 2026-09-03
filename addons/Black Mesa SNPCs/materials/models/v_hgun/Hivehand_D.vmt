@@ -1,0 +1,56 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\v_hgun/hivehand_d"
+	"$bumpmap" "models\v_hgun/hivehand_n"
+
+	"$surfaceprop" "alienflesh"
+        "$lightwarptexture" "models\humans\base_male\Base_M_african_wrp"
+	"$multipass" 0
+
+	"$envmap" "env_cubemap"
+	"$basealphaenvmapmask" "0"
+	"$envmaptint" "[.5 .5 .5]"
+
+// -- From here down is new stuff which will only be applied if $phong is set to 1 --
+	"$phong" "1"
+	"$phongboost" "3"
+        "$phongexponent" "20"
+	"$phongalbedotint" "1"
+	"$phongfresnelranges" "[.18 .4 1]"
+	"$nodecal" "1"
+
+// Rim lighting parameters
+	"$rimlight" "1"				// To enable rim lighting (requires phong)
+	"$rimlightexponent" "20"             // Exponent for phong component of rim lighting
+	"$rimlightboost" ".2"	               // Boost for ambient cube component of rim lighting
+
+	"$selfillum" "1"
+	"$selfIllumFresnel" "1"
+	"$selfIllumFresnelMinMaxExp" "[.1 2.4 2]"
+
+	"$tintA" "[3 1 0]"
+	"$tintB" "[0 0 0]"
+	"$tintC" "[0.6 0.3 0.3]"
+	"$tinttemp" "[0 0 0]"
+	
+	Proxies
+	{
+		"FlashyWeapon"
+		{
+			"resultVar" "$tintB"
+		}
+
+		"Multiply"
+		{
+			"srcVar1" "$tintA"
+			"srcVar2" "$tintB"
+			"resultVar" "$tinttemp"
+		}
+		"Add"
+		{
+			"srcVar1" "$tinttemp"
+			"srcVar2" "$tintC"
+			"resultVar" "$selfillumtint"
+		}
+	}
+}

@@ -1,0 +1,13 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/CoF/Slowerno/1slower1head"
+	"$bumpmap"	"models/CoF/Slowerno/1slower1head_normal"
+	"$halflambert" "1"
+	//"$selfillum" 1
+
+$phong 1
+$phongboost .7
+$phongexponent 9
+$phongtint "[.8 .5 .5]"
+$phongfresnelranges "[1 0 .05]"
+}

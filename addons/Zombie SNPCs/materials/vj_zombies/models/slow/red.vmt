@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/slow/red"
+	"$selfillum" "1"
+	"$model" "1"
+}

@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/humans/scientists/syringe"
+	"$selfillum" "1"
+}

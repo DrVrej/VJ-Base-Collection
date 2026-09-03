@@ -1,0 +1,6 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/psycho/trojfram_textured"
+	"$surfaceprop" "BloodyFlesh"
+	"$surfaceprop2" "BloodyFlesh"
+}

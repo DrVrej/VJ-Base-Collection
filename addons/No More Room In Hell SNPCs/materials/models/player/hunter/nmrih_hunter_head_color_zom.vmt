@@ -1,0 +1,9 @@
+Patch
+{
+include "materials\models\nmr_zombie\common_zombie_shared.vmt"
+insert
+{
+$basetexture "models\player\hunter\nmrih_Hunter_Head_color_zom"
+$bumpmap "models\player\hunter\nmrih_Hunter_Head_normal"	
+}
+}

@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models\humans\airborne\helmet"	
+	"$bumpmap" "models\humans\airborne\helmet_normal"
+}

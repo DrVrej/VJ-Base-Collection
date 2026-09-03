@@ -1,0 +1,6 @@
+ "UnlitGeneric" 
+	{ 
+	"$model" "1"
+	"$basetexture" "models/crosshairs/inv"
+	"$additive" "1"
+	}

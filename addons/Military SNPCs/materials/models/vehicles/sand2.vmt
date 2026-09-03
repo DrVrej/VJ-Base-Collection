@@ -1,0 +1,8 @@
+VertexLitGeneric
+{
+	"$basetexture"	"models\vehicles\sand2"
+	"$bumpmap"	"models\vehicles\sand_normal2"
+	"$alpha" "1"
+	"$alphatest" "1"
+	"$nocull" "1"
+}

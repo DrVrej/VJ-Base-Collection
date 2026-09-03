@@ -1,0 +1,9 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models\humans\airborne\helmet2"	
+	"$bumpmap" "models\humans\airborne\helmet2_normal"
+	"$phong" "1"
+	"$phongboost" "0.6"	
+	"$phongfresnelranges"	"[1 3 8]"
+	"$phongalbedotint" "1"	
+}

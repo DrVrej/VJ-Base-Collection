@@ -1,0 +1,7 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "vj_zombies/models/fast/act_gasmask"
+	"$bumpmap" "vj_zombies/models/fast/act_gasmask_n"
+	"$model" "1"
+	"$halflambert" "1"
+}

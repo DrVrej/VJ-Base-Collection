@@ -1,0 +1,25 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/panic/zombie3/skin_dif2"
+	"$bumpmap" "vj_zombies/models/panic/zombie3/skin_dif2_nm"
+	"$surfaceprop" "flesh"
+
+	//phong parameters
+	"$phong"     "1"
+
+	"$phongexponent"   "15"
+	"$phongboost"   "0.1"
+	"$phongfresnelranges"   "[0.1 5 1]"
+	
+	//rimlight parameters
+	"$rimlight" "1"
+	"$rimlightexponent" "20"
+	"$rimlightboost" "0.2"
+	"Proxies"
+	{
+		"ZombieVision"
+		{
+			"resultVar"	"$selfillumtint"
+		}
+	}
+}

@@ -1,0 +1,14 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\xenians\bullsquid/bullsquid_gore_d1"
+	"$bumpmap" "models\xenians\bullsquid/bullsquid_normals"
+	"$surfaceprop" "alienflesh"
+        "$lightwarptexture" "models\humans\base_male\Base_M_caucasian_wrp"
+
+	"$nodecal" "0"
+	"$multipass" 0
+
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" "1"
+	"$envmaptint" "[.15 .15 .15]"
+}

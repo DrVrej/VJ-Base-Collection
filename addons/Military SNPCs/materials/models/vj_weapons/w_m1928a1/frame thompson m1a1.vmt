@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	$baseTexture "models/vj_weapons/w_m1928a1/Frame Thompson M1A1 D"
+	"$bumpmap" "models/vj_weapons/w_m1928a1/Frame Thompson M1A1 N"
+}

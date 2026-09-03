@@ -1,0 +1,9 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/panic/zombie0/zombie1_eye"
+	"$envmap" "env_cubemap"
+	"$surfaceprop" "flesh"
+
+	"$envmapcontrast" 1
+	"$envmaptint" "[.75 0 0]"
+}

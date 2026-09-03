@@ -1,0 +1,34 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\humans\femassassin/femassassin_body_D"
+	"$bumpmap" "models/humans\femassassin/femassassin_body_N"
+        "$selfillumtexture" "models\humans\femassassin/femassassin_body_glow"
+	"$selfillum" 1
+//	"$nocull" 1
+	"$surfaceprop" "flesh"
+
+	"$nodecal" "1"
+	"$multipass" 0
+
+	"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" 1
+	"$envmaptint" "[.05 .05 .05]"
+
+	"$phong" "1"
+	"$phongexponent" "35"
+	"$phongboost" "1.5"
+	"$phongfresnelranges"	"[0.4 0.9 2.6]"
+	"$phongalbedotint" "1"
+
+	// Rim lighting parameters
+	"$rimlight" "1"
+	"$rimlightexponent" "25"
+	"$rimlightboost" "0.5"
+
+	"$cloakpassenabled" "1"
+	"$refractamount" "1"
+}
+
+
+
+

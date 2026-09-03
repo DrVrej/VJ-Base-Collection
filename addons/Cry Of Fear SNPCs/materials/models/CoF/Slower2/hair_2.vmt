@@ -1,0 +1,9 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/CoF/Slower2/hair_2"
+	"$bumpmap"	"models/CoF/Slower2/hair_2_normal"
+	"$halflambert" "1"
+	"$translucent" "1"
+	"$alphatest" "1"
+
+}

@@ -1,0 +1,14 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\meta/forma_colormaps"
+	"$bumpmap" "models\meta\forma_normals"
+
+	"$alpha" "1"
+
+	"$phong"				"1"
+	"$phongexponent" 		"35"
+	"$phongboost"			"150"
+	"$phongfresnelranges"	"[0.1 0.5 1]"
+	"$phongexponenttexture" "vj_base/exponent"
+	"$phongalbedotint"		"1"
+}

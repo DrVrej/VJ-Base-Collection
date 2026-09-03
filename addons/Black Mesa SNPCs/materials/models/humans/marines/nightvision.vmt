@@ -1,0 +1,19 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/humans/marines/nightvision"
+//	"$bumpmap" "models/humans/marines/nightvision_normal"
+	"$selfillum" "1"
+	"$halflambert" 1
+	"$surfaceprop" "plastic"
+
+	$detail "decals/bms_bloodsplatterFloor_001.vtf"
+	$detailscale 5
+	$detailblendfactor 0.0
+	$detailblendmode 0
+	Proxies
+	{
+		ModelDetailFx
+		{
+		}
+	}
+}

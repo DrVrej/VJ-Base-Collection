@@ -1,0 +1,13 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/panic/fleshandbone"
+	"$bumpmap" "vj_zombies/models/panic/fleshandbone_normal"
+	"$phong"     "1"
+	"$phongexponent"   "60"
+	"$phongboost"   "1.25"
+	"$phongfresnelranges"   "[5 5 5]"
+	"$alphatest" 1
+	"$alpha" 1
+	"$nocull" 1
+	"$model" 1
+}

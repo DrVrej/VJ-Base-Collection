@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/slow/erdim_cylmap32"
+	"$Bumpmap"	"vj_zombies/models/slow/erdim_cylmap_normal32"
+	"$halflambert" 1
+}

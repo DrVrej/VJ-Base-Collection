@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/sawrunner/sko_under_textured"
+	"$surfaceprop" "BloodyFlesh"
+}

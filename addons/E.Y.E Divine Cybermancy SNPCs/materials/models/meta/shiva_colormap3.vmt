@@ -1,0 +1,26 @@
+"VertexLitGeneric"
+{
+
+	"$baseTexture" "models\meta/shiva_colormap3"
+	"$bumpmap" "models\meta/shiva_normals"
+	"$halflambert" 1
+	"$alpha" 1
+
+	"$selfillum" 1
+	"$selfillumtint" "[ 12 5 2 ]"
+	"$selfillummask" "models\meta\shiva_si"
+
+	"$phong"				"1"
+	"$phongexponent" 		"5"
+	"$phongboost"			"15"
+	"$phongfresnelranges"	"[0.1 0.5 1]"
+	"$phongexponenttexture" "vj_base/exponent"
+	"$phongwarptexture" 	"models\meta/shiva_skin_phongwarp"
+	"$phongalbedotint"		"1"
+
+	"$rimlight" "1"
+	"$rimlightexponent" "50"
+	"$rimlightboost" "0.1"
+
+	"$lightwarptexture"	"models\meta/shiva_lightwarp"
+}

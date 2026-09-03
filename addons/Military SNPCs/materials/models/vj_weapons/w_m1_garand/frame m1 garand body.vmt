@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models\vj_weapons\w_m1_garand\Frame M1 Garand Body D"
+	"$bumpmap" "models\vj_weapons\w_m1_garand\Frame M1 Garand Body N"
+}

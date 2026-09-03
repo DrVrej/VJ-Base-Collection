@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/slow/zombie_classic_sheet"
+	"$bumpmap" "vj_zombies/models/slow/zombie_classic_sheet_normal"
+	"$surfaceprop" "flesh"
+	"$halflambert" "1"
+}

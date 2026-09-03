@@ -1,0 +1,10 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\xenians\agrunt/agrunt_A_D"
+	"$bumpmap" "models\xenians\agrunt/agrunt_A_N"
+	"$surfaceprop" "metal"
+
+	"$nodecal" "1"
+	"$multipass" 0
+        "$halflambert" "1"
+}

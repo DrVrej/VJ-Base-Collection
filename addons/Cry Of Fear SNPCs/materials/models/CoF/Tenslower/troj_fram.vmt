@@ -1,0 +1,11 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/CoF/TenSlower/troj_fram"
+	"$bumpmap"	"models/CoF/TenSlower/troj_fram_normal"
+	"$halflambert" "1"
+$phong 1
+$phongboost .2
+$phongexponent 9
+$phongtint "[.4 .8 1]"
+$phongfresnelranges "[1 0 .05]"
+}

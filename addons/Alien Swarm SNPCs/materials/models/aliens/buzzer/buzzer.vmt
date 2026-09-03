@@ -1,0 +1,21 @@
+patch
+{
+	include "materials/models/aliens/genericAlien_selfIllum.vmt"
+	insert
+	{
+		$baseTexture "models/aliens/buzzer/buzzer_color"
+		$bumpmap "models/aliens/buzzer/buzzer_normal"
+
+		"$phong"				"1"
+		"$phongexponent" 		"20"
+		"$phongboost"			"10"
+		"$phongfresnelranges"	"[0.1 0.5 1]"
+		"$phongexponenttexture" "vj_base/exponent"
+		"$phongalbedotint"		"1"
+
+		$selfIllumFresnel 1
+		$selfIllumFresnelMinMaxExp "[0.1 2.5 5.0]" 
+		$selfillumtint "[0.5 1 1]"
+		$selfillummask "models/aliens/buzzer/buzzer_selfillum"
+	}
+}

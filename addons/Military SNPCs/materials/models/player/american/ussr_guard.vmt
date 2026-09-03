@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\player\american/ussr_guard"
+"$nocull" "1" 
+}

@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/slow/eric_facemap4"
+	"$halflambert" "1"
+	"$nodecal" "0"
+}

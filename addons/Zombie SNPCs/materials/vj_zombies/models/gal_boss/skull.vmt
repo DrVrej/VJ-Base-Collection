@@ -1,0 +1,5 @@
+"vertexlitgeneric"
+{
+	"$baseTexture" "vj_zombies/models/gal_boss/skull"
+	"$bumpmap" "vj_zombies/models/gal_boss/skull_normal"
+}

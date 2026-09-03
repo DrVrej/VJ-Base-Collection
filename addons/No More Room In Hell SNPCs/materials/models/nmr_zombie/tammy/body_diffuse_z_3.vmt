@@ -1,0 +1,9 @@
+Patch
+{
+include "materials\models\nmr_zombie\common_zombie_shared.vmt"
+insert
+{
+$basetexture "models\nmr_zombie\tammy\Body_Diffuse_Z_3"
+$bumpmap "models\nmr_zombie\tammy\Body_Normal_Z_2"
+}
+}

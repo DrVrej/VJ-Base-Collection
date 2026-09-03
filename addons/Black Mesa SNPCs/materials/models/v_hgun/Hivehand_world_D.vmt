@@ -1,0 +1,9 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\v_hgun/hivehand_world_d"
+	"$bumpmap" "models\v_hgun/hivehand_n"
+
+	"$surfaceprop" "alienflesh"
+        "$lightwarptexture" "models\humans\base_male\Base_M_african_wrp"
+	"$multipass" 0
+}

@@ -1,0 +1,9 @@
+Patch
+{
+include "materials\models\nmr_zombie\common_zombie_shared.vmt"
+insert
+{
+$basetexture "models\nmr_zombie\gib_shared\gib_head_girl"
+$bumpmap "models\nmr_zombie\gib_shared\gib_head_girl_n"
+}
+}

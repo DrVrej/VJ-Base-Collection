@@ -1,0 +1,6 @@
+ENT.Base 			= "npc_vj_mili_emp_mg42"
+ENT.Type 			= "ai"
+ENT.PrintName 		= "Friendly MG 42 Emplacement"
+ENT.Author 			= "DrVrej"
+ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
+ENT.Category		= "Military"

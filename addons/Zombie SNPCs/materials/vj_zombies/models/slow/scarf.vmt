@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "vj_zombies/models/slow/scarf"
+	"$surfaceprop" "flesh"
+}

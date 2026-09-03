@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\vj_weapons\w_ppsh_41/ussr_ppsh-41_baraban_front"
+	"$bumpmap" "models\vj_weapons\w_ppsh_41/ussr_ppsh-41_baraban_front_bump"	
+}

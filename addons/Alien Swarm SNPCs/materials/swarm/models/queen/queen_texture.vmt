@@ -1,0 +1,17 @@
+VertexLitGeneric
+{
+	$basetexture "swarm\models\queen\Queen_texture"
+	$bumpmap "swarm\models\queen\Queen_texture_normal"
+
+	$surfaceprop alienflesh
+
+	$translucent 1
+
+	"$phong"				"1"
+	"$phongexponent" 		"20"
+	"$phongboost"			"35"
+	"$phongfresnelranges"	"[0.1 0.5 1]"
+	"$phongexponenttexture" "vj_base/exponent"
+	"$phongalbedotint"		"1"
+	"$nocull" "1"
+}

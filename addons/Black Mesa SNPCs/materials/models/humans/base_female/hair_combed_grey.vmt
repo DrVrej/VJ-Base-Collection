@@ -1,0 +1,15 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\humans\base_female/hair_combed_grey"
+	"$halflambert" 1
+	"$nodecal" "1"
+	"$translucent" "1"
+	"$model" "1"
+	"$surfaceprop" "flesh"
+
+// -- From here down is new stuff which will only be applied if $phong is set to 1 --
+	"$phong" "1"
+	"$phongexponent" "33"
+	"$phongboost"	".25"
+	"$phongfresnelranges"	"[0.05 0.5 1]"
+}

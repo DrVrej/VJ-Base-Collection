@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/slow/citizen_sheet9"
+	"$halflambert" 1
+}

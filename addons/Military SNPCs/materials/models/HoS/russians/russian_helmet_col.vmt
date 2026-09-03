@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+{
+
+	"$basetexture" "models\HoS\russians/russian_helmet_col"
+	"$bumpmap" "models\HoS\russians/russian_helmet_nm"
+	"$nocull" "1"
+	"$phong" "1"
+	"$phongexponent" "9"
+	"$phongboost" ".8"
+	"$phongfresnelranges"	"[.3 1 8]"
+	"$halflambert" "1"
+}

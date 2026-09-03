@@ -1,0 +1,26 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/panic/zombie4/005_punkerzombie_body_color"
+	"$bumpmap" "vj_zombies/models/panic/zombie4/006_punkerzombie_body_bump"
+	"$surfaceprop" "flesh"
+	"$nocull" "1"
+	//phong parameters
+	"$phong"     "1"
+
+	"$phongexponent"   "15"
+	"$phongboost"   "0.01"
+	"$phongfresnelranges"   "[0.1 5 1]"
+	
+	//rimlight parameters
+	"$rimlight" "1"
+	"$rimlightexponent" "2"
+	"$rimlightboost" "0.1"
+
+	"Proxies"
+	{
+		"ZombieVision"
+		{
+			"resultVar"	"$selfillumtint"
+		}
+	}
+}

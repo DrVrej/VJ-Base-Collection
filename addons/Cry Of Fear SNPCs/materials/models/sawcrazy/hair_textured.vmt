@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/sawcrazy/hair_textured"
+	"$translucent" 1
+}

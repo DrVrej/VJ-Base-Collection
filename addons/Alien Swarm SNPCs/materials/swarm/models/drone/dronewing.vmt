@@ -1,0 +1,14 @@
+VertexLitGeneric
+{
+	$basetexture "swarm\models\drone\DroneWing"
+
+	$surfaceprop alienflesh
+	$translucent 1
+
+	"$phong"				"1"
+	"$phongexponent" 		"20"
+	"$phongboost"			"35"
+	"$phongfresnelranges"	"[0.1 0.5 1]"
+	"$phongexponenttexture" "vj_base/exponent"
+	"$phongalbedotint"		"1"
+}

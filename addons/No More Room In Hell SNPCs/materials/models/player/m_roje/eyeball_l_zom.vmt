@@ -1,0 +1,9 @@
+Patch
+{
+include "materials\models\player\nmrih_player_eyes_shared.vmt"
+insert
+{
+$Iris "models/vj_nmrih/engine/eye-zom"
+$AmbientOcclTexture "models/vj_nmrih/engine/eyes_ao" 
+}
+}

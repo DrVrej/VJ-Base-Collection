@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/panic/zombie1/zombie2_eye"
+	"$selfillum"	"1"
+}

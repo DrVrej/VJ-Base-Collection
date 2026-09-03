@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/slow/custom_csheet2"
+	"$surfaceprop" "flesh"
+	"$halflambert" "1"
+}

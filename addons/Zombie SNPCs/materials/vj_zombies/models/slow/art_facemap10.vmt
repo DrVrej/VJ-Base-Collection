@@ -1,0 +1,9 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/slow/art_facemap10"
+	"$bumpmap" "vj_zombies/models/slow/art_facemap10_normal"
+	"$surfaceprop" "flesh"
+	"$halflambert" "1"
+	"$nodecal" "0"
+
+}

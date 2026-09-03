@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	// Original shader: VertexLitTexture
+	"$basetexture" "vj_zombies/models/gal_boss/grigori_head"
+ 	"$bumpmap" "vj_zombies/models/gal_boss/monk_head_normal"
+	"$halflambert" 1
+}

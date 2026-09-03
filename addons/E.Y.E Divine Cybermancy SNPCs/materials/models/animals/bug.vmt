@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models\animals\bug"
+	"$bumpmap"	"models\animals\bug_nm"
+
+	"$phong"				"1"
+	"$phongexponent" 		"10"
+	"$phongboost"			"50"
+	"$phongfresnelranges"	"[3 2.1 9]"
+	"$phongexponenttexture" "vj_base/exponent"
+	"$phongalbedotint"		"1"
+}

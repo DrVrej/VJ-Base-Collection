@@ -1,0 +1,23 @@
+"VertexLitGeneric"
+{
+
+	"$baseTexture" "models\meta/deus2_diffuse"
+	"$bumpmap" "models\meta/deus2_normal"
+	"$halflambert" 1
+	"$model" 1
+	"$alpha" 1
+	"$phongwarptexture" "models\meta/deus_phongwarp"
+	"$phongexponenttexture" "models\meta/deus2_exponent"
+
+	"$phong"				"1"
+	"$phongexponent" 		"25"
+	"$phongboost"			"5"
+	"$phongfresnelranges"	"[0.1 0.5 1]"
+	"$phongalbedotint"		"1"
+
+	"$rimlight" "1"
+	"$rimlightexponent" "25"
+	"$rimlightboost" "0.1"
+
+	"$lightwarptexture"	"models\meta/shiva_lightwarp"
+}

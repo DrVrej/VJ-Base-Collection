@@ -1,0 +1,13 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/humans/marines/cigar_d"
+        "$selfillum" 1
+	"$halflambert" 1
+	"$surfaceprop" "flesh"
+
+// -- From here down is new stuff which will only be applied if $phong is set to 1 --
+	"$phong" "1"
+	"$phongexponent" 33
+	"$phongboost"	"1.25"
+	"$phongfresnelranges"	"[0.05 0.5 1]"
+}

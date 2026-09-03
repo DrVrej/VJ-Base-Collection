@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	// Original shader: VertexLitTexture
+	"$basetexture" "models\HoS\russians/sorin_cylmap"
+	"$halflambert" 1
+}

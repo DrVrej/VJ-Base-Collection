@@ -1,0 +1,12 @@
+VertexLitGeneric
+{
+	$basetexture "swarm\models\drone\Drone_BlackRedSkin"
+	$bumpmap "swarm\models\drone\Drone_BlackRedSkin_normal"
+
+	"$phong"				"1"
+	"$phongexponent" 		"20"
+	"$phongboost"			"35"
+	"$phongfresnelranges"	"[0.1 0.5 1]"
+	"$phongexponenttexture" "vj_base/exponent"
+	"$phongalbedotint"		"1"
+}

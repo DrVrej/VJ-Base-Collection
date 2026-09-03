@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\player\american/ussr_flazhka"
+        "$bumpmap"	"models\player\american\ussr_flazhka_normal"
+}

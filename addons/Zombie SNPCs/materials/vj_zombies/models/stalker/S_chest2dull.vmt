@@ -1,0 +1,8 @@
+"VertexLitGeneric"
+{
+	// Original shader: VertexLitMaskedEnvMappedTexture
+	"$basetexture" "vj_zombies/models/stalker/s_chest2dull"
+	"$envmap" "vj_zombies/models/stalker/stalkerspec"
+	"$envmapmask" "vj_zombies/models/stalker/s_chest2mask"
+	"$envmapsphere" 1
+}

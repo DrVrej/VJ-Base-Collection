@@ -1,0 +1,26 @@
+"VertexLitGeneric"
+{
+	
+	"$baseTexture"	"models/Npc_Facehugger/Facehugger_01"
+	"$surfaceprop" "flesh"
+	"$bumpmap" "models/Npc_Facehugger/Facehugger_normal"
+	"$normalmapalphaenvmapmask" 1
+	"$envmapcontrast" 1
+	"$envmapsaturation" 1
+	"$envmaptint" "[1.5 1.5 1.5]"
+
+	"$envmap" "env_cubemap"
+	"$alphatest" "1"
+
+	"$Freezefxenvmap" "FX/Freeze/freeze_env_cubemap"
+	"$Freezefxenvmapmask" "FX/Freeze/Freeze_envmapmask"
+	"$Freezemaptint" "[1 1 1]"
+	"$Freezefxmap" "models/Npc_Facehugger/Facehugger_freezegradient"
+
+	"vertexlitgeneric_HDR_dx9"
+
+	{
+               "$envmaptint" "[.5 .5 .5]"
+               "$Freezefxenvmap" "FX/Freeze/fz_npc_cubemap_hdr_"
+	}
+}

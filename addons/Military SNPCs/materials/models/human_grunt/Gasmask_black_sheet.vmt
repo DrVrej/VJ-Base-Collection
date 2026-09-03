@@ -1,0 +1,10 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" 	"Models/human_grunt/gasmask_black_sheet"
+	"$bumpmap" "Models/human_grunt/gasmask_normal"
+	//"$envmap" "env_cubemap"
+	"$normalmapalphaenvmapmask" 1
+	"$envmapcontrast" 1
+	"$selfillum" 1
+	"$surfaceprop" "flesh"
+}

@@ -1,0 +1,23 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/panic/zombie5/diffuse"
+	"$bumpmap" "vj_zombies/models/panic/zombie5/normal"
+	"$model" "1"
+	"$nocull" "1"
+	"$surfaceprop" "flesh"
+
+	//phong parameters
+	"$phong"     "1"
+
+	"$phongexponent"   "18"
+	"$phongboost"   ".2"
+	"$phongfresnelranges"   "[0.04 5 1]"
+
+	"Proxies"
+	{
+		"ZombieVision"
+		{
+			"resultVar"	"$selfillumtint"
+		}
+	}
+}

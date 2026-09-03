@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/panic/zombie1/zp_sv1_shoe"
+	"$surfaceprop" "flesh"
+
+}

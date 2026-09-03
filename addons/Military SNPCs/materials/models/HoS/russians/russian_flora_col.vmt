@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+
+	"$basetexture" "models\HoS\russians/russian_flora_col"
+	"$bumpmap" "models\HoS\russians/russian_body_nm"
+}

@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models/fallout/libertyprime/libertyprimeleg_d"
+	"$bumpmap" 	"models/fallout/libertyprime/libertyprimeleg_n"
+
+	"$phong"				"1"
+	"$phongexponent" 		"60"
+	"$phongboost"			"15"
+	"$phongfresnelranges"	"[0.4 1 1]"
+	"$phongexponenttexture" "vj_base/exponent"
+	"$phongalbedotint"		"1"
+}

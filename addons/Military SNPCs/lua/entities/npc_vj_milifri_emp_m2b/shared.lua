@@ -1,0 +1,6 @@
+ENT.Base 			= "npc_vj_mili_emp_m2b"
+ENT.Type 			= "ai"
+ENT.PrintName 		= "Friendly M2 Browning Emplacement"
+ENT.Author 			= "DrVrej"
+ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
+ENT.Category		= "Military"

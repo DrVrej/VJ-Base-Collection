@@ -1,0 +1,27 @@
+EyeRefract
+{
+	"$Iris"				"models/soldier/eyeball_green"
+	"$AmbientOcclTexture"		"models/soldier/eyeball_ao"
+	"$Envmap"			"models/soldier/eye-reflection-cubemap"
+	"$CorneaTexture"		"models/soldier/eyeball_cornea"
+
+	"$EyeballRadius"		".5"
+	"$AmbientOcclColor"		"[0.33 0.33 0.33]"
+	"$Dilation"			"0.5"
+	"$ParallaxStrength"		"0.25"
+	"$CorneaBumpStrength"		"1"
+
+	"$halflambert"			"1"
+	"$nodecal"			"1"
+
+	"$RaytraceSphere"		"0"
+	"$SphereTexkillCombo"		"0"
+
+	"Eyes_dx8"
+	{
+		"$basetexture"		"models/soldier/eyeball_ao"
+		"$iris"			"models/soldier/eyeball_green8"
+		"$halflambert"		"1"
+		"$nodecal"		"1"
+	}
+}

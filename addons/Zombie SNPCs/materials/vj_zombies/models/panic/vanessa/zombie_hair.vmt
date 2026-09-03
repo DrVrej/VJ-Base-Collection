@@ -1,0 +1,16 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/panic/vanessa/vanessa_zombie_diff"
+	"$nocull" "1"
+	"$alphatest" 1
+	"$model" 1
+	"$surfaceprop" "flesh"
+
+	"Proxies"
+	{
+		"ZombieVision"
+		{
+			"resultVar"	"$selfillumtint"
+		}
+	}
+}

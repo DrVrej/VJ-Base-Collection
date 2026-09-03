@@ -1,0 +1,28 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/CoF/Slower/Hammer_Texture"
+	"$bumpmap"	"models/CoF/Slower/Hammer_Texture_normal"	
+
+	"$halflambert" "1"
+	"$phong" "1"
+	"$phongboost" ".7"
+	"$phongexponent" "2"
+	"$phongtint" "[.5 .4 .4]"
+	"$phongfresnelranges" "[1 0 .05]"
+	"$phongalbedotint" "0"
+
+	"$detail" "detail\detail_noise1"
+	"$detailscale" 5.000
+	"$detailblendfactor" .40
+	"$detailblendmode" 0
+
+	"$multipass" 1
+
+	"$envmap" "env_cubemap"
+	"$envmaptint" "[ .05 .05 .05]"
+
+	// Rim lighting parameters
+	"$rimlight" "1"
+	"$rimlightexponent" "5"
+	"$rimlightboost" ".5"
+}

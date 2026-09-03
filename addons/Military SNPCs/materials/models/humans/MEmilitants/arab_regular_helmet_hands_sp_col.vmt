@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	// Original shader: VertexLitTexture
+	"$basetexture" "models/Humans/MEmilitants/arab_regular_helmet_hands_sp_col"
+	"$bumpmap" "models/humans/MEmilitants/arab_regular_helmet_hands_sp_col_normal"
+	"$halflambert" 1
+}

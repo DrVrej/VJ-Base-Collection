@@ -1,0 +1,14 @@
+vertexlitgeneric
+{
+$basetexture "models\nmr_zombie\gib_shared\gib_shared"
+$bumpmap "models\nmr_zombie\gib_shared\gib_shared_n"
+$phong "1"
+$phongboost "3"
+$phongexponent "40"
+$phongfresnelranges "[0.15 0.545 0.115]"
+$halflambert "0"
+$ambientocclusion "1"
+$lightwarptexture "models\player\player_mute_shared"
+$alphatest "1"
+$nocull "1"	
+}

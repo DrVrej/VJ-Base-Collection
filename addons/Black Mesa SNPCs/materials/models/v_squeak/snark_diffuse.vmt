@@ -1,0 +1,19 @@
+//"EDITOR_SHADER"
+"VertexLitGeneric"
+{
+	"$SHADERNAME" "model_standard"
+	"$baseTexture" "models\v_squeak/snark_diffuse"
+	"$bumpmap" "models\v_squeak/snark_normals"
+      	"$lightwarptexture" "models\humans\base_male\Base_M_caucasian_wrp"
+
+	"$phong" "1"
+	"$phongexponent" "9"
+	"$phongboost" "2.8"
+	"$phongfresnelranges"	"[0.4 0.9 2.6]"
+	"$phongalbedotint" "1"
+
+	// Rim lighting parameters
+	"$rimlight" "1"
+	"$rimlightexponent" "15"
+	"$rimlightboost" "0.5"
+}

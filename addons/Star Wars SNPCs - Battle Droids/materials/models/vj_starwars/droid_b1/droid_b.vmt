@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+{
+	$basetexture "models/vj_starwars/droid_b1/body_d"
+	$bumpmap "models/vj_starwars/droid_b1/body_n"
+	$phongexponenttexture "models/vj_starwars/droid_b1/fexp"
+	
+	$phong "1"
+	$phongexponent "8"
+	$phongboost "32"
+	$phongfresnelranges "[0.25 0.65 1.0]"
+	$phongalbedotint "1"
+}

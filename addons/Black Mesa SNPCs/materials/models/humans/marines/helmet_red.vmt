@@ -1,0 +1,18 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\humans\marines/helmet_red"
+//	"$bumpmap" "models/humans/marines/gasmask_normal"
+	"$halflambert" 1
+	"$surfaceprop" "plastic"
+
+	$detail "decals/bms_bloodsplatterFloor_001.vtf"
+	$detailscale 5
+	$detailblendfactor 0.0
+	$detailblendmode 0
+	Proxies
+	{
+		ModelDetailFx
+		{
+		}
+	}
+}

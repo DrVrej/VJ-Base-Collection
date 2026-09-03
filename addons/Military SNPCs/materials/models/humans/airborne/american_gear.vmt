@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$basetexture"	"models\humans\airborne\american_gear"
+	"$bumpmap" "models\humans\airborne\american_gear_normal"
+}

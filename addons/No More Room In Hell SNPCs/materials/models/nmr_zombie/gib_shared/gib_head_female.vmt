@@ -1,0 +1,11 @@
+Patch
+{
+include "materials\models\nmr_zombie\common_zombie_shared.vmt"
+insert
+{
+	$basetexture "models\nmr_zombie\gib_shared\gib_head_female"
+	$bumpmap "models\nmr_zombie\gib_shared\gib_head_female_n"
+	$phongboost "1"
+	$phongexponent "40"
+}
+}

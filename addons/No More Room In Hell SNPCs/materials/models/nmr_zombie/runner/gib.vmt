@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models\nmr_zombie\maxx\gib"
+	"$bumpmap" "models\nmr_zombie\maxx\gib_normal"
+	"$halflambert" "1"	
+	"$model" "1"
+
+	"$phong" "1"
+	"$phongexponent" "40"
+	"$phongboost" "5"	
+	"$phongfresnelranges"	"[0.15 0.545 0.115]"
+}

@@ -1,0 +1,10 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\xenians\bullsquid/diffuse_1"
+	"$bumpmap" "models\xenians\bullsquid/bullsquid_normals"
+	"$surfaceprop" "alienflesh"
+        "$lightwarptexture" "models\humans\base_male\Base_M_caucasian_wrp"
+
+	"$nodecal" "0"
+	"$multipass" 0
+ }

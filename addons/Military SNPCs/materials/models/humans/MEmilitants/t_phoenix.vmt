@@ -1,0 +1,5 @@
+VertexLitGeneric
+{
+	"$basetexture"	"models\Humans/MEmilitants\t_phoenix"
+	"$bumpmap" "models/humans/MEmilitants/t_phoenix_normal"
+}

@@ -1,0 +1,20 @@
+"VertexLitGeneric"
+{
+	"$basetexture"			"models/soldier/DE_Rob_Head_color"
+	"$bumpmap"			"models/soldier/DE_Rob_Head_normal"
+
+	"$halflambert"			"1"
+
+	"$PhongAlbedoTint"		"1"
+	"$phongexponenttexture"		"models/soldier/DE_Rob_Head_mask"
+
+	"$phong"			"1"
+	"$phongboost"			"0.3"
+	"$phongtint"			"[1 .85 .85]"
+	"$phongfresnelranges"		"[0.5 1 2]"
+
+	"$rimmask"			"1"
+	"$rimlight"			"1"
+	"$rimlightexponent"		"2"
+	"$rimlightboost"		".2"
+}

@@ -1,0 +1,9 @@
+Patch
+{
+include "materials\models\nmr_zombie\common_zombie_shared.vmt"
+insert
+{
+$basetexture "models\player\jive\pimp_head_color_dead"
+$bumpmap "models\player\jive\pimp_head_normal"
+}
+}

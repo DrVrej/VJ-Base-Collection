@@ -1,0 +1,14 @@
+"VertexLitGeneric"
+{
+	$basetexture "models/HFG/starwars/droids/commandodroid/body_d"
+	$bumpmap "models/HFG/starwars/droids/commandodroid/body_n"
+	$phongexponenttexture "models/HFG/starwars/droids/commandodroid/fexp"
+	
+	$phong "1"
+	$phongexponent "8"
+	$phongboost "32"
+	$phongfresnelranges "[0.25 0.65 1.0]"
+	$phongalbedotint "1"
+	
+	$selfillum "1"
+}

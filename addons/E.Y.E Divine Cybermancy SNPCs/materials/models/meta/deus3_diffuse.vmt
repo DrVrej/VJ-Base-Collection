@@ -1,0 +1,17 @@
+"VertexLitGeneric"
+{
+
+	"$baseTexture" "models\meta/deus3_diffuse"
+	"$bumpmap" "models\meta/deus3_normal"
+
+	"$phong"				"1"
+	"$phongexponent" 		"20"
+	"$phongboost"			"25"
+	"$phongfresnelranges"	"[0.4 0.8 1]"
+	"$phongexponenttexture" "vj_base/exponent"
+	"$phongalbedotint"		"1"
+
+	"$rimlight" "1"
+	"$rimlightexponent" "0.1"
+	"$rimlightboost" "0.1"
+}

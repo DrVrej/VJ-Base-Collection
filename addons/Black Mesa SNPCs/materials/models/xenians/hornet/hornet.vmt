@@ -1,0 +1,9 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\xenians\hornet/hornet"
+	"$bumpmap" "models\xenians\hornet/hornet_normal"
+	"$surfaceprop" "flesh"
+	"$normalmapalphaenvmapmask" 1
+	"$multipass" 1
+	"$nocull" 1
+}

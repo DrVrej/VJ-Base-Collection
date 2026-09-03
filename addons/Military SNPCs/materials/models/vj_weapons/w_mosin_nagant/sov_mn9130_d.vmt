@@ -1,0 +1,12 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "Models/vj_weapons/w_mosin_nagant/Sov_MN9130_D"
+	"$bumpmap" "Models//vj_weapons/w_mosin_nagant/Sov_MN9130_N"
+	"$surfaceprop" "Metal"
+	"$nocull" 1
+	"$phong" "1"
+	"$phongboost" "0.25"
+	"$phongexponent" "3"
+	"$phongfresnelranges"	"[ 0.25 0.5 0.9 ]"
+	"$phongalbedotint" "0"
+}

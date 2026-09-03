@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+{
+	"$basetexture"			"models/soldier/DE_SSOfficer_color"
+	"$bumpmap"			"models/soldier/DE_SSOfficer_normal"
+
+	"$halflambert"			"1"
+
+	"$phong"			"1"
+	"$phongboost"			"0.1"
+	"$phongtint"			"[1 .85 .85]"
+	"$phongfresnelranges"		"[0.1 .5 1]"
+}

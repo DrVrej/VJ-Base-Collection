@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	// Original shader: VertexLitTexture
+	"$basetexture" "models/Humans/MEmilitants/attachments_flat"
+	"$bumpmap" "models/humans/MEmilitants/attachments_flat_normal"
+	"$halflambert" 1
+}

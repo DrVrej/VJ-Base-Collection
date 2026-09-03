@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\humans\guards/guard_vest_d"
+	"$bumpmap" "models\humans\guards/guard_vest_n"
+	"$surfaceprop" "flesh"
+}

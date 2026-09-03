@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$basetexture"	"models\player\waffen\german_gear"
+	"$bumpmap" "models\player\waffen\german_gear_normal"
+}

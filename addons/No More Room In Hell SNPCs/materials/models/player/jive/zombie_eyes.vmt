@@ -1,0 +1,20 @@
+"VertexLitGeneric"
+{
+	"$basetexture"	"models\player\jive\Zombie_Eyes"
+	"$halflambert" "1"
+	"$model" "1"
+
+	"$rimlight" "1"
+	"$rimlightexponent" "1"
+	"$rimlightboost" ".2"
+
+	"$phong" "1"
+	"$phongexponent" "10"
+	"$phongtint" "2 2 2"
+	"$phongboost" ".1"	
+	"$phongfresnelranges"	"[1 8 13]"
+	"$basemapalphaphongmask" ".1"
+	"$phongexponenttexture" "models\player\jive\Zombie_Eyes"
+	"$phongalbedotint" "1"
+					
+}

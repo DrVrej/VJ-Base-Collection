@@ -1,0 +1,9 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/CoF/Slower/ogon3_fullbright"
+	"$bumpmap"	"models/CoF/Slower/1slower1head_normal"
+
+	"$selfillum" 1
+
+$additive 1
+}

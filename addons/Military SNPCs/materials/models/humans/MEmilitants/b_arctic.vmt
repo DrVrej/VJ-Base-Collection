@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	// Original shader: VertexLitTexture
+	"$basetexture" "models/Humans/MEmilitants/b_arctic"
+	"$bumpmap" "models/player/t_arctic\t_arctic_normal"
+	"$halflambert" 1
+}

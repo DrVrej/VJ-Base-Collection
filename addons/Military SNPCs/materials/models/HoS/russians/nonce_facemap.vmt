@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	// Original shader: VertexLitTexture
+	"$basetexture" "models\HoS\russians/nonce_facemap"
+	"$envmapsphere" 1
+	"$halflambert" 1
+}

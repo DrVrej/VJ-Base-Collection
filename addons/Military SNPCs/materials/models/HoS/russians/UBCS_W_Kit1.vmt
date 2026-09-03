@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "Models/Rusty/National_Guard/UBCS_W_Kit"
+	"$halflambert" 1
+}

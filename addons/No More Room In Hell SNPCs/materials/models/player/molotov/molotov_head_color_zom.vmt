@@ -1,0 +1,9 @@
+Patch
+{
+include "materials\models\nmr_zombie\common_zombie_shared.vmt"
+insert
+{
+$basetexture "models\player\molotov\Molotov_Head_color_zom"
+$bumpmap "models\player\molotov\Molotov_Head_normal"
+}
+}

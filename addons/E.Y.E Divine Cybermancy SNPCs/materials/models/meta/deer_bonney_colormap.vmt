@@ -1,0 +1,11 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\meta/deer_bonney_colormap"
+	"$bumpmap" "models\meta\deer_bonney_normals"
+
+	"$phong" "1"
+	"$phongboost" "0.2"
+	"$phongexponent" "2"
+	"$phongfresnelranges" "[0.1 0.2 1]"
+	"$phongtint" "[0.4 0.6 0.8]"
+}

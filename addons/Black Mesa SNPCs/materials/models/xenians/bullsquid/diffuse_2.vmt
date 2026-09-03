@@ -1,0 +1,16 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\xenians\bullsquid/diffuse_1"
+	"$bumpmap" "models\xenians\bullsquid/bullsquid_normals"
+	"$surfaceprop" "alienflesh"
+	"$model" 1
+
+        $detail detail\noise_detail_01 // e.g. for brickwork, concrete...
+        $detailscale 7.74
+        $detailblendfactor 0.8
+        $detailblendmode 0
+
+	"$nodecal" "1"
+	"$multipass" 0
+ }
+

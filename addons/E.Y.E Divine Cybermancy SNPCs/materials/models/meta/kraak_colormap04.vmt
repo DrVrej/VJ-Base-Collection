@@ -1,0 +1,20 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\meta/kraak_colormap04"
+	"$bumpmap" "models\meta\kraak_normalmap04"
+
+	"$normalmapalphaenvmapmask" 1
+	"$envmaptint" "[ 0.5 0.5 0.5 ]"
+
+	"$phong"				"1"
+	"$phongexponent" 		"1"
+	"$phongboost"			"10"
+	"$phongfresnelranges"	"[0.1 0.5 1]"
+	"$phongexponenttexture" "models/meta/kraak_normalmap04"
+	"$phongalbedotint"		"1"
+	
+	"$detail" "detail\metal_detail_01"
+	"$detailscale" "10.8283"
+	"$detailblendfactor" "1"
+	"$detailblendmode" "0"	
+}

@@ -1,0 +1,6 @@
+ENT.Base 			= "npc_vj_tank_base"
+ENT.Type 			= "ai"
+ENT.PrintName 		= "Enemy Soviet T-72"
+ENT.Author 			= "DrVrej"
+ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
+ENT.Category		= "Military"

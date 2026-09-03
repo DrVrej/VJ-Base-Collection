@@ -1,0 +1,13 @@
+"VertexLitGeneric"
+{
+	$basetexture "models/vj_starwars/droid_geonosisb1/body_d"
+	$color2 "[0.9 0.9 0.9]"
+	$bumpmap "models/vj_starwars/droid_geonosisb1/body_n"
+	$phongexponenttexture "models/vj_starwars/droid_geonosisb1/fexp"
+	
+	$phong "1"
+	$phongexponent "8"
+	$phongboost "32"
+	$phongfresnelranges "[0.25 0.65 1.0]"
+	$phongalbedotint "1"
+}

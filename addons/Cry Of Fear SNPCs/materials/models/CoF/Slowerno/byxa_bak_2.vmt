@@ -1,0 +1,11 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/CoF/Slowerno/byxa_bak_2"
+	"$bumpmap"	"models/CoF/Slower/byxa_bak_2_normal"
+	"$halflambert" "1"
+$phong 1
+$phongboost .1
+$phongexponent 9
+$phongtint "[.4 .8 1]"
+$phongfresnelranges "[1 0 .05]"
+}

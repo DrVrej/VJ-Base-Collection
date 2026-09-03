@@ -1,0 +1,14 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/panic/zombie2/cap_body_color2"
+	"$surfaceprop" "flesh"
+	"$bumpmap" "vj_zombies/models/panic/zombie2/cap_body_nm"
+	//phong parameters
+	"$phong"     "1"
+
+	"$phongexponent"   "5"
+	"$phongboost"   "0.2"
+	"$phongfresnelranges"   "[0.1 5 1]"
+
+	"$selfillum" "1"
+}

@@ -1,0 +1,19 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/aliens/boomer/boomer_color"
+	"$bumpmap" "models/aliens/boomer/boomer_normals"
+
+	"$ambientocclusion" "1"
+
+	"$selfillum" "1"
+	"$selfillummask" "models/aliens/boomer/boomer_selfillum"
+	"$selfillumtint" "[1 1 1.5]"
+	"$selfIllumFresnelMinMaxExp" "[0.05 3 10]"
+
+	"$phong"				"1"
+	"$phongexponent" 		"20"
+	"$phongboost"			"10"
+	"$phongfresnelranges"	"[0.1 0.5 1]"
+	"$phongexponenttexture" "vj_base/exponent"
+	"$phongalbedotint"		"1"
+}

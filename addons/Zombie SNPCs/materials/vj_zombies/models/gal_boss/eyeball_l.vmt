@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "vj_zombies/models/gal_boss/eyeball_l"
+	"$selfillum" 1
+}

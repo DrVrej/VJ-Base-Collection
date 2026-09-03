@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$basetexture"	"models\player\waffen\german_body"
+	"$bumpmap" "models\player\waffen\german_body_normal"	
+	"$phong" "1"								}

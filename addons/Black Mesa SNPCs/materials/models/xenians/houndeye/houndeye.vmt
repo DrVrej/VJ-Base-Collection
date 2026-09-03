@@ -1,0 +1,13 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\xenians\houndeye/houndeye"
+	"$bumpmap" "models\xenians\houndeye/houndeye_normals"
+	"$model" 1
+	"$surfaceprop" "alienflesh"
+	"$multipass" 1
+
+        $detail detail\noise_detail_01 // e.g. for brickwork, concrete...
+        $detailscale 10
+        $detailblendfactor 1
+        $detailblendmode 0
+}

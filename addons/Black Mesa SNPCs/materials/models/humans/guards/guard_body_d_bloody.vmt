@@ -1,0 +1,28 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\humans\guards/guard_body_d_bloody"
+        "$bumpmap" "models\humans\guards/guard_body_n"
+	"$surfaceprop" "flesh"
+
+        "$phong" "1"
+	"$phongboost" "1"
+	"$phongalbedotint" "1"
+	"$phongfresnelranges" "[.1 0.5 1]"
+	"$halflambert" "1"
+
+	// Rim lighting parameters
+	"$rimlight" "1"				// To enable rim lighting (requires phong)
+	"$rimlightexponent" "10"		// Exponent for phong component of rim lighting
+	"$rimlightboost" ".3"			// Boost for ambient cube component of rim lighting
+
+	$detail "decals/bms_bloodsplatterFloor_001.vtf"
+	$detailscale 5
+	$detailblendfactor 0.0
+	$detailblendmode 0
+	Proxies
+	{
+		ModelDetailFx
+		{
+		}
+	}
+}

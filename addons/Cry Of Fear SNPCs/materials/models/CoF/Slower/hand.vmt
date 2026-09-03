@@ -1,0 +1,12 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/CoF/Slower/hand"
+	"$bumpmap"	"models/CoF/Slower/hand_normal"
+	"$halflambert" "1"
+
+$phong 1
+$phongboost .7
+$phongexponent 9
+$phongtint "[.8 .5 .5]"
+$phongfresnelranges "[1 0 .05]"
+}

@@ -1,0 +1,8 @@
+Patch
+{
+include "materials\models\nmr_zombie\common_zombie_shared.vmt"
+insert
+{
+$basetexture "models\nmr_zombie\commonz_bodies\commonz_body_f_c"
+}
+}

@@ -1,0 +1,6 @@
+VertexLitGeneric
+{
+$basetexture "models\nmr_zombie\burned\charred_zombie"	
+$bumpmap "models\nmr_zombie\burned\charred_zombie_normal"	
+}
+

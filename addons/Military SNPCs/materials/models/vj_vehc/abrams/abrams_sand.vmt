@@ -1,0 +1,8 @@
+VertexLitGeneric
+{
+	"$basetexture"	"models\vj_vehc\abrams\abrams_sand"
+	"$bumpmap"	"models\vj_vehc\abrams\abrams_sand_normal"
+	"$alpha" "1"
+	"$alphatest" "1"
+
+}
