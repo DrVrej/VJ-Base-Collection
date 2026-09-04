@@ -1,0 +1,7 @@
+"SpriteCard"
+{
+	"$basetexture" "parodie/nifed"
+	"$vertexcolor" 1
+	"$vertexalpha" 1
+	"$ignorez" 0
+}
