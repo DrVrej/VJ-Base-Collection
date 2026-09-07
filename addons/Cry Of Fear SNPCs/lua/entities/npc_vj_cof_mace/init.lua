@@ -1,7 +1,7 @@
 AddCSLuaFile("shared.lua")
 include("shared.lua")
 /*-----------------------------------------------
-	*** Copyright (c) 2012-2025 by DrVrej, All rights reserved. ***
+	*** Copyright (c) 2012-2026 by DrVrej, All rights reserved. ***
 	No parts of this code or any of its contents may be reproduced, copied, modified or adapted,
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
@@ -40,8 +40,3 @@ ENT.SoundTbl_Death = {"boss/sewer/mace_scream.wav"}
 ENT.AlertSoundLevel = 90
 ENT.DeathSoundLevel = 90
 ENT.FootstepSoundLevel = 75
-/*-----------------------------------------------
-	*** Copyright (c) 2012-2025 by DrVrej, All rights reserved. ***
-	No parts of this code or any of its contents may be reproduced, copied, modified or adapted,
-	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
------------------------------------------------*/
