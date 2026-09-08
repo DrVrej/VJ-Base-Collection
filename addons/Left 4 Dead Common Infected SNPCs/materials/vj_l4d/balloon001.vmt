@@ -1,8 +1,8 @@
 Spritecard
 {
-$basetexture "vj_l4d/balloon001"
-$surfaceprop default
-$translucent 1
-$vertexcolor 1
-$vertexalpha 1
+	$basetexture "vj_l4d/balloon001"
+	$surfaceprop default
+	$translucent 1
+	$vertexcolor 1
+	$vertexalpha 1
 }
