@@ -13,7 +13,7 @@
 	"$phongboost" "0.05"
 	"$phongfresnelranges"	"[.5 1 1]"
 	"$phongalbedotint" "1"
-	"$BasemapAlphaPhongMask" "0.5"
+	"$basemapalphaphongmask" "0.5"
 	
 
 	// Rim lighting parameters

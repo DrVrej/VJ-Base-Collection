@@ -1,4 +1,4 @@
 VertexLitGeneric
 {
-$baseTexture "models/infected/Gibs/gibs.vtf"
+	$baseTexture "models/infected/Gibs/gibs.vtf"
 }

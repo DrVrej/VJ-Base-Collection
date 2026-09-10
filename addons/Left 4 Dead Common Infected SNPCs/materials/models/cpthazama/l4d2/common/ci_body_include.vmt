@@ -13,8 +13,8 @@ VertexLitGeneric
 	"$rimlightexponent" "10"
 	"$rimlightboost" "0.3"
 
-	"$detail" "models\cpthazama\l4d2\common\detail/ci_detail_dirt"
-	"$detailframe" "0"
-	"$detailscale" "2"
-	"$detailblendfactor" "0"
+	//"$detail" "models\cpthazama\l4d2\common\detail/ci_detail_dirt"
+	//"$detailframe" "0"
+	//"$detailscale" "2"
+	//"$detailblendfactor" "0"
 }

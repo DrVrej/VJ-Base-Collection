@@ -13,7 +13,7 @@ ENT.VJ_NPC_Class = {"CLASS_UNITED_STATES"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
 ENT.MeleeAttackDamage = 10
-ENT.HasGrenadeAttack = true -- Should the SNPC have a grenade attack?
+ENT.HasGrenadeAttack = true
 
 ENT.CanFlinch = true
 

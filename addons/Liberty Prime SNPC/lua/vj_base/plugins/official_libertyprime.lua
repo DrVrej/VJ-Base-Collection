@@ -5,11 +5,10 @@
 --------------------------------------------------*/
 VJ.AddPlugin("Liberty Prime SNPC", "NPC")
 
--- Support for Cpt. Hazama's Fallout pack
-local vCat = "Fallout"
-	
-VJ.AddNPC("Liberty Prime", "npc_vj_fo3bhs_libertyprime", vCat)
-VJ.AddNPC("Liberty Prime (Hostile)", "npc_vj_fo3ene_libertyprime", vCat)
+local spawnCategory = "Fallout"
+
+VJ.AddNPC("Liberty Prime", "npc_vj_fo3bhs_libertyprime", spawnCategory)
+VJ.AddNPC("Liberty Prime (Hostile)", "npc_vj_fo3ene_libertyprime", spawnCategory)
 
 -- Particles --
 VJ.AddParticle("particles/vj_mininuke.pcf", {

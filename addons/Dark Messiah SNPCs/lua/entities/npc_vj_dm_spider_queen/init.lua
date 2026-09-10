@@ -36,9 +36,9 @@ ENT.CanFlinch = true
 ENT.FlinchChance = 8
 ENT.AnimTbl_Flinch = ACT_BIG_FLINCH
 ENT.FlinchHitGroupMap = {
-	{HitGroup={103}, Animation={ACT_SMALL_FLINCH}},
-	{HitGroup={106}, Animation={ACT_FLINCH_LEFTLEG}},
-	{HitGroup={107}, Animation={ACT_FLINCH_RIGHTLEG}}
+	{HitGroup = 103, Animation = ACT_SMALL_FLINCH},
+	{HitGroup = 106, Animation = ACT_FLINCH_LEFTLEG},
+	{HitGroup = 107, Animation = ACT_FLINCH_RIGHTLEG}
 }
 
 ENT.HasDeathAnimation = true
@@ -163,7 +163,7 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnMeleeAttackExecute(status, ent, isProp)
 	if status == "Miss" && self:IsOnGround() && self:GetActivity() != ACT_MELEE_ATTACK2 then
-		local spawnPos = self:GetPos() + self:GetForward()*200
+		local spawnPos = self:GetPos() + self:GetForward() * 200
 		util.ScreenShake(spawnPos, 16, 100, 1, 2000)
 		for _ = 1, 3 do
 			local effectDust = EffectData()
@@ -182,13 +182,10 @@ function ENT:RangeAttackProjVel(projectile)
 	return VJ.CalculateTrajectory(self, self:GetEnemy(), "Curve", projectile:GetPos(), 1, 10)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-local bAND = bit.band
---
----------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnFlinch(dmginfo, hitgroup, status)
 	if status == "Init" then
 		-- Can always flinch from DMB_BLAST or from any damage type as long as it does high damage
-		if bAND(dmginfo:GetDamageType(), DMG_BLAST) != 0 or dmginfo:GetDamage() > 35 then
+		if bit.band(dmginfo:GetDamageType(), DMG_BLAST) != 0 or dmginfo:GetDamage() > 35 then
 			return
 		end
 		return true

@@ -5,7 +5,7 @@
 	"$surfaceprop" "flesh"
 
 	//phong parameters
-	"$phong"     "1"
+	"$phong" "1"
 
 	"$phongexponent"   "15"
 	"$phongboost"   "0.08"

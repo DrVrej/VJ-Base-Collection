@@ -12,7 +12,7 @@ ENT.HullType = HULL_HUMAN
 ENT.VJ_NPC_Class = {"CLASS_STARWARS_CIS"}
 ENT.HasMeleeAttack = true
 ENT.MeleeAttackDamage = 25
-ENT.HasGrenadeAttack = true -- Should the SNPC have a grenade attack?
+ENT.HasGrenadeAttack = true
 ENT.GibOnDeathFilter = false
 
 ENT.CanFlinch = true

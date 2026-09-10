@@ -13,7 +13,7 @@ ENT.VJ_NPC_Class = {"CLASS_UNITED_STATES"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
 ENT.MeleeAttackDamage = 10
-ENT.HasGrenadeAttack = true -- Should the SNPC have a grenade attack?
+ENT.HasGrenadeAttack = true
 ENT.CanFlinch = true
 
 ENT.SoundTbl_Idle = {"vj_military/english_american/idle1.wav", "vj_military/english_american/idle2.wav", "vj_military/english_american/idle3.wav", "vj_military/english_american/idle4.wav", "vj_military/english_american/idle5.wav", "vj_military/english_american/idle6.wav", "vj_military/english_american/idle7.wav", "vj_military/english_american/idle8.wav", "vj_military/english_american/idle9.wav", "vj_military/english_american/idle10.wav", "vj_military/english_american/idle11.wav", "vj_military/english_american/idle12.wav"}

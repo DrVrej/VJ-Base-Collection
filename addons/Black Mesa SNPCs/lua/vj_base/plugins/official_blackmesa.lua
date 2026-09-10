@@ -7,6 +7,7 @@ VJ.AddPlugin("Black Mesa SNPCs", "NPC")
 
 local spawnCategory = "Black Mesa"
 
+-- Xen
 VJ.AddNPC("Alien Grunt", "npc_vj_bms_aliengrunt", spawnCategory)
 VJ.AddNPC("BullSquid", "npc_vj_bms_bullsquid", spawnCategory)
 VJ.AddNPC("Houndeye", "npc_vj_bms_houndeye", spawnCategory)
@@ -90,7 +91,7 @@ util.PrecacheModel("models/gibs/zombies/zombie_sci/torso.mdl")
 VJ.AddConVar("vj_bms_snarkexplode", 1, FCVAR_ARCHIVE) -- Snark explodes?
 VJ.AddConVar("vj_bms_snarkexplodetime", 1, FCVAR_ARCHIVE) -- Snark explode time
 VJ.AddConVar("vj_bms_bullsquid_gib", 1, FCVAR_ARCHIVE) -- Enable Bullsquid gibs?
-VJ.AddConVar("vj_bms_blackopsassassin_cloak", 1, FCVAR_ARCHIVE) -- Enable Bullsquid gibs?
+VJ.AddConVar("vj_bms_blackopsassassin_cloak", 1, FCVAR_ARCHIVE) -- Enable Black Ops Assassin cloaking?
 
 -- Menu --
 if CLIENT then

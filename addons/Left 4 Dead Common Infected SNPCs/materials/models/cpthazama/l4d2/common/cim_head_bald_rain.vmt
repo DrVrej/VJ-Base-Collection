@@ -4,7 +4,7 @@ include "materials/models\cpthazama\l4d2\common\cim_head_include.vmt"
 insert
 {
 $basetexture "models\cpthazama\l4d2\common\cim_head_bald_rain"
-$detail "models\cpthazama\l4d2\common\detail/ci_detail_mud"
+//$detail "models\cpthazama\l4d2\common\detail/ci_detail_mud"
 $BLOODMASKRANGE "[0.2 1.1]"
 $phongboost 2
 }

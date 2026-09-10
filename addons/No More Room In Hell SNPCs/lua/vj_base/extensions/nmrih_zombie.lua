@@ -27,10 +27,10 @@ ENT.FlinchCooldown = false
 ENT.AnimTbl_Flinch = ACT_STEP_FORE
 /* -- Gesture flinching looks very odd due to their animations, disabled for now
 ENT.FlinchHitGroupMap = {
-	{HitGroup = {HITGROUP_HEAD}, Animation = {"vjges_flinch_head_1", "vjges_flinch_head_2", "vjges_flinch_head_3"}},
-	{HitGroup = {HITGROUP_CHEST}, Animation = {"vjges_flinch_chest_1", "vjges_flinch_chest_2", "vjges_flinch_chest_3"}},
-	{HitGroup = {HITGROUP_LEFTARM}, Animation = {"vjges_flinch_leftarm_1", "vjges_flinch_leftarm_2", "vjges_flinch_leftarm_3"}},
-	{HitGroup = {HITGROUP_RIGHTARM}, Animation = {"vjges_flinch_rightarm_1", "vjges_flinch_rightarm_2", "vjges_flinch_rightarm_3"}},
+	{HitGroup = HITGROUP_HEAD, Animation = {"vjges_flinch_head_1", "vjges_flinch_head_2", "vjges_flinch_head_3"}},
+	{HitGroup = HITGROUP_CHEST, Animation = {"vjges_flinch_chest_1", "vjges_flinch_chest_2", "vjges_flinch_chest_3"}},
+	{HitGroup = HITGROUP_LEFTARM, Animation = {"vjges_flinch_leftarm_1", "vjges_flinch_leftarm_2", "vjges_flinch_leftarm_3"}},
+	{HitGroup = HITGROUP_RIGHTARM, Animation = {"vjges_flinch_rightarm_1", "vjges_flinch_rightarm_2", "vjges_flinch_rightarm_3"}},
 }
 */
 

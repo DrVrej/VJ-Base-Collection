@@ -5,15 +5,14 @@
 --------------------------------------------------*/
 VJ.AddPlugin("Star Wars SNPCs - Battle Droids", "NPC")
 
-local vCat = "Star Wars"
+local spawnCategory = "Star Wars"
 
--- Droids
-VJ.AddNPC_HUMAN("Standard Battle Droid", "npc_vj_swbd_standard", {"weapon_vj_blaster"}, vCat)
-VJ.AddNPC_HUMAN("Geonosis Battle Droid", "npc_vj_swbd_genosis", {"weapon_vj_blaster"}, vCat)
-VJ.AddNPC_HUMAN("Training Battle Droid", "npc_vj_swbd_training", {"weapon_vj_blaster"}, vCat)
-VJ.AddNPC_HUMAN("Commander Battle Droid", "npc_vj_swbd_commander", {"weapon_vj_blaster"}, vCat)
-VJ.AddNPC_HUMAN("Tactical Droid", "npc_vj_swbd_tactical", {"weapon_vj_blaster"}, vCat)
-VJ.AddNPC_HUMAN("Commando Droid", "npc_vj_swbd_commando", {"weapon_vj_blaster"}, vCat)
+VJ.AddNPC_HUMAN("Standard Battle Droid", "npc_vj_swbd_standard", {"weapon_vj_blaster"}, spawnCategory)
+VJ.AddNPC_HUMAN("Geonosis Battle Droid", "npc_vj_swbd_genosis", {"weapon_vj_blaster"}, spawnCategory)
+VJ.AddNPC_HUMAN("Training Battle Droid", "npc_vj_swbd_training", {"weapon_vj_blaster"}, spawnCategory)
+VJ.AddNPC_HUMAN("Commander Battle Droid", "npc_vj_swbd_commander", {"weapon_vj_blaster"}, spawnCategory)
+VJ.AddNPC_HUMAN("Tactical Droid", "npc_vj_swbd_tactical", {"weapon_vj_blaster"}, spawnCategory)
+VJ.AddNPC_HUMAN("Commando Droid", "npc_vj_swbd_commando", {"weapon_vj_blaster"}, spawnCategory)
 
 -- Precache Models --
 util.PrecacheModel("models/hfg/starwars/droids/commandodroid/head.mdl")
