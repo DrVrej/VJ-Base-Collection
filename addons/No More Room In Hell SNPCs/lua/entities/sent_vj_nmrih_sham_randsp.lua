@@ -5,12 +5,12 @@
 --------------------------------------------------*/
 AddCSLuaFile()
 
-ENT.Base 			= "obj_vj_spawner_base"
-ENT.Type 			= "anim"
-ENT.PrintName 		= "Random Shambler Spawner"
-ENT.Author 			= "DrVrej"
-ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
-ENT.Category		= "No More Room in Hell"
+ENT.Base = "obj_vj_spawner_base"
+ENT.Type = "anim"
+ENT.PrintName = "Random Shambler Spawner"
+ENT.Author = "DrVrej"
+ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
+ENT.Category = "No More Room in Hell"
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if !SERVER then return end
 

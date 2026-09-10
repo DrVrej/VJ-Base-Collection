@@ -2,6 +2,6 @@
 {
 	// Original shader: VertexLitTexture
 	"$basetexture" "models/Humans/MEmilitants/vance_facemap"
-	"$envmapsphere" 1
+	//"$envmapsphere" 1
 	"$halflambert" 1
 }

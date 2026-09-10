@@ -5,11 +5,11 @@
 --------------------------------------------------*/
 AddCSLuaFile()
 
-ENT.Type 			= "anim"
-ENT.Base 			= "obj_vj_projectile_base"
-ENT.PrintName		= "Mini Nuke"
-ENT.Author 			= "DrVrej"
-ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
+ENT.Type = "anim"
+ENT.Base = "obj_vj_projectile_base"
+ENT.PrintName = "Mini Nuke"
+ENT.Author = "DrVrej"
+ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
 
 if (CLIENT) then
 	VJ.AddKillIcon("obj_fo3_libertymininuke", ENT.PrintName, VJ.KILLICON_PROJECTILE)
@@ -31,7 +31,7 @@ local defAngle = Angle(0, 0, 0)
 --
 function ENT:OnDestroy(data, phys)
 	util.ScreenShake(data.HitPos, 16, 200, 1, 4000)
-	
+
 	local effectdata = EffectData()
 	effectdata:SetOrigin(data.HitPos)
 	util.Effect("Explosion", effectdata)

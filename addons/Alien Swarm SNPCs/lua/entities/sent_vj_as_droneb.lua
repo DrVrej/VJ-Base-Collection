@@ -5,12 +5,12 @@
 --------------------------------------------------*/
 AddCSLuaFile()
 
-ENT.Base 			= "obj_vj_spawner_base"
-ENT.Type 			= "anim"
-ENT.PrintName 		= "Random Beta Drone"
-ENT.Author 			= "DrVrej"
-ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
-ENT.Category		= "Alien Swarm"
+ENT.Base = "obj_vj_spawner_base"
+ENT.Type = "anim"
+ENT.PrintName = "Random Beta Drone"
+ENT.Author = "DrVrej"
+ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
+ENT.Category = "Alien Swarm"
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if !SERVER then return end
 

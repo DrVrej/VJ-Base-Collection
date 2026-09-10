@@ -1,9 +1,9 @@
-ENT.Base 			= "base_anim"
-ENT.Type 			= "anim"
-ENT.PrintName		= "Turtle Egg"
-ENT.Author 			= "DrVrej"
-ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
-ENT.Category		= "E.Y.E Divine Cybermancy"
+ENT.Base = "base_anim"
+ENT.Type = "anim"
+ENT.PrintName = "Turtle Egg"
+ENT.Author = "DrVrej"
+ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
+ENT.Category = "E.Y.E Divine Cybermancy"
 ENT.AutomaticFrameAdvance = true
 
 //ENT.PhysicsSounds = true

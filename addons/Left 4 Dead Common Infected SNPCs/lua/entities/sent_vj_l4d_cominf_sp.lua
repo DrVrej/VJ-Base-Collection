@@ -5,12 +5,12 @@
 --------------------------------------------------*/
 AddCSLuaFile()
 
-ENT.Base 			= "obj_vj_spawner_base"
-ENT.Type 			= "anim"
-ENT.PrintName 		= "Random Common Infected Spawner"
-ENT.Author 			= "DrVrej"
-ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
-ENT.Category		= "Left 4 Dead"
+ENT.Base = "obj_vj_spawner_base"
+ENT.Type = "anim"
+ENT.PrintName = "Random Common Infected Spawner"
+ENT.Author = "DrVrej"
+ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
+ENT.Category = "Left 4 Dead"
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if !SERVER then return end
 
