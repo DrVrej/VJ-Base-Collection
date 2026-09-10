@@ -5,11 +5,11 @@
 --------------------------------------------------*/
 AddCSLuaFile()
 
-ENT.Type 			= "anim"
-ENT.Base 			= "obj_vj_projectile_base"
-ENT.PrintName		= "Hornet"
-ENT.Author 			= "DrVrej"
-ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
+ENT.Type = "anim"
+ENT.Base = "obj_vj_projectile_base"
+ENT.PrintName = "Hornet"
+ENT.Author = "DrVrej"
+ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
 
 ENT.PhysicsSolidMask = MASK_SHOT
 
@@ -36,7 +36,7 @@ ENT.MyEnemy = NULL
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:Init()
 	timer.Simple(5, function() if IsValid(self) then self:Remove() end end)
-	
+
 	util.SpriteTrail(self, 0, Color(255, math.random(50, 200), 0, 120), true, 12, 0, 1, 0.04, "sprites/vj_bms_hornettrail.vmt")
 
 	local sprite = ents.Create( "env_sprite" )
@@ -83,7 +83,7 @@ function ENT:OnCollision(data, phys)
 	local setvel = newvel * lastvel * 0.3
 	phys:SetVelocity(setvel)
 	self:SetAngles(self:GetVelocity():GetNormal():Angle())
-	
+
 	-- Remove if it's a living being
 	if data.HitEntity.VJ_ID_Living then
 		self.CollisionBehavior = VJ.PROJ_COLLISION_REMOVE

@@ -5,12 +5,12 @@
 --------------------------------------------------*/
 AddCSLuaFile()
 
-ENT.Base 			= "base_ai"
-ENT.Type 			= "ai"
-ENT.PrintName		= "Snark Nest"
-ENT.Author 			= "DrVrej"
-ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
-ENT.Category		= "Black Mesa"
+ENT.Base = "base_ai"
+ENT.Type = "ai"
+ENT.PrintName = "Snark Nest"
+ENT.Author = "DrVrej"
+ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
+ENT.Category = "Black Mesa"
 ENT.AutomaticFrameAdvance = true
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
@@ -42,20 +42,20 @@ function ENT:OnTakeDamage(dmginfo, data)
 	self:SpawnBloodParticles(dmginfo)
 	self:SpawnBloodDecals(dmginfo)
 	self:EmitSound("vj_base/impact/flesh_alien.wav", 80, math.random(80, 100))
-	
+
 	self:SetHealth(self:Health() -dmginfo:GetDamage())
 	if self:Health() <= 0 && !self.Dead then
 		local myPos = self:GetPos()
 		self.Dead = true
 		self:SetHealth(self:GetMaxHealth())
-		
+
 		local effectData = EffectData()
 		effectData:SetOrigin(myPos)
 		effectData:SetScale(0.6)
 		util.Effect("StriderBlood", effectData)
 		util.Effect("StriderBlood", effectData)
 		ParticleEffect("vj_acid_impact1", myPos, defAng)
-		
+
 		for _ = 1, 8 do
 			local ent = ents.Create("npc_vj_bms_snark")
 			ent:SetPos(myPos)

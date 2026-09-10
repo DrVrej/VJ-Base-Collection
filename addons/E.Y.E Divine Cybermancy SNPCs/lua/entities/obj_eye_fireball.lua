@@ -5,11 +5,11 @@
 --------------------------------------------------*/
 AddCSLuaFile()
 
-ENT.Type 			= "anim"
-ENT.Base 			= "obj_vj_projectile_base"
-ENT.PrintName		= "FireBall"
-ENT.Author 			= "DrVrej"
-ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
+ENT.Type = "anim"
+ENT.Base = "obj_vj_projectile_base"
+ENT.PrintName = "FireBall"
+ENT.Author = "DrVrej"
+ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
 
 if (CLIENT) then
 	VJ.AddKillIcon("obj_eye_fireball", ENT.PrintName, VJ.KILLICON_PROJECTILE)
@@ -71,7 +71,7 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnDestroy(data, phys)
 	util.ScreenShake(data.HitPos, 16, 200, 1, 800)
-	
+
 	local effectData = EffectData()
 	effectData:SetOrigin(data.HitPos)
 	//effectData:SetScale(10)

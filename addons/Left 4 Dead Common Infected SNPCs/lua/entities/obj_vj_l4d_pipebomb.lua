@@ -5,13 +5,13 @@
 --------------------------------------------------*/
 AddCSLuaFile()
 
-ENT.Type 			= "anim"
-ENT.Base 			= "obj_vj_projectile_base"
-ENT.PrintName		= "Pipe Bomb"
-ENT.Author 			= "DrVrej"
-ENT.Contact 		= "http://steamcommunity.com/groups/vrejgaming"
-ENT.Category		= "Left 4 Dead"
-ENT.Spawnable		= true
+ENT.Type = "anim"
+ENT.Base = "obj_vj_projectile_base"
+ENT.PrintName = "Pipe Bomb"
+ENT.Author = "DrVrej"
+ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
+ENT.Category = "Left 4 Dead"
+ENT.Spawnable = true
 
 ENT.VJ_ID_Attackable = true
 ENT.VJ_ID_Grenade = true
@@ -45,7 +45,7 @@ function ENT:Init()
 			table.insert(self.Zombies, v)
 		end
 	end
-	
+
 	-- Explosion sequence (Manual)
 	timer.Simple(self.FuseTime, function() if IsValid(self) then self:Destroy() end end)
 	timer.Simple(0, function() if IsValid(self) then self:Beep(75) end end)
@@ -67,7 +67,7 @@ function ENT:Init()
 	timer.Simple(6.7, function() if IsValid(self) then self:Beep(90) end end)
 	timer.Simple(6.8, function() if IsValid(self) then self:Beep(90) end end)
 	timer.Simple(6.9, function() if IsValid(self) then self:Beep(90) end end)
-	
+
 	local glowFuse = ents.Create("env_sprite")
 	glowFuse:SetKeyValue("model", "sprites/glow1.vmt")
 	glowFuse:SetKeyValue("scale", "0.1")
@@ -80,7 +80,7 @@ function ENT:Init()
 	glowFuse:Spawn()
 	glowFuse:Activate()
 	self:DeleteOnRemove(glowFuse)
-	
+
 	local redGlow = ents.Create("env_sprite")
 	redGlow:SetKeyValue("model", "sprites/redglow1.vmt")
 	redGlow:SetKeyValue("scale", "0.1")
@@ -94,11 +94,11 @@ function ENT:Init()
 	redGlow:Spawn()
 	redGlow:Activate()
 	self:DeleteOnRemove(redGlow)
-	
+
 	local redTrail = util.SpriteTrail(self, 1, Color(255, 0, 0), true, 8, 1, 0.5, 0.0555, "sprites/bluelaser1.vmt")
 	redTrail:SetKeyValue("rendermode", "5") -- kRenderTransAdd
 	redTrail:SetKeyValue("renderfx", "0") -- kRenderFxNone
-	
+
 	local redLight = ents.Create("light_dynamic")
 	redLight:SetKeyValue("brightness", "0.5")
 	redLight:SetKeyValue("distance", "35")
@@ -114,7 +114,7 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:Beep(vol)
 	self:EmitSound("vj_l4d_com/pipe_bomb/beep.wav", vol, 100)
-	
+
 	local glow = ents.Create("env_sprite")
 	glow:SetKeyValue("model", "sprites/glow1.vmt")
 	glow:SetKeyValue("scale", "0.115")
@@ -127,7 +127,7 @@ function ENT:Beep(vol)
 	glow:Spawn()
 	glow:Activate()
 	self:DeleteOnRemove(glow)
-	
+
 	timer.Simple(0.2, function()
 		if IsValid(self) then
 			glow:Remove()
@@ -184,7 +184,7 @@ function ENT:OnDestroy()
 	expLight:Activate()
 	expLight:Fire("TurnOn")
 	expLight:Fire("Kill", nil, 0.15)
-	
+
 	-- Decal
 	self:SetLocalPos(Vector(myPos.x, myPos.y, myPos.z + 4)) -- Because the entity is too close to the ground
 	local tr = util.TraceLine({
@@ -193,7 +193,7 @@ function ENT:OnDestroy()
 		filter = self
 	})
 	util.Decal(VJ.PICK(self.CollisionDecal), tr.HitPos+tr.HitNormal, tr.HitPos - tr.HitNormal)
-	
+
 	-- Misc
 	self:EmitSound(VJ.PICK(sdExplosion), 90, 100)
 	self:DealDamage()
