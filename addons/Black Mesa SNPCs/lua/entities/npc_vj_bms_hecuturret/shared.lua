@@ -3,7 +3,7 @@ ENT.Type = "ai"
 ENT.PrintName = "HECU Ground Turret"
 ENT.Author = "DrVrej"
 ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
-ENT.Category = "Hazardous Environment Combat Unit"
+ENT.Category = "Black Mesa"
 
 ENT.VJ_ID_Turret = true
 

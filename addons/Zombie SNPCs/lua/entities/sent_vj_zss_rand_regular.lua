@@ -10,7 +10,7 @@ ENT.Type = "anim"
 ENT.PrintName = "Random Regular Zombie"
 ENT.Author = "DrVrej"
 ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
-ENT.Category = "VJ Base Spawners"
+ENT.Category = "Zombies"
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 if !SERVER then return end
 

@@ -65,7 +65,7 @@ function ENT:Tank_Init()
 		self.ActualLight1:SetParent(self)
 		self.ActualLight1:Spawn()
 		self.ActualLight1:Activate()
-		self.ActualLight1:Fire("TurnOn", "", 0)
+		self.ActualLight1:Fire("TurnOn")
 		self:DeleteOnRemove(self.ActualLight1)
 		
 		-- Right
@@ -78,7 +78,7 @@ function ENT:Tank_Init()
 		self.ActualLight2:SetParent(self)
 		self.ActualLight2:Spawn()
 		self.ActualLight2:Activate()
-		self.ActualLight2:Fire("TurnOn", "", 0)
+		self.ActualLight2:Fire("TurnOn")
 		self:DeleteOnRemove(self.ActualLight2)
 	end
 end

@@ -201,7 +201,7 @@ function ENT:OnRangeAttackExecute(status, enemy, projectile)
 		dynLight:SetParent(self.GunModel)
 		dynLight:Spawn()
 		dynLight:Activate()
-		dynLight:Fire("TurnOn", "", 0)
+		dynLight:Fire("TurnOn")
 		dynLight:Fire("Kill", "", 0.07)
 		self:DeleteOnRemove(dynLight)
 		return true

@@ -72,10 +72,9 @@ end
 function ENT:SpawnBloodDecals(dmginfo, hitgroup)
 	local force = dmginfo:GetDamageForce()
 	local length = math.Clamp(force:Length() *10, 100, 300)
-	local paint = tobool(math.random(0, math.Round(length *0.125)) <= 1000)
-	if !paint then return end
+	if math.random(0, math.Round(length *0.125)) > 1000 then return end
 	local posStart = dmginfo:GetDamagePosition()
-	local posEnd = posStart +force:GetNormal() *length
+	local posEnd = posStart + force:GetNormal() * length
 	local tr = util.TraceLine({start = posStart, endpos = posEnd, filter = self})
 	if !tr.HitWorld then return end
 	util.Decal("VJ_Blood_Red", tr.HitPos +tr.HitNormal, tr.HitPos -tr.HitNormal)

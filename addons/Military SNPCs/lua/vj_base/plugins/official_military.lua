@@ -31,7 +31,7 @@ local spawnCategory = "Military"
 	VJ.AddNPC("ChicLeet (Enemy)", "npc_vj_mili_chicleet", spawnCategory)
 	VJ.AddNPC("Terrorist T-72 (Enemy)", "npc_vj_mili_t72_terrorist", spawnCategory)
 	VJ.AddNPC("Terrorism (Enemy)", "sent_vj_mili_terrorism", spawnCategory)
-	
+
 -- Friendly
 	-- United States of America
 	VJ.AddNPC_HUMAN("U.S. Marine (Friendly)", "npc_vj_milifri_marine", {"weapon_vj_m16a1"}, spawnCategory)

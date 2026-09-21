@@ -36,7 +36,6 @@ SWEP.PrimaryEffects_SpawnDynamicLight = false
 SWEP.PrimaryEffects_SpawnShells = false
 
 SWEP.AnimTbl_Reload = ACT_VM_DRAW
-SWEP.Reload_TimeUntilAmmoIsSet = 1
 
 -- Custom
 SWEP.L4D_ViewModelAdjust = {
