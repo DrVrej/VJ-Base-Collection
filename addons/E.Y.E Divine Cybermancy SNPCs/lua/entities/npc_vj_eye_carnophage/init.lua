@@ -8,7 +8,6 @@ include("shared.lua")
 ENT.Model = "models/vj_eye/carnophage.mdl"
 ENT.StartHealth = 200
 ENT.HullType = HULL_WIDE_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_METASTREUMONIC"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 

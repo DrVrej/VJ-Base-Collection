@@ -8,7 +8,6 @@ include("shared.lua")
 ENT.Model = "models/vj_starwars/droid/tactical.mdl"
 ENT.StartHealth = 150
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_STARWARS_CIS"}
 ENT.HasMeleeAttack = true
 ENT.MeleeAttackDamage = 20
@@ -101,7 +100,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-local defAng = Angle(0, 0, 0)
+local defAng = Angle()
 --
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
 	if self.SW_Droid_All then

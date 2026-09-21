@@ -8,7 +8,6 @@ include("shared.lua")
 ENT.Model = "models/vj_eye/troopers.mdl"
 ENT.StartHealth = 200
 ENT.HullType = HULL_MEDIUM
----------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_FEDERALISTS"}
 ENT.BloodColor = VJ.BLOOD_COLOR_OIL
 

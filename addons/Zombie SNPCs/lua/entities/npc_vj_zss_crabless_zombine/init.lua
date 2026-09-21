@@ -8,7 +8,6 @@ include("shared.lua")
 ENT.Model = "models/vj_zombies/zombine.mdl"
 ENT.StartHealth = 200
 ENT.HullType = HULL_WIDE_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_ZOMBIE"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 
@@ -23,7 +22,6 @@ ENT.MeleeAttackBleedEnemy = true
 
 ENT.DisableFootStepSoundTimer = true
 ENT.HasExtraMeleeAttackSounds = true
-
 ENT.CanFlinch = true
 ENT.AnimTbl_Flinch = ACT_FLINCH_PHYSICS
 ENT.FlinchHitGroupMap = {

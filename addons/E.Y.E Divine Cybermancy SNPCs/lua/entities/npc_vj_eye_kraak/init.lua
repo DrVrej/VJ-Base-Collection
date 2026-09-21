@@ -8,7 +8,6 @@ include("shared.lua")
 ENT.Model = "models/vj_eye/kraak.mdl"
 ENT.StartHealth = 600
 ENT.HullType = HULL_MEDIUM
----------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_METASTREUMONIC"}
 ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
 

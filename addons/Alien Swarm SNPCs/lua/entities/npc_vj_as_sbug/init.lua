@@ -51,7 +51,7 @@ function ENT:Init()
 	self.Shieldbug_AnimTurnRight = VJ.SequenceToActivity(self, "turn_right_defend")
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-local defAng = Angle(0, 0, 0)
+local defAng = Angle()
 --
 function ENT:OnInput(key, activator, caller, data)
 	if key == "ASW_ShieldBug.Movement" or key == "ASW_ShieldBug.MoveDefend" then

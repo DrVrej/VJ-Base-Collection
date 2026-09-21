@@ -8,7 +8,6 @@ include("shared.lua")
 ENT.Model = "models/vj_zombies/draggy.mdl"
 ENT.StartHealth = 200
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_ZOMBIE"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 

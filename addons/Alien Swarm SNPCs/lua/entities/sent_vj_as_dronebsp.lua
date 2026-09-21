@@ -16,7 +16,7 @@ if !SERVER then return end
 
 local entsList = {"npc_vj_as_droneb", "npc_vj_as_droneb_big:4", "npc_vj_as_droneb_elite:8", "npc_vj_as_droneb_big_elite:10"}
 ENT.EntitiesToSpawn = {
-	{SpawnPosition = Vector(0, 0, 0), Entities = entsList},
+	{SpawnPosition = Vector(), Entities = entsList},
 	{SpawnPosition = Vector(75, 75, 0), Entities = entsList},
 	{SpawnPosition = Vector(75, -75, 0), Entities = entsList},
 	{SpawnPosition = Vector(-75, 75, 0), Entities = entsList},

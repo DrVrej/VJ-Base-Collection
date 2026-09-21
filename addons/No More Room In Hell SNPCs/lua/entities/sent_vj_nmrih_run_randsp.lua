@@ -21,7 +21,7 @@ local entsList = {
 	"npc_vj_nmrih_child:6"
 }
 ENT.EntitiesToSpawn = {
-	{SpawnPosition = Vector(0, 0, 0), Entities = entsList},
+	{SpawnPosition = Vector(), Entities = entsList},
 	{SpawnPosition = Vector(50, 50, 0), Entities = entsList},
 	{SpawnPosition = Vector(50, -50, 0), Entities = entsList},
 	{SpawnPosition = Vector(-50, 50, 0), Entities = entsList},

@@ -170,7 +170,7 @@ function ENT:OnDeath(dmginfo, hitgroup, status)
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-local defAng = Angle(0, 0, 0)
+local defAng = Angle()
 --
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
 	local spawnPos = corpse:GetAttachment(corpse:LookupAttachment("smoke")).Pos

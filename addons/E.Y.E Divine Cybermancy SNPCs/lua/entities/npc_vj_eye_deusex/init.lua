@@ -9,7 +9,6 @@ ENT.Model = "models/vj_eye/deusex.mdl"
 ENT.StartHealth = 6000
 ENT.HullType = HULL_LARGE
 ENT.VJ_ID_Boss = true
----------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_METASTREUMONIC"}
 ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
 

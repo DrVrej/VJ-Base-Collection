@@ -10,8 +10,7 @@ ENT.Model = "models/VJ_FO/libertyprime.mdl"
 ENT.StartHealth = 30000
 ENT.HullType = HULL_LARGE
 ENT.TurningSpeed = 10
----------------------------------------------------------------------------------------------------------------------------------------------
-ENT.VJ_NPC_Class = {"CLASS_UNITED_STATES_FRIENDLY", "CLASS_PLAYER_ALLY"}
+ENT.VJ_NPC_Class = {"CLASS_PLAYER_ALLY", "CLASS_UNITED_STATES_FRIENDLY"}
 ENT.AlliedWithPlayerAllies = true
 ENT.BecomeEnemyToPlayer = 6
 ENT.ConstantlyFaceEnemy = true
@@ -82,8 +81,8 @@ ENT.LibertyPrime_PlayedAlert = false
 ENT.LibertyPrime_DoingNukeAttack = false
 ENT.LibertyPrime_NextNukeAttackT = 0
 
-local defVector = Vector(0, 0, 0)
-local defAngle = Angle(0, 0, 0)
+local defVector = Vector()
+local defAngle = Angle()
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:PreInit()
 	self:SetPhysicsDamageScale(0)

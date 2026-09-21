@@ -16,7 +16,7 @@ if !SERVER then return end
 
 ENT.SingleSpawner = true
 ENT.EntitiesToSpawn = {
-	{SpawnPosition = Vector(0, 0, 0), Entities = {"npc_vj_mili_chicleet"}},
+	{SpawnPosition = Vector(), Entities = {"npc_vj_mili_chicleet"}},
 	{SpawnPosition = Vector(50, 50, 0), Entities = {"npc_vj_mili_terrorist"}, WeaponsList = {"default"}},
 	{SpawnPosition = Vector(50, -50, 0), Entities = {"npc_vj_mili_terrorist"}, WeaponsList = {"default"}},
 	{SpawnPosition = Vector(-50, 50, 0), Entities = {"npc_vj_mili_terrorist"}, WeaponsList = {"default"}},

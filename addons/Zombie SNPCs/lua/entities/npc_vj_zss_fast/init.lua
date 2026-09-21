@@ -7,7 +7,6 @@ include("shared.lua")
 -----------------------------------------------*/
 ENT.StartHealth = 100
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_ZOMBIE"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 

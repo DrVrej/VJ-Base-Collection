@@ -102,7 +102,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 		util.Effect("bloodspray", effectData)
 	end
 	
-	self:CreateGibEntity("prop_ragdoll", "models/gibs/bullsquid/torso.mdl", {Pos=self:LocalToWorld(Vector(0, 0, 0)), Ang=self:GetAngles(), Vel=self:GetRight()*math.Rand(-50, 50)+self:GetForward()*math.Rand(-50, 50)+self:GetUp()*math.Rand(30, 100)})
+	self:CreateGibEntity("prop_ragdoll", "models/gibs/bullsquid/torso.mdl", {Pos=self:LocalToWorld(Vector()), Ang=self:GetAngles(), Vel=self:GetRight()*math.Rand(-50, 50)+self:GetForward()*math.Rand(-50, 50)+self:GetUp()*math.Rand(30, 100)})
 	self:CreateGibEntity("prop_ragdoll", "models/gibs/bullsquid/tail.mdl", {Pos=self:LocalToWorld(Vector(4, 0, 0)), Ang=self:GetAngles(), Vel=self:GetRight()*math.Rand(-50, 50)+self:GetForward()*math.Rand(-50, -50)})
 	self:CreateGibEntity("prop_ragdoll", "models/gibs/bullsquid/right_leg.mdl", {Pos=self:LocalToWorld(Vector(0, 0.1, 0)), Ang=self:GetAngles(), Vel=self:GetRight()*math.Rand(100, 100)+self:GetForward()*math.Rand(-50, 50)})
 	self:CreateGibEntity("prop_ragdoll", "models/gibs/bullsquid/left_leg.mdl", {Pos=self:LocalToWorld(Vector(0, 0, 0.1)), Ang=self:GetAngles(), Vel=self:GetRight()*math.Rand(-100, -100)+self:GetForward()*math.Rand(-50, 50)})

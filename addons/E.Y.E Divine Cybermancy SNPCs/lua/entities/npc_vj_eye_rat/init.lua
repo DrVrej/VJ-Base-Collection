@@ -8,7 +8,6 @@ include("shared.lua")
 ENT.Model = "models/vj_eye/rat.mdl"
 ENT.StartHealth = 10
 ENT.HullType = HULL_TINY
----------------------------------------------------------------------------------------------------------------------------------------------
 ENT.Behavior = VJ_BEHAVIOR_PASSIVE_NATURE
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 

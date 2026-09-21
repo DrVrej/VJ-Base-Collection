@@ -37,7 +37,7 @@ function ENT:OnThink()
 	ParticleEffectAttach("vj_acid_impact3_gas", PATTACH_ABSORIGIN_FOLLOW, self, 0)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-local defAng = Angle(0, 0, 0)
+local defAng = Angle()
 --
 function ENT:OnDestroy(data, phys)
 	ParticleEffect("vj_acid_impact3_gas", data.HitPos, defAng)

@@ -90,7 +90,7 @@ function ENT:OnCollision(data, phys)
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-local defAng = Angle(0, 0, 0)
+local defAng = Angle()
 --
 function ENT:OnDestroy(data, phys)
 	local effectData = EffectData()

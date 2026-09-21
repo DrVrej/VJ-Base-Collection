@@ -26,8 +26,8 @@ if !SERVER then return end
 
 ENT.Dead = false
 
-local defVec = Vector(0, 0, 0)
-local defAng = Angle(0, 0, 0)
+local defVec = Vector()
+local defAng = Angle()
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:Initialize()
 	self:SetModel("models/VJ_BLACKMESA/snarknest.mdl")

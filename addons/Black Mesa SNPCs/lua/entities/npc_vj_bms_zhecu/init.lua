@@ -80,7 +80,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	end
 	
 	self:CreateGibEntity("prop_ragdoll", "models/gibs/zombies/zombie_grunt/torso.mdl", {Pos=self:LocalToWorld(Vector(0, 0, 2)), Ang=self:GetAngles(), Vel=self:GetRight()*math.Rand(-100, 100)+self:GetForward()*math.Rand(-100, 100)})
-	self:CreateGibEntity("prop_ragdoll", "models/gibs/zombies/zombie_grunt/legs.mdl", {Pos=self:LocalToWorld(Vector(0, 0, 0)), Ang=self:GetAngles(), Vel=self:GetRight()*math.Rand(-100, 100)+self:GetForward()*math.Rand(-50, 50)})
+	self:CreateGibEntity("prop_ragdoll", "models/gibs/zombies/zombie_grunt/legs.mdl", {Pos=self:LocalToWorld(Vector()), Ang=self:GetAngles(), Vel=self:GetRight()*math.Rand(-100, 100)+self:GetForward()*math.Rand(-50, 50)})
 	self:CreateGibEntity("prop_ragdoll", "models/gibs/zombies/zombie_grunt/right_arm.mdl", {Pos=self:LocalToWorld(Vector(0, 0, 1)), Ang=self:GetAngles(), Vel=self:GetRight()*math.Rand(150, 250)+self:GetForward()*math.Rand(-200, 200)})
 	self:CreateGibEntity("prop_ragdoll", "models/gibs/zombies/zombie_grunt/left_arm.mdl", {Pos=self:LocalToWorld(Vector(0, -3, 0)), Ang=self:GetAngles(), Vel=self:GetRight()*math.Rand(-150, -250)+self:GetForward()*math.Rand(-200, 200)})
 	self:CreateGibEntity("obj_vj_gib", "UseAlien_Small")

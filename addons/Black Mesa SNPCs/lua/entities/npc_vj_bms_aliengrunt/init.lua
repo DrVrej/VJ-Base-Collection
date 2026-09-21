@@ -101,7 +101,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	end
 	
 	self:CreateGibEntity("prop_ragdoll", "models/gibs/agrunt/torso.mdl", {Pos=self:LocalToWorld(Vector(0, 0, 6)), Ang=self:GetAngles(), Vel=self:GetRight()*math.Rand(-100, 100)+self:GetForward()*math.Rand(-100, 100)})
-	self:CreateGibEntity("prop_ragdoll", "models/gibs/agrunt/right_leg.mdl", {Pos=self:LocalToWorld(Vector(0, 0, 0)), Ang=self:GetAngles(), Vel=self:GetRight()*math.Rand(100, 250)+self:GetForward()*math.Rand(-300, 300)})
+	self:CreateGibEntity("prop_ragdoll", "models/gibs/agrunt/right_leg.mdl", {Pos=self:LocalToWorld(Vector()), Ang=self:GetAngles(), Vel=self:GetRight()*math.Rand(100, 250)+self:GetForward()*math.Rand(-300, 300)})
 	self:CreateGibEntity("prop_ragdoll", "models/gibs/agrunt/right_leg.mdl", {Pos=self:LocalToWorld(Vector(0, 20, 0)), Ang=self:GetAngles(), Vel=self:GetRight()*math.Rand(-100, -250)+self:GetForward()*math.Rand(-300, 300)})
 	self:CreateGibEntity("obj_vj_gib", "models/gibs/agrunt/left_arm_lower.mdl", {BloodType="Yellow", Pos=self:LocalToWorld(Vector(0, 0, 6)), Ang=self:GetAngles(), Vel=self:GetRight()*math.Rand(0, -70)+self:GetForward()*math.Rand(-50, 50)})
 	self:CreateGibEntity("prop_physics", "models/gibs/agrunt/gib_back_armor.mdl", {Pos=self:LocalToWorld(Vector(-1, 0, 7)), Ang=self:GetAngles(), Vel=self:GetRight()*math.Rand(-40, -70)+self:GetForward()*math.Rand(-90, -110)})

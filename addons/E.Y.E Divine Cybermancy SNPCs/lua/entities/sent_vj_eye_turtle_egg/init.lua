@@ -54,7 +54,7 @@ function ENT:OnTakeDamage(dmginfo, data)
 	end
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-local defVec = Vector(0, 0, 0)
+local defVec = Vector()
 --
 function ENT:SpawnBloodParticles(dmginfo, hitgroup)
 	local damagePos = dmginfo:GetDamagePosition()

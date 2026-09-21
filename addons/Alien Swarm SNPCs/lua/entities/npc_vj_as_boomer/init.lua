@@ -104,7 +104,7 @@ function ENT:TranslateActivity(act)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 local colorYellow = VJ.Color2Byte(Color(255, 221, 35))
-local defAng = Angle(0, 0, 0)
+local defAng = Angle()
 --
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	local myPos = self:GetPos()

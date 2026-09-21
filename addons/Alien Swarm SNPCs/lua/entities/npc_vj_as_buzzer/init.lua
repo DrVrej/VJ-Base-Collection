@@ -45,7 +45,7 @@ function ENT:Init()
 	end)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
-local defAng = Angle(0, 0, 0)
+local defAng = Angle()
 --
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	if status == "Finish" then

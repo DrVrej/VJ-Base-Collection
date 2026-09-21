@@ -27,7 +27,7 @@ ENT.RadiusDamageForce = 140
 ENT.CollisionDecal = "Scorch"
 ENT.SoundTbl_OnCollide = "ambient/explosions/explode_8.wav"
 ---------------------------------------------------------------------------------------------------------------------------------------------
-local defAngle = Angle(0, 0, 0)
+local defAngle = Angle()
 --
 function ENT:OnDestroy(data, phys)
 	util.ScreenShake(data.HitPos, 16, 200, 1, 4000)

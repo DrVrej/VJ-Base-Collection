@@ -8,7 +8,6 @@ include("shared.lua")
 ENT.Model = "models/vj_zombies/hulk.mdl"
 ENT.StartHealth = 600
 ENT.HullType = HULL_MEDIUM_TALL
----------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_ZOMBIE"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 
@@ -20,9 +19,10 @@ ENT.TimeUntilMeleeAttackDamage = false
 ENT.MeleeAttackDamage = 65
 ENT.MeleeAttackPlayerSpeed = true
 ENT.MeleeAttackBleedEnemy = true
-ENT.DisableFootStepSoundTimer = true
 ENT.HasMeleeAttackKnockBack = true
 ENT.PropInteraction_MaxScale = 2
+
+ENT.DisableFootStepSoundTimer = true
 
 ENT.SoundTbl_FootStep = {"npc/zombie/foot1.wav", "npc/zombie/foot2.wav", "npc/zombie/foot3.wav"}
 ENT.SoundTbl_Breath = "npc/zombie_poison/pz_breathe_loop1.wav"

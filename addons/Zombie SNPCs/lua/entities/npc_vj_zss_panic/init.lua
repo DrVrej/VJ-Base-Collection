@@ -8,9 +8,9 @@ include("shared.lua")
 ENT.Model = {"models/vj_zombies/panic_carrier.mdl", "models/vj_zombies/panic_eugene.mdl", "models/vj_zombies/panic_jessica.mdl", "models/vj_zombies/panic_lea.mdl", "models/vj_zombies/panic_marcus.mdl", "models/vj_zombies/panic_paul.mdl", "models/vj_zombies/panic_vanessa.mdl"}
 ENT.StartHealth = 120
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_ZOMBIE"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
+
 ENT.HasMeleeAttack = true
 ENT.AnimTbl_MeleeAttack = {"vjges_attack1", "vjges_attack2", "vjges_attack3", "vjges_push"}
 ENT.MeleeAttackDistance = 32
@@ -19,6 +19,7 @@ ENT.TimeUntilMeleeAttackDamage = false
 ENT.MeleeAttackDamage = 15
 ENT.MeleeAttackPlayerSpeed = true
 ENT.MeleeAttackBleedEnemy = true
+
 ENT.GibOnDeathFilter = false
 ENT.DisableFootStepSoundTimer = true
 ENT.HasExtraMeleeAttackSounds = true

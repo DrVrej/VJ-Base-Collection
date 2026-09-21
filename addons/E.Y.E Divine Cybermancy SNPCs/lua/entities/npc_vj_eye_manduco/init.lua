@@ -8,7 +8,6 @@ include("shared.lua")
 ENT.Model = "models/vj_eye/manduco.mdl"
 ENT.StartHealth = 160
 ENT.HullType = HULL_WIDE_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_METASTREUMONIC"}
 ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
 ENT.Immune_Fire = true
@@ -38,7 +37,7 @@ ENT.FlinchHitGroupMap = {
 	{HitGroup = HITGROUP_CHEST, Animation = "vjges_gesture_flinch_chest"},
 	{HitGroup = HITGROUP_STOMACH, Animation = "vjges_gesture_flinch_stomach"},
 	{HitGroup = HITGROUP_LEFTARM, Animation = "vjges_gesture_flinch_leftArm"},
-	{HitGroup = HITGROUP_RIGHTARM, Animation = "vjges_gesture_flinch_righttArm"}, -- Note: Manduco's anim has a typo!
+	{HitGroup = HITGROUP_RIGHTARM, Animation = "vjges_gesture_flinch_righttArm"}, -- NOTE: Manduco's anim has a typo!
 	{HitGroup = HITGROUP_LEFTLEG, Animation = "vjges_gesture_flinch_leftleg"},
 	{HitGroup = HITGROUP_RIGHTLEG, Animation = "vjges_gesture_flinch_rightleg"}
 }

@@ -8,7 +8,6 @@ include("shared.lua")
 ENT.Model = {"models/vj_zombies/slow1.mdl", "models/vj_zombies/slow2.mdl", "models/vj_zombies/slow3.mdl", "models/vj_zombies/slow4.mdl", "models/vj_zombies/slow5.mdl", "models/vj_zombies/slow6.mdl", "models/vj_zombies/slow7.mdl", "models/vj_zombies/slow8.mdl", "models/vj_zombies/slow9.mdl", "models/vj_zombies/slow10.mdl", "models/vj_zombies/slow11.mdl", "models/vj_zombies/slow12.mdl"}
 ENT.StartHealth = 100
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
 ENT.VJ_NPC_Class = {"CLASS_ZOMBIE"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 
