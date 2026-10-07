@@ -129,6 +129,8 @@ function ENT:OnAlert(ent)
 	self:PlayAnim("deploy", true, 0.7)
 end
 ---------------------------------------------------------------------------------------------------------------------------------------------
+local bulletSpread = Vector(5, 5, 5)
+--
 function ENT:OnRangeAttackExecute(status, enemy, projectile)
 	if status == "Init" then
 		local spawnPos = self:GetAttachment(self:LookupAttachment("muzzle")).Pos
@@ -136,7 +138,7 @@ function ENT:OnRangeAttackExecute(status, enemy, projectile)
 			Num = 1,
 			Src = spawnPos,
 			Dir = (enemy:GetPos() + enemy:OBBCenter()) - spawnPos,
-			Spread = 0.001,
+			Spread = bulletSpread,
 			Tracer = 1,
 			TracerName = "Tracer",
 			Force = 5,
