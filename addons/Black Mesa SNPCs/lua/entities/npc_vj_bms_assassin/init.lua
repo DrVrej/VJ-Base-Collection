@@ -196,7 +196,7 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
 	-- Create the second pistol to drop with the gun
-	self:CreateExtraDeathCorpse("weapon_vj_glock17", "None", {HasVel=false}, function(extraent)
+	self:CreateExtraDeathCorpse("weapon_vj_glock17", "None", {Vel = false}, function(extraent)
 		local phys = extraent:GetPhysicsObject()
 		if IsValid(phys) then
 			phys:SetMass(60)

@@ -212,7 +212,7 @@ end
 function ENT:CustomOnRemove()
 	if IsValid(self.ReloadAmmoBox) then self.ReloadAmmoBox:Remove() end
 	if IsValid(self.GunModel) then
-		self:CreateExtraDeathCorpse("prop_physics", self.GunModel:GetModel(), {Pos=self.GunModel:GetPos(), Ang=self.GunModel:GetAngles(), HasVel=false})
+		self:CreateExtraDeathCorpse("prop_physics", self.GunModel:GetModel(), {Pos=self.GunModel:GetPos(), Ang=self.GunModel:GetAngles(), Vel=false})
 		self.GunModel:Remove()
 	end
 end
