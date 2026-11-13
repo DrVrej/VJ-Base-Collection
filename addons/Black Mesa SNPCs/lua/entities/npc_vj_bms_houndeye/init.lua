@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/VJ_BLACKMESA/houndeye.mdl"
 ENT.StartHealth = 80
 ENT.HullType = HULL_TINY
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_XEN"}
 ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
 ENT.Immune_Sonic = true
@@ -48,12 +48,12 @@ local animAlert = {"vjseq_madidle", "vjseq_madidle3"} // ACT_IDLE_ANGRY - Don't 
 
 -- Custom
 ENT.Houndeye_IdleAnims = ACT_IDLE
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(25, 25, 45), Vector(-25, -25, 0))
 	self.Houndeye_IdleAnims = {ACT_IDLE, ACT_IDLE, ACT_IDLE, ACT_IDLE, ACT_IDLE, ACT_IDLE, VJ.SequenceToActivity(self, "leaderlook")}
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local getEventName = util.GetAnimEventNameByID
 --
 function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
@@ -62,33 +62,33 @@ function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
 		self:ExecuteMeleeAttack()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
-	if act == ACT_IDLE && !IsValid(self:GetEnemy()) then
+	if act == ACT_IDLE and !IsValid(self:GetEnemy()) then
 		return self:ResolveAnimation(self.Houndeye_IdleAnims)
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnAlert(ent)
 	if self.VJ_Controlled then return end
 	self:PlayAnim(animAlert, true, 1, true)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnMeleeAttackExecute(status, ent, isProp)
 	if status == "Init" then
 		local myPos = self:GetPos()
 		effects.BeamRingPoint(myPos, 0.3, 2, 400, 16, 0, Color(188, 220, 255), {material="sprites/vj_bms_shockwave", framerate=20})
 		effects.BeamRingPoint(myPos, 0.3, 2, 200, 16, 0, Color(188, 220, 255), {material="sprites/vj_bms_shockwave", framerate=20})
 		
-		if self.HasSounds && self.HasMeleeAttackSounds then
+		if self.HasSounds and self.HasMeleeAttackSounds then
 			VJ.EmitSound(self, "vj_bms_houndeye/blast1.wav", 100, math.random(80, 100))
 		end
 		
 		VJ.ApplyRadiusDamage(self, self, myPos, 400, 25, self.MeleeAttackDamageType, true, true, {DisableVisibilityCheck=true, Force=80})
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	-- Fix getting stuck in ground due to death anim
 	if status == "DeathAnim" then
@@ -96,7 +96,7 @@ function ENT:OnDeath(dmginfo, hitgroup, status)
 		self:SetLocalPos(Vector(myPos.x, myPos.y, myPos.z + 5))
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local colorYellow = VJ.Color2Byte(Color(255, 221, 35))
 --
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)

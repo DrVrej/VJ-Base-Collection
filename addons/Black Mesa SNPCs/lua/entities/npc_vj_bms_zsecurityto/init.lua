@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/zombies/zombie_guard_torso.mdl"
 ENT.StartHealth = 50
 ENT.HullType = HULL_TINY
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_ZOMBIE"}
 ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
 
@@ -29,11 +29,11 @@ ENT.SoundTbl_MeleeAttack = {"vj_bms_zombies/attack01.wav", "vj_bms_zombies/attac
 ENT.SoundTbl_MeleeAttackMiss = {"vj_bms_zombies/claw_miss1.wav", "vj_bms_zombies/claw_miss2.wav"}
 ENT.SoundTbl_Pain = {"vj_bms_zombies/pain1.wav", "vj_bms_zombies/pain2.wav", "vj_bms_zombies/pain3.wav", "vj_bms_zombies/pain4.wav", "vj_bms_zombies/pain5.wav", "vj_bms_zombies/pain7.wav", "vj_bms_zombies/pain8.wav", "vj_bms_zombies/pain9.wav", "vj_bms_zombies/pain10.wav"} /*, "vj_bms_zombies/pain6.wav"*/
 ENT.SoundTbl_Death = {"vj_bms_zombies/die1.wav", "vj_bms_zombies/die2.wav", "vj_bms_zombies/die3.wav", "vj_bms_zombies/die4.wav", "vj_bms_zombies/die5.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(20, 20, 26), Vector(-20, -20, 0))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local getEventName = util.GetAnimEventNameByID
 --
 function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
@@ -44,7 +44,7 @@ function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
 		self:ExecuteMeleeAttack()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnCreateDeathCorpse(dmginfo,  hitgroup,  corpse)
 	if self:GetBodygroup(1) == 1 then return false end -- Only continue if crab bodygroup is set
 	local spawnType = math.random(1, 3)

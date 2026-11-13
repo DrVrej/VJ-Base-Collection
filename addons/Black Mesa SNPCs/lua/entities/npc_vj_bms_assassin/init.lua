@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/VJ_BLACKMESA/hassassin.mdl"
 ENT.StartHealth = 50
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_BLACKOPS"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 
@@ -40,7 +40,7 @@ ENT.Assassin_NextJumpT = 0
 ENT.Assassin_NextCloakT = 0
 ENT.Assassin_Cloaking = false
 ENT.Assassin_ControllerCloakLevel = 0
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:CapabilitiesAdd(bit.bor(CAP_MOVE_JUMP))
 	//self:SetMaterial("models/effects/vol_ight001_")
@@ -107,11 +107,11 @@ function ENT:Init()
 	end
 	timer.Simple(0.1, function() if IsValid(self) then self:SetRenderMode(RENDERMODE_TRANSALPHA) end end)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Controller_Initialize(ply)
 	ply:ChatPrint("JUMP: Change Camouflage")
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local colorVis = Color(255, 255, 255, 255)
 --
 function ENT:BMSASSASSIN_RESETCLOAK()
@@ -128,7 +128,7 @@ function ENT:BMSASSASSIN_RESETCLOAK()
 		curWep:SetDrawWorldModel(true)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local colorInv = Color(0, 0, 0, 10)
 --
 function ENT:BMSASSASSIN_DOCLOAK()
@@ -149,9 +149,9 @@ function ENT:BMSASSASSIN_DOCLOAK()
 	end
 	self.Assassin_NextCloakT = CurTime() + math.random(13, 14)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkActive()
-	if self.VJ_Controlled && self.VJ_Controller:GetPlayer():KeyDown(IN_JUMP) then
+	if self.VJ_Controlled and self.VJ_Controller:GetPlayer():KeyDown(IN_JUMP) then
 		self.VJ_Controller:GetPlayer():PrintMessage(HUD_PRINTCENTER, "Changing Camouflage!")
 		if self.Assassin_ControllerCloakLevel == 0 then
 			self.Assassin_ControllerCloakLevel = 1
@@ -167,12 +167,12 @@ function ENT:OnThinkActive()
 				if CurTime() > self.Assassin_NextCloakT then
 					self:BMSASSASSIN_DOCLOAK()
 				end
-			elseif self:GetNPCState() != NPC_STATE_ALERT && self:GetNPCState() != NPC_STATE_COMBAT then
+			elseif self:GetNPCState() != NPC_STATE_ALERT and self:GetNPCState() != NPC_STATE_COMBAT then
 				if self.Assassin_Cloaking == true then self:BMSASSASSIN_RESETCLOAK() end
 			end
 		end
 
-		if IsValid(self:GetEnemy()) && self.WeaponAttackState == VJ.WEP_ATTACK_STATE_FIRE_STAND && CurTime() > self.Assassin_NextJumpT && self.EnemyData.Distance < 1400 then
+		if IsValid(self:GetEnemy()) and self.WeaponAttackState == VJ.WEP_ATTACK_STATE_FIRE_STAND and CurTime() > self.Assassin_NextJumpT and self.EnemyData.Distance < 1400 then
 			local trace = VJ.TraceDirections(self, "Quick", 150, true, true, 4, false, true, false, false)
 			local anims = {}
 			if trace.Forward then anims[#anims + 1] = "vjseq_flip_front" end
@@ -183,17 +183,17 @@ function ENT:OnThinkActive()
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnAlert(ent)
 	self.Assassin_NextJumpT = CurTime() + math.Rand(2, 3)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	if status == "Init" then
 		self:BMSASSASSIN_RESETCLOAK()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
 	-- Create the second pistol to drop with the gun
 	self:CreateExtraDeathCorpse("weapon_vj_glock17", "None", {Vel = false}, function(extraent)
@@ -204,11 +204,11 @@ function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
 		end
 	end)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeathWeaponDrop(dmginfo, hitgroup, wepEnt)
 	wepEnt:SetDrawWorldModel(true)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local colorRed = VJ.Color2Byte(Color(130, 19, 10))
 --
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)

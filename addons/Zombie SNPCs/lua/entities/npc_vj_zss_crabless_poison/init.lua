@@ -35,19 +35,19 @@ ENT.MainSoundPitch = 100
 
 -- Custom
 ENT.Zombie_ActFireWalk = -1 -- Uses an undefined animation
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(15, 15, 50), Vector(-15, -15, 0))
 	self.Zombie_ActFireWalk = self:GetSequenceActivity(self:LookupSequence("FireWalk"))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
-	if self:IsOnFire() && (act == ACT_RUN or act == ACT_WALK) then
+	if self:IsOnFire() and (act == ACT_RUN or act == ACT_WALK) then
 		return self.Zombie_ActFireWalk
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local getEventName = util.GetAnimEventNameByID
 --
 function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
@@ -58,7 +58,7 @@ function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
 		self:ExecuteMeleeAttack()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnAlert(ent)
 	if self.VJ_Controlled then return end
 	self:PlayAnim("throwwarning", true, false, true)

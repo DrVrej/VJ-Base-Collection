@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/zombies/zombie_grunt.mdl"
 ENT.StartHealth = 200
 ENT.HullType = HULL_WIDE_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_ZOMBIE"}
 ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
 
@@ -33,7 +33,7 @@ ENT.SoundTbl_Pain = {"vj_bms_zombies/pain1.wav", "vj_bms_zombies/pain2.wav", "vj
 ENT.SoundTbl_Death = {"vj_bms_zombies/die1.wav", "vj_bms_zombies/die2.wav", "vj_bms_zombies/die3.wav", "vj_bms_zombies/die4.wav", "vj_bms_zombies/die5.wav"}
 
 local sdFootScuff = {"npc/zombie/foot_slide1.wav", "npc/zombie/foot_slide2.wav", "npc/zombie/foot_slide3.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local getEventName = util.GetAnimEventNameByID
 --
 function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
@@ -50,7 +50,7 @@ function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
 		self:ExecuteMeleeAttack()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
 	if self:IsOnFire() then
 		if act == ACT_IDLE then
@@ -61,7 +61,7 @@ function ENT:TranslateActivity(act)
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local colorYellow = VJ.Color2Byte(Color(255, 221, 35))
 --
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)
@@ -91,7 +91,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	self:CreateGibEntity("obj_vj_gib", "UseAlien_Big")
 	return true
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnCreateDeathCorpse(dmginfo,  hitgroup,  corpse)
 	if self:GetBodygroup(1) == 1 then return false end -- Only continue if crab bodygroup is set
 	local spawnType = math.random(1, 3)

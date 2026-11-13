@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/vj_alienswarm/boomer.mdl"
 ENT.StartHealth = 350
 ENT.HullType = HULL_MEDIUM_TALL
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_ALIENSWARM"}
 ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
 
@@ -34,7 +34,7 @@ local sdWhoosh = {"vj_alienswarm/boomer/attack01.wav", "vj_alienswarm/boomer/att
 -- Custom
 ENT.Boomer_ControllerGallop = false
 ENT.Boomer_AnimGallop = ACT_RUN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(35, 35, 120), Vector(-35, -35, 0))
 	self:SetStepHeight(60)
@@ -54,7 +54,7 @@ function ENT:Init()
 	
 	self.Boomer_AnimGallop = VJ.SequenceToActivity(self, "gallop")
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	if key == "ASW_Boomer.FootstepWalk" or key == "ASW_Boomer.FootstepRun" then
 		self:PlayFootstepSound()
@@ -73,11 +73,11 @@ function ENT:OnInput(key, activator, caller, data)
 		self:ExecuteMeleeAttack()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:MeleeAttackKnockbackVelocity(ent)
 	return self:GetForward() * 100 + self:GetUp() * 250
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Controller_Initialize(ply, controlEnt)
 	ply:ChatPrint("JUMP: Toggle between running and galloping")
 	
@@ -95,14 +95,14 @@ function ENT:Controller_Initialize(ply, controlEnt)
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
-	if act == ACT_RUN && ((!self.VJ_Controlled && self.EnemyData.Distance < 800 && (self:GetNPCState() == NPC_STATE_ALERT or self:GetNPCState() == NPC_STATE_COMBAT)) or (self.VJ_Controlled && self.Boomer_ControllerGallop)) then
+	if act == ACT_RUN and ((!self.VJ_Controlled and self.EnemyData.Distance < 800 and (self:GetNPCState() == NPC_STATE_ALERT or self:GetNPCState() == NPC_STATE_COMBAT)) or (self.VJ_Controlled and self.Boomer_ControllerGallop)) then
 		return self.Boomer_AnimGallop
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local colorYellow = VJ.Color2Byte(Color(255, 221, 35))
 local defAng = Angle()
 --

@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/vj_alienswarm/betashieldbug.mdl"
 ENT.StartHealth = 800
 ENT.HullType = HULL_LARGE
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_ALIENSWARM"}
 ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
 
@@ -39,12 +39,12 @@ local SHIELDBUG_MELEE_CHARGE = 2
 
 -- Custom
 ENT.Shieldbug_MeleeType = SHIELDBUG_MELEE_SWIPE
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(45, 45, 100), Vector(-45, -45, 0))
 	self:SetSurroundingBounds(Vector(150, 150, 150), Vector(-150, -150, 0))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	if key == "move" then
 		self:PlayFootstepSound()
@@ -66,12 +66,12 @@ function ENT:OnInput(key, activator, caller, data)
 		self:ExecuteMeleeAttack()
 	elseif key == "shove_roar_hit" then
 		util.ScreenShake(self:GetPos(), 16, 200, 0.5, 1500)
-		if self.HasSounds == true && self.HasAlertSounds == true then
+		if self.HasSounds == true and self.HasAlertSounds == true then
 			VJ.EmitSound(self, "vj_alienswarm/shieldbug/stomp01.wav", 80, math.random(90, 100))
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnAlert(ent)
 	if self.VJ_Controlled then return end
 	if math.random(1, 2) == 1 then
@@ -79,7 +79,7 @@ function ENT:OnAlert(ent)
 		self:PlaySoundSystem("Alert", "vj_alienswarm/shieldbug/roar.wav")
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:MeleeAttackKnockbackVelocity(ent)
 	if self.Shieldbug_MeleeType == SHIELDBUG_MELEE_SLAM then
 		return self:GetForward() * math.random(170, 190) + self:GetUp() * math.random(200, 210)
@@ -89,9 +89,9 @@ function ENT:MeleeAttackKnockbackVelocity(ent)
 		return self:GetForward() * math.random(270, 290) + self:GetUp() * math.random(50, 75)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnMeleeAttackExecute(status, ent, isProp)
-	if status == "Miss" && self.Shieldbug_MeleeType == SHIELDBUG_MELEE_SLAM then
+	if status == "Miss" and self.Shieldbug_MeleeType == SHIELDBUG_MELEE_SLAM then
 		util.ScreenShake(self:GetPos(), 8, 100, 0.5, 1500)
 	end
 end

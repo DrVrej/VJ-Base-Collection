@@ -32,11 +32,11 @@ ENT.SoundTbl_MeleeAttackMiss = {"vj_zombies/miss1.wav", "vj_zombies/miss2.wav", 
 ENT.SoundTbl_Death = {"vj_zombies/special/die1.wav", "vj_zombies/special/die2.wav", "vj_zombies/special/die3.wav"}
 
 //ENT.FootstepSoundLevel = 55 -- Used by the older footstep sound "physics/metal/metal_box_footstep3.wav"
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(9, 9, 65), Vector(-9, -9, 0))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	//print(key)
 	if key == "step" then

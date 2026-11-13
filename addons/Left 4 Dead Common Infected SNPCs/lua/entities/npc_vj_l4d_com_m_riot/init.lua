@@ -14,7 +14,7 @@ ENT.SoundTbl_FootStep = {"vj_l4d_com/footstep/riot/tile1.wav", "vj_l4d_com/foots
 
 -- Custom
 ENT.ZombieRiot_MaskHP = 80
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Zombie_OnInit()
 	self:SetBodygroup(1, math.random(0, 3))
 	
@@ -30,13 +30,13 @@ function ENT:Zombie_OnInit()
 	mask:AddEffects(EF_BONEMERGE)
 	self.MaskModel = mask
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local orgDmgFunc = ENT.OnDamaged
 --
 function ENT:OnDamaged(dmginfo, hitgroup, status)
 	if status == "PreDamage" then
 		-- Break the mask if it takes too much damage
-		if hitgroup == HITGROUP_HEAD && IsValid(self.MaskModel) then
+		if hitgroup == HITGROUP_HEAD and IsValid(self.MaskModel) then
 			self.ZombieRiot_MaskHP = self.ZombieRiot_MaskHP - dmginfo:GetDamage()
 			if self.ZombieRiot_MaskHP <= 0 then -- Mask broke!
 				self.MaskModel:Remove()
@@ -54,11 +54,11 @@ function ENT:OnDamaged(dmginfo, hitgroup, status)
 		//spark:SetAngles(dmginfo:GetDamagePosition():Angle())
 		//spark:SetScale(0.1)
 		//util.Effect("StunstickImpact", spark)
-		if self.HasSounds && self.HasImpactSounds then VJ.EmitSound(self, "VJ.Impact.Armor") end
+		if self.HasSounds and self.HasImpactSounds then VJ.EmitSound(self, "VJ.Impact.Armor") end
 	end
 	orgDmgFunc(self, dmginfo, hitgroup, status)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
 	local mask = self.MaskModel
 	if IsValid(mask) then
@@ -66,10 +66,10 @@ function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
 		mask:SetParent(corpse)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:CustomOnRemove()
 	-- If no corpse spawned, make sure to remove the mask!
-	if !IsValid(self.Corpse) && IsValid(self.MaskModel) then
+	if !IsValid(self.Corpse) and IsValid(self.MaskModel) then
 		self.MaskModel:Remove()
 	end
 end

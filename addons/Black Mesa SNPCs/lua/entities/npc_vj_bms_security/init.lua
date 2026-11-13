@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/humans/guard.mdl"
 ENT.StartHealth = 60
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_BLACK_MESA_PERSONNEL", "CLASS_PLAYER_ALLY"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.AlliedWithPlayerAllies = true
@@ -32,7 +32,7 @@ ENT.SoundTbl_UnFollowPlayer = {"vj_bms_securityguard/stopfollowing1.wav", "vj_bm
 ENT.SoundTbl_BecomeEnemyToPlayer = {"vj_bms_securityguard/hateplayer1.wav", "vj_bms_securityguard/hateplayer2.wav", "vj_bms_securityguard/hateplayer3.wav", "vj_bms_securityguard/hateplayer4.wav", "vj_bms_securityguard/hateplayer5.wav", "vj_bms_securityguard/hateplayer6.wav"}
 ENT.SoundTbl_OnPlayerSight = {"vj_bms_securityguard/sawplayer1.wav", "vj_bms_securityguard/sawplayer2.wav", "vj_bms_securityguard/sawplayer3.wav", "vj_bms_securityguard/sawplayer4.wav", "vj_bms_securityguard/sawplayer5.wav", "vj_bms_securityguard/sawplayer6.wav", }
 ENT.SoundTbl_DamageByPlayer = {"vj_bms_securityguard/stupidplayer1.wav", "vj_bms_securityguard/stupidplayer2.wav", "vj_bms_securityguard/stupidplayer3.wav", "vj_bms_securityguard/stupidplayer4.wav", "vj_bms_securityguard/stupidplayer5.wav", "vj_bms_securityguard/stupidplayer6.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetSkin(math.random(0, 14))
 	self:SetBodygroup(2, math.random(0, 1)) -- Helmet
@@ -43,7 +43,7 @@ function ENT:Init()
 	end
 	self:SetBodygroup(5, math.random(0, 1)) -- Flashlight
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Security_WeaponHolster(Type)
 	local curWep = self:GetActiveWeapon()
 	if !IsValid(curWep) or curWep:GetClass() != "weapon_vj_glock17" then self:SetBodygroup(4, 2) return end
@@ -71,24 +71,24 @@ function ENT:Security_WeaponHolster(Type)
 		end)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnWeaponChange(newWeapon, oldWeapon, invSwitch)
-	if !invSwitch && newWeapon:GetClass() == "weapon_vj_glock17" then
+	if !invSwitch and newWeapon:GetClass() == "weapon_vj_glock17" then
 		self:SetWeaponState(VJ.WEP_STATE_HOLSTERED)
 		self:SetBodygroup(4, 1)
 		newWeapon:SetDrawWorldModel(false)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkActive()
 	if self.Dead or self:IsBusy("Activities") then return end
 	if IsValid(self:GetEnemy()) then
 		if self:GetWeaponState() == VJ.WEP_STATE_HOLSTERED then self:Security_WeaponHolster(1) end
-	elseif self:GetWeaponState() == VJ.WEP_STATE_READY && (CurTime() - self.EnemyData.TimeSet) > 5 then
+	elseif self:GetWeaponState() == VJ.WEP_STATE_READY and (CurTime() - self.EnemyData.TimeSet) > 5 then
 		self:Security_WeaponHolster(0)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local colorRed = VJ.Color2Byte(Color(130, 19, 10))
 --
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)
@@ -121,7 +121,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	self:CreateGibEntity("obj_vj_gib", "UseHuman_Big", {Pos=self:LocalToWorld(Vector(0, 0, 35))})
 	return true
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeathWeaponDrop(dmginfo, hitgroup, wepEnt)
 	self:SetBodygroup(4, 2)
 	if wepEnt.IsVJBaseWeapon then

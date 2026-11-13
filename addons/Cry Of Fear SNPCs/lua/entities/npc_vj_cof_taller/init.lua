@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/cryoffear/taller/taller.mdl"}
 ENT.StartHealth = GetConVarNumber("vj_cof_taller_h")
 ENT.HullType = HULL_MEDIUM_TALL
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -40,15 +40,15 @@ ENT.SoundTbl_Death = {"taller/taller_die.wav"}
 
 ENT.AlertSoundLevel = 90
 ENT.FootstepSoundLevel = 80
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(30, 30, 170), Vector(-30, -30, 0))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnFootstepSound(moveType, sdFile)
 	util.ScreenShake(self:GetPos(), 10, 100, 0.4, 1000)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkAttack(isAttacking, enemy)
 	if isAttacking then return end
 	if math.random(1, 2) == 1 then
@@ -71,7 +71,7 @@ function ENT:OnThinkAttack(isAttacking, enemy)
 		self.SoundTbl_MeleeAttackMiss = {"taller/taller_player_impact.wav"}
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:MeleeAttackKnockbackVelocity(ent)
 	if self:GetActivity() == ACT_MELEE_ATTACK2 then
 		return self:GetForward() * 50
@@ -79,9 +79,9 @@ function ENT:MeleeAttackKnockbackVelocity(ent)
 		return self:GetForward() * 150 + self:GetUp() * math.random(350, 360)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnMeleeAttackExecute(status, ent, isProp)
-	if status == "Miss" && self:GetActivity() == ACT_MELEE_ATTACK2 then
+	if status == "Miss" and self:GetActivity() == ACT_MELEE_ATTACK2 then
 		util.ScreenShake(self:GetPos(), 5, 100, 0.7, 800)
 	end
 end

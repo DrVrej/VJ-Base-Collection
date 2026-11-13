@@ -10,7 +10,7 @@ ENT.StartHealth = 150
 
 ENT.Zombie_Type = 0
 ENT.Zombie_Gender = 1
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:PreInit()
 	local randModel = math.random(1, 6)
 	if randModel == 1 then

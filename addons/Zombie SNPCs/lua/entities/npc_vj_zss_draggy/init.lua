@@ -27,7 +27,7 @@ ENT.SoundTbl_Alert = {"vj_zombies/special/alert1.wav", "vj_zombies/special/alert
 ENT.SoundTbl_MeleeAttackExtra = {"vj_zombies/special/bite1.wav", "vj_zombies/special/bite2.wav", "vj_zombies/special/bite3.wav", "vj_zombies/special/bite4.wav"}
 ENT.SoundTbl_Pain = {"vj_zombies/special/pain1.wav", "vj_zombies/special/pain2.wav", "vj_zombies/special/pain3.wav", "vj_zombies/special/pain4.wav", "vj_zombies/special/pain5.wav", "vj_zombies/special/pain6.wav"}
 ENT.SoundTbl_Death = {"vj_zombies/special/die1.wav", "vj_zombies/special/die2.wav", "vj_zombies/special/die3.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(12, 12, 60), Vector(-12, -12, 0))
 	self:SetSkin(math.random(0, 3))

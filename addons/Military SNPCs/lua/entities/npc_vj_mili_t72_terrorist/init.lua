@@ -7,7 +7,7 @@ include("shared.lua")
 -----------------------------------------------*/
 ENT.Model = "models/vehicles/t72_chasis.mdl"
 ENT.StartHealth = 500
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_TERRORIST"}
 
 ENT.SoundTbl_Idle = {"vj_military/arabic/idle1.wav", "vj_military/arabic/idle2.wav", "vj_military/arabic/idle3.wav", "vj_military/arabic/idle4.wav", "vj_military/arabic/idle5.wav", "vj_military/arabic/idle6.wav", "vj_military/arabic/idle7.wav", "vj_military/arabic/idle8.wav", "vj_military/arabic/idle9.wav", "vj_military/arabic/idle10.wav", "vj_military/arabic/idle11.wav", "vj_military/arabic/idle12.wav"}
@@ -21,7 +21,7 @@ ENT.Tank_CollisionBoundSize = 90
 ENT.Tank_CollisionBoundUp = 100
 ENT.Tank_DeathDriverCorpse = {"models/VJ_Terrorist/2hemagh.mdl", "models/VJ_Terrorist/2kimasked.mdl", "models/VJ_Terrorist/3hemagh.mdl", "models/VJ_Terrorist/shemagh.mdl", "models/VJ_Terrorist/shemagh_helmet.mdl", "models/VJ_Terrorist/skimasked.mdl", "models/VJ_Terrorist/unmasked1.mdl", "models/VJ_Terrorist/unmasked2.mdl"}
 
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Tank_Init()
 	self:SetSkin(1)
 	if GetConVar("vj_npc_reduce_vfx"):GetInt() == 0 then
@@ -83,7 +83,7 @@ function ENT:Tank_Init()
 		self:DeleteOnRemove(self.ActualLight2)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Tank_UpdateIdleParticles()
 	local effectData = EffectData()
 	effectData:SetScale(1)
@@ -93,7 +93,7 @@ function ENT:Tank_UpdateIdleParticles()
 	effectData:SetOrigin(self:GetPos() + self:GetForward() * 110 + self:GetRight() * 20 + self:GetUp() * 55)
 	util.Effect("VJ_VehicleExhaust", effectData, true, true)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Tank_UpdateMoveParticles()
 	local effectData = EffectData()
 	effectData:SetScale(1)
@@ -103,7 +103,7 @@ function ENT:Tank_UpdateMoveParticles()
 	effectData:SetOrigin(self:GetPos() + self:GetForward() * 87 + self:GetRight() * -58)
 	util.Effect("VJ_VehicleMove", effectData, true, true)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:GetNearDeathSparkPositions()
 	local randPos = math.random(1, 7)
 	if randPos == 1 then self.Spark1:SetLocalPos(self:GetPos() +self:GetForward()*100 +self:GetUp()*60)

@@ -11,7 +11,7 @@ ENT.PrintName = "Random Beta Drone Spawner"
 ENT.Author = "DrVrej"
 ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
 ENT.Category = "Alien Swarm"
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 if !SERVER then return end
 
 local entsList = {"npc_vj_as_droneb", "npc_vj_as_droneb_big:4", "npc_vj_as_droneb_elite:8", "npc_vj_as_droneb_big_elite:10"}

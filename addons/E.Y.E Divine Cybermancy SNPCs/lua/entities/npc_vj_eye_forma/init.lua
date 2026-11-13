@@ -56,14 +56,14 @@ ENT.SoundTbl_LeapAttackJump = "vj_eye/forma/leap1.wav"
 ENT.SoundTbl_LeapAttackDamage = {"vj_eye/forma/claw_strike1.wav", "vj_eye/forma/claw_strike2.wav", "vj_eye/forma/claw_strike3.wav"}
 ENT.SoundTbl_Pain = {"vj_eye/forma/pain1.wav", "vj_eye/forma/pain2.wav"}
 ENT.SoundTbl_Death = "vj_eye/forma/die1.wav"
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(18, 18, 60), Vector(-18, -18, 0))
 	if self:GetModel() == "models/vj_eye/forma.mdl" then
 		self:SetSkin(math.random(0, 1))
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local getEventName = util.GetAnimEventNameByID
 --
 function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
@@ -74,9 +74,9 @@ function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
 		self:PlayFootstepSound()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
-	if (act == ACT_IDLE or ACT_GLIDE) && !self:OnGround() then
+	if (act == ACT_IDLE or ACT_GLIDE) and !self:OnGround() then
 		if self.AttackType == VJ.ATTACK_TYPE_LEAP then
 			return ACT_RANGE_ATTACK2
 		elseif !self:IsMoving() then
@@ -85,7 +85,7 @@ function ENT:TranslateActivity(act)
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnLeapAttack(status, enemy)
 	if status == "Jump" then
 		return ((enemy:GetPos() + enemy:OBBCenter()) - (self:GetPos() + self:OBBCenter())):GetNormal() * 400 + self:GetForward() * 250 + self:GetUp() * 220

@@ -8,7 +8,7 @@ include("shared.lua")
 -----------------------------------------------*/
 ENT.StartHealth = 150
 ENT.MeleeAttackDamage = 35
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetSurroundingBounds(Vector(60, 60, 100), Vector(-60, -60, 0))
 	self:SetSkin((math.random(1, 2) == 1 and 1) or 3)

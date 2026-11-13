@@ -7,7 +7,7 @@ include("shared.lua")
 -----------------------------------------------*/
 ENT.Model = "models/VJ_GERMAN/tigerbody.mdl"
 ENT.StartHealth = 500
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_GERMAN"}
 
 ENT.SoundTbl_Idle = {"vj_military/german/objectiveclear1.wav", "vj_military/german/objectiveclear2.wav", "vj_military/german/objectiveclear3.wav", "vj_military/german/objectiveclear4.wav", "vj_military/german/objectiveclear5.wav", "vj_military/german/spreadout1.wav", "vj_military/german/spreadout2.wav", "vj_military/german/sticktogether1.wav", "vj_military/german/sticktogether2.wav", "vj_military/german/statusreport1.wav", "vj_military/german/statusreport2.wav", "vj_military/german/raid_decoy1.wav", "vj_military/german/raid_decoy2.wav", "vj_military/german/raid_decoy3.wav", "vj_military/german/raid_decoy4.wav", "vj_military/german/raid_decoy5.wav"}
@@ -24,11 +24,11 @@ ENT.Tank_CollisionBoundSize = 140
 ENT.Tank_CollisionBoundUp = 120
 ENT.Tank_DeathDriverCorpse = {"models/VJ_WAFFEN/german_soldier1.mdl", "models/VJ_WAFFEN/german_soldier2.mdl", "models/VJ_WAFFEN/german_soldier3.mdl", "models/VJ_WAFFEN/german_soldier4.mdl", "models/VJ_WAFFEN/german_soldier5.mdl", "models/VJ_WAFFEN/german_soldier6.mdl"}
 
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Tank_GunnerSpawnPosition()
 	return self:GetPos() + self:GetUp()*92 + self:GetRight()*-52
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Tank_UpdateIdleParticles()
 	local effectData = EffectData()
 	effectData:SetScale(1)
@@ -38,7 +38,7 @@ function ENT:Tank_UpdateIdleParticles()
 	effectData:SetOrigin(self:GetPos() + self:GetForward() * -20 + self:GetRight() * -195 + self:GetUp() * 100)
 	util.Effect("VJ_VehicleExhaust", effectData, true, true)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Tank_UpdateMoveParticles()
 	local effectData = EffectData()
 	effectData:SetScale(1)
@@ -48,7 +48,7 @@ function ENT:Tank_UpdateMoveParticles()
 	effectData:SetOrigin(self:GetPos() + self:GetForward() * -65 + self:GetRight() * -13)
 	util.Effect("VJ_VehicleMove", effectData, true, true)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:GetNearDeathSparkPositions()
 	local randPos = math.random(1, 7)
 	if randPos == 1 then self.Spark1:SetLocalPos(self:GetPos() +self:GetForward()*90 +self:GetUp()*60 +self:GetRight()*-100)

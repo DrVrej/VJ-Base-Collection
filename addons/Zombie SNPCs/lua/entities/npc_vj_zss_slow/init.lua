@@ -40,7 +40,7 @@ ENT.SoundTbl_Pain = {"vj_zombies/slow/pain1.wav", "vj_zombies/slow/pain2.wav", "
 ENT.SoundTbl_Death = {"vj_zombies/slow/die1.wav", "vj_zombies/slow/die2.wav", "vj_zombies/slow/die3.wav", "vj_zombies/slow/die4.wav", "vj_zombies/slow/die5.wav", "vj_zombies/slow/die6.wav"}
 
 local sdFootScuff = {"npc/zombie/foot_slide1.wav", "npc/zombie/foot_slide2.wav", "npc/zombie/foot_slide3.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 -- "vjseq_attacka", "vjseq_attackb", "vjseq_attackc", "vjseq_attackd", "vjseq_attacke", "vjseq_attackf"   |   Unused (Faster): "vjseq_swatrightmid", "vjseq_swatleftmid"
 -- "vjseq_attacke", "vjseq_attackf"   |   Unused (Faster): "vjseq_swatleftlow", "vjseq_swatrightlow"
 --
@@ -57,7 +57,7 @@ function ENT:OnInput(key, activator, caller, data)
 		self:ExecuteMeleeAttack()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
 	if self:IsOnFire() then
 		if act == ACT_IDLE then

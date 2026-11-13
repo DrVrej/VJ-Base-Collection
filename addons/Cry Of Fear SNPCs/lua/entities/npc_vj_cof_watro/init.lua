@@ -10,7 +10,7 @@ ENT.StartHealth = GetConVarNumber("vj_cof_watro_h")
 ENT.HullType = HULL_HUMAN
 ENT.MovementType = VJ_MOVETYPE_STATIONARY
 ENT.CanTurnWhileStationary = false
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -31,13 +31,13 @@ ENT.DeathAnimationTime = 0.8
 
 ENT.SoundTbl_MeleeAttack = {"watro/watro_hit.wav"}
 ENT.SoundTbl_MeleeAttackMiss = {"watro/watro_swing.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	//self:DrawShadow(false)
 	self:SetPos(self:GetPos() + self:GetUp()*30)
 	self:SetCollisionBounds(Vector(30, 30, 100), Vector(-30, -30, -50))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	if status == "DeathAnim" then
 		self:DrawShadow(false)

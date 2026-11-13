@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/VJ_BLACKMESA/bullsquid.mdl"
 ENT.StartHealth = 120
 ENT.HullType = HULL_WIDE_SHORT
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_XEN"}
 ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
 ENT.Immune_Toxic = true
@@ -49,12 +49,12 @@ ENT.SoundTbl_RangeAttack = {"vj_bms_bullsquid/goo_attack1.wav", "vj_bms_bullsqui
 ENT.SoundTbl_Pain = {"vj_bms_bullsquid/pain1.wav", "vj_bms_bullsquid/pain2.wav", "vj_bms_bullsquid/pain3.wav", "vj_bms_bullsquid/pain4.wav", "vj_bms_bullsquid/pain5.wav"}
 ENT.SoundTbl_Death = {"vj_bms_bullsquid/die1.wav", "vj_bms_bullsquid/die2.wav"}
 
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(45, 45, 50), Vector(-45, -45, 0))
 	self:SetSkin(1)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local getEventName = util.GetAnimEventNameByID
 --
 function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
@@ -71,19 +71,19 @@ function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
 		//self:ExecuteRangeAttack()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:MeleeAttackKnockbackVelocity(ent)
 	return self:GetForward()*55 + self:GetUp()*255
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:RangeAttackProjPos(projectile)
 	return self:GetAttachment(self:LookupAttachment("Mouth")).Pos
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:RangeAttackProjVel(projectile)
 	return VJ.CalculateTrajectory(self, self:GetEnemy(), "Curve", projectile:GetPos() + VectorRand(-15, 15), 1, 50)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local colorYellow = VJ.Color2Byte(Color(255, 221, 35))
 --
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)

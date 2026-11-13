@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/vj_alienswarm/drone.mdl"
 ENT.StartHealth = 80
 ENT.HullType = HULL_MEDIUM
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_ALIENSWARM"}
 ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
 
@@ -40,7 +40,7 @@ ENT.SoundTbl_Death = {"vj_alienswarm/drone/deathfire01.wav", "vj_alienswarm/dron
 local sdBurrow = {"vj_alienswarm/drone/burrow01.wav", "vj_alienswarm/drone/burrow02.wav", "vj_alienswarm/drone/burrow03.wav", "vj_alienswarm/drone/burrow04.wav"}
 
 ENT.FootstepSoundLevel = 55
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(20, 20, 60), Vector(-20, -20, 0))
 	self:SetSurroundingBounds(Vector(70, 70, 100), Vector(-70, -70, 0))
@@ -63,7 +63,7 @@ function ENT:Init()
 	end
 	
 	-- Burrow out animation
-	if VJ_CVAR_AI_ENABLED && math.random(1, 2) == 1 then
+	if VJ_CVAR_AI_ENABLED and math.random(1, 2) == 1 then
 		self:SetNoDraw(true)
 		self:SetState(VJ_STATE_FREEZE)
 		timer.Simple(0.05, function()
@@ -80,7 +80,7 @@ function ENT:Init()
 		end)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	if key == "ASW_Drone.Footstep" then
 		self:PlayFootstepSound()
@@ -90,7 +90,7 @@ function ENT:OnInput(key, activator, caller, data)
 		//self:SetNoDraw(false)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnCallForHelp(ally, isFirst)
 	if !isFirst then return end
 	timer.Simple(1, function()
@@ -100,7 +100,7 @@ function ENT:OnCallForHelp(ally, isFirst)
 		end
 	end)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnFlinch(dmginfo, hitgroup, status)
 	if status == "Init" then
 		local dmgAmt = dmginfo:GetDamage()
@@ -113,7 +113,7 @@ function ENT:OnFlinch(dmginfo, hitgroup, status)
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	if status == "Init" then
 		-- High damage force, don't play death animation
@@ -122,7 +122,7 @@ function ENT:OnDeath(dmginfo, hitgroup, status)
 		end
 		
 		-- Certain damage types cause it to use gibbed bodygroup AND not play death animation
-		if self:GetBodygroup(0) != 1 && self:IsGibDamage(dmginfo:GetDamageType()) then
+		if self:GetBodygroup(0) != 1 and self:IsGibDamage(dmginfo:GetDamageType()) then
 			self:SetBodygroup(0, 2)
 			self.HasDeathAnimation = false
 		end

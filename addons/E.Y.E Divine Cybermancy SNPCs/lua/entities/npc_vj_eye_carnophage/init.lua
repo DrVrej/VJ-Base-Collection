@@ -46,12 +46,12 @@ ENT.SoundTbl_Death = {"vj_eye/carnophage/scream.wav", "vj_eye/carnophage/die2.wa
 
 local sdAlertRegular = {"vj_eye/carnophage/alert1.wav", "vj_eye/carnophage/alert3.wav"}
 local sdAlertAngry = "vj_eye/carnophage/gurgle_loop1.wav"
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(22, 22, 80), Vector(-22, -22, 0))
 	self:SetSkin(math.random(0, 3))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local getEventName = util.GetAnimEventNameByID
 --
 function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
@@ -62,7 +62,7 @@ function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
 		//self:PlayFootstepSound()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnAlert(ent)
 	if self.VJ_Controlled then return end
 	if math.random(1, 2) == 1 then
@@ -72,7 +72,7 @@ function ENT:OnAlert(ent)
 		self.SoundTbl_Alert = sdAlertRegular
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 /*
 -- Why not use the other 2 attacks? Because this 1 attack is extremely dangerous & fast, while the others are too slow compared to it
 function ENT:OnMeleeAttack(status, enemy)

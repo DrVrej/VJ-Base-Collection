@@ -151,7 +151,7 @@ function ENT:FindCenterNavPoint(ent)
 	for _, v in RandomPairs(self.navAreas) do
 		local testPos = v:GetCenter()
 		local dist = testPos:Distance(ent:GetPos())
-		if dist <= self.CI_SpawnDistance && dist >= self.CI_SpawnDistanceClose && !self:CheckVisibility(testPos,ent) then
+		if dist <= self.CI_SpawnDistance and dist >= self.CI_SpawnDistanceClose and !self:CheckVisibility(testPos,ent) then
 			return testPos
 		end
 	end
@@ -165,7 +165,7 @@ function ENT:FindHiddenNavPoint(ent)
 		if #hidingSpots <= 0 then continue end
 		local testPos = VJ.PICK(hidingSpots)
 		local dist = testPos:Distance(ent:GetPos())
-		if dist <= self.CI_SpawnDistance && dist >= self.CI_SpawnDistanceClose && !self:CheckVisibility(testPos,ent) then
+		if dist <= self.CI_SpawnDistance and dist >= self.CI_SpawnDistanceClose and !self:CheckVisibility(testPos,ent) then
 			return testPos
 		end
 	end
@@ -176,7 +176,7 @@ function ENT:FindRandomNavPoint(ent)
 	for _, v in RandomPairs(self.navAreas) do
 		local testPos = v:GetRandomPoint()
 		local dist = testPos:Distance(ent:GetPos())
-		if dist <= self.CI_SpawnDistance && dist >= self.CI_SpawnDistanceClose && !self:CheckVisibility(testPos,ent) then
+		if dist <= self.CI_SpawnDistance and dist >= self.CI_SpawnDistanceClose and !self:CheckVisibility(testPos,ent) then
 			return testPos
 		end
 	end
@@ -187,12 +187,12 @@ function ENT:GetClosestNavPosition(ent, getHidden)
 	local pos = false
 	local closestDist = 999999999
 	for _, v in pairs(self.navAreas) do
-		local hidingSpots = getHidden && v:GetHidingSpots() or true
+		local hidingSpots = getHidden and v:GetHidingSpots() or true
 		if !hidingSpots then continue end
-		if istable(hidingSpots) && #hidingSpots <= 0 then continue end
-		local testPos = getHidden && VJ.PICK(v:GetHidingSpots()) or v:GetRandomPoint()
+		if istable(hidingSpots) and #hidingSpots <= 0 then continue end
+		local testPos = getHidden and VJ.PICK(v:GetHidingSpots()) or v:GetRandomPoint()
 		local dist = ent:GetPos():Distance(testPos)
-		if dist < closestDist && (dist <= self.CI_SpawnDistance && dist >= self.CI_SpawnDistanceClose && !self:CheckVisibility(testPos,ent)) then
+		if dist < closestDist and (dist <= self.CI_SpawnDistance and dist >= self.CI_SpawnDistanceClose and !self:CheckVisibility(testPos,ent)) then
 			closestDist = dist
 			pos = testPos
 		end
@@ -207,7 +207,7 @@ function ENT:GetClosestNodePosition(ent)
 		if !self:IsNodeUsable(i) then continue end
 		local testPos = self:GetNodePosition(i)
 		local dist = ent:GetPos():Distance(testPos)
-		if dist < closestDist && (dist <= self.CI_SpawnDistance && dist >= self.CI_SpawnDistanceClose && !self:CheckVisibility(testPos,ent)) then
+		if dist < closestDist and (dist <= self.CI_SpawnDistance and dist >= self.CI_SpawnDistanceClose and !self:CheckVisibility(testPos,ent)) then
 			closestDist = dist
 			pos = testPos
 		end
@@ -219,11 +219,11 @@ function ENT:FindRandomNodePosition(ent)
 	for i,v in RandomPairs(self.nodePositions) do
 		if !self:IsNodeUsable(i) then continue end
 		local testPos = self:GetNodePosition(i)
-		local dist = ent && testPos:Distance(ent:GetPos()) or 0
+		local dist = ent and testPos:Distance(ent:GetPos()) or 0
 		if ent then
 			return testPos
 		else
-			if dist <= self.CI_SpawnDistance && dist >= self.CI_SpawnDistanceClose && !self:CheckVisibility(testPos,ent) then
+			if dist <= self.CI_SpawnDistance and dist >= self.CI_SpawnDistanceClose and !self:CheckVisibility(testPos,ent) then
 				return testPos
 			end
 		end
@@ -234,15 +234,15 @@ end
 function ENT:FindSpawnPosition(getClosest,findHidden)
 	local nodes = self.nodePositions
 	local navareas = self.navAreas
-	local useNav = (#nodes <= 0 && #navareas > 0) or (#navareas > 0 && #nodes > 0 && math.random(1,2) == 1) or false
+	local useNav = (#nodes <= 0 and #navareas > 0) or (#navareas > 0 and #nodes > 0 and math.random(1,2) == 1) or false
 	local pos = false
 	local testEnt = self:GetRandomSurvivor()
 	if IsValid(testEnt) then
 		if useNav then
 			local getHidden = findHidden or math.random(1,3) == 1
-			pos = getClosest && self:GetClosestNavPosition(testEnt,getHidden) or getHidden && self:FindHiddenNavPoint(testEnt) or self:FindRandomNavPoint(testEnt)
+			pos = getClosest and self:GetClosestNavPosition(testEnt,getHidden) or getHidden and self:FindHiddenNavPoint(testEnt) or self:FindRandomNavPoint(testEnt)
 		else
-			pos = getClosest && self:GetClosestNodePosition(testEnt) or self:FindRandomNodePosition(testEnt)
+			pos = getClosest and self:GetClosestNodePosition(testEnt) or self:FindRandomNodePosition(testEnt)
 		end
 	end
 	return pos
@@ -259,7 +259,7 @@ end
 function ENT:FindSurvivors()
 	local tbl = {}
 	for _,v in pairs(ents.GetAll()) do
-		if (v:IsPlayer() && !VJ_CVAR_IGNOREPLAYERS || v:IsNPC()) && v:Health() > 0 && !v:IsFlagSet(65536) && (v.VJ_NPC_Class && !VJ.HasValue(v.VJ_NPC_Class,"CLASS_ZOMBIE") or true) then
+		if (v:IsPlayer() and !VJ_CVAR_IGNOREPLAYERS or v:IsNPC()) and v:Health() > 0 and !v:IsFlagSet(65536) and (v.VJ_NPC_Class and !VJ.HasValue(v.VJ_NPC_Class,"CLASS_ZOMBIE") or true) then
 			table_insert(tbl,v)
 		end
 	end
@@ -296,7 +296,7 @@ function ENT:CheckSurvivorDistance(ent, remove)
 			visible = true -- Visible to someone, don't bother removing
 		end
 	end
-	if closestDist >= GetConVarNumber("vj_l4d_director_spawnmax") +1000 && !visible && !remove then
+	if closestDist >= GetConVarNumber("vj_l4d_director_spawnmax") +1000 and !visible and !remove then
 		SafeRemoveEntity(ent)
 	end
 end
@@ -321,7 +321,7 @@ function ENT:Think()
 					if IsValid(v) then
 						local enemy = v:GetEnemy()
 						self:CheckSurvivorDistance(v)
-						if IsValid(enemy) && !VJ.HasValue(self.tbl_NPCsWithEnemies,v) then
+						if IsValid(enemy) and !VJ.HasValue(self.tbl_NPCsWithEnemies,v) then
 							table_insert(self.tbl_NPCsWithEnemies,v)
 						elseif !IsValid(enemy) then
 							if VJ.HasValue(self.tbl_NPCsWithEnemies,v) then
@@ -365,7 +365,7 @@ function ENT:Think()
 			if enemyTblCount > self.CI_MaxInfected * 0.5 then
 				self:DoMusic(false)
 			else
-				if self.DidStartMusic && CurTime() > self.NextMusicSwitchT then
+				if self.DidStartMusic and CurTime() > self.NextMusicSwitchT then
 					self:DoMusic(true)
 				end
 			end
@@ -391,7 +391,7 @@ function ENT:Think()
 		end
 
 		-- Spawns Mobs
-		if CurTime() > self.NextMobSpawnTime && math.random(1,self.CI_MobChance) == 1 then
+		if CurTime() > self.NextMobSpawnTime and math.random(1,self.CI_MobChance) == 1 then
 			for i = 1,self.CI_MaxMobSpawn do
 				timer.Simple(self.MobSpawnRate *i,function() -- Help with lag when spawning
 					if IsValid(self) then
@@ -435,7 +435,7 @@ function ENT:DoMusic(stop)
 			if GetConVarNumber("vj_l4d_director_music") == 1 then
 				v.L4D_HordeSoundT = v.L4D_HordeSoundT or 0
 				if CurTime() > v.L4D_HordeSoundT then
-					v.L4D_HordeSong = math.random(1,2) == 1 && "vj_l4d_com/music/zombat/horde_0" .. math.random(1,4) .. ".wav" or "vj_l4d_com/music/zombat/slayer/hordeslayer_0" .. math.random(1,4) .. ".wav"
+					v.L4D_HordeSong = math.random(1,2) == 1 and "vj_l4d_com/music/zombat/horde_0" .. math.random(1,4) .. ".wav" or "vj_l4d_com/music/zombat/slayer/hordeslayer_0" .. math.random(1,4) .. ".wav"
 					self:PlaySong(v,v.L4D_HordeSong,false)
 					v.L4D_HordeSoundT = CurTime() +SoundDuration(v.L4D_HordeSong)
 				end
@@ -454,7 +454,7 @@ end
 function ENT:GetSpecialCount(class)
 	local count = 0
 	for _, v in pairs(self.tbl_SpawnedSpecialInfected) do
-		if IsValid(v) && v:GetClass() == class then
+		if IsValid(v) and v:GetClass() == class then
 			count = count +1
 		end
 	end

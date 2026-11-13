@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/cryoffear/mace/sewer_boss.mdl"}
 ENT.StartHealth = GetConVarNumber("vj_cof_mace_h")
 ENT.HullType = HULL_MEDIUM_TALL
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true

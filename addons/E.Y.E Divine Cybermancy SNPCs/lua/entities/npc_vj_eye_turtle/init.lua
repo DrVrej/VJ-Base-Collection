@@ -15,7 +15,7 @@ ENT.SoundTbl_Idle = {"vj_eye/animals/limacue_idle.wav", "vj_eye/animals/limacue_
 ENT.SoundTbl_Alert = "vj_eye/animals/limacue_fear.wav"
 ENT.SoundTbl_Pain = "vj_eye/animals/limacue_fear.wav"
 ENT.SoundTbl_Death = {"vj_eye/animals/limacue_die.wav", "vj_eye/animals/limacue_die2.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(12, 12, 18), Vector(-12, -12, 0))
 end

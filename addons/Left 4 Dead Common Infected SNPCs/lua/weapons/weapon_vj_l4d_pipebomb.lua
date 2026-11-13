@@ -42,22 +42,22 @@ SWEP.L4D_ViewModelAdjust = {
 	Pos = {Right = 0, Forward = 0, Up = -6},
 	Ang = {Right = 0, Up = 0, Forward = 0}
 }
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:Init()
 	if CLIENT then
 		local owner = self:GetOwner()
-		if IsValid(owner) && owner:IsPlayer() then
+		if IsValid(owner) and owner:IsPlayer() then
 			owner:ChatPrint("NOTE: Pipe bomb has a 10 second cooldown between throws!")
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function SWEP:OnPrimaryAttack(status, statusData)
 	if status == "Init" then
 		if CLIENT then return end
 		timer.Simple(1.3, function()
 			local owner = self:GetOwner()
-			if IsValid(self) && IsValid(owner) && owner:GetActiveWeapon() == self then
+			if IsValid(self) and IsValid(owner) and owner:GetActiveWeapon() == self then
 				local pipeBomb = ents.Create("obj_vj_l4d_pipebomb")
 				pipeBomb:SetPos(owner:GetShootPos())
 				pipeBomb:SetAngles(owner:GetAngles())
@@ -74,7 +74,7 @@ function SWEP:OnPrimaryAttack(status, statusData)
 		end)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 if CLIENT then
 	function SWEP:GetViewModelPosition(pos, ang)
 		local vModelAdjust = self.L4D_ViewModelAdjust

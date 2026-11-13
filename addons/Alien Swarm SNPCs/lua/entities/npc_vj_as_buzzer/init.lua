@@ -11,7 +11,7 @@ ENT.HullType = HULL_TINY
 ENT.MovementType = VJ_MOVETYPE_AERIAL
 ENT.Aerial_FlyingSpeed_Calm = 100
 ENT.Aerial_FlyingSpeed_Alerted = 200
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_ALIENSWARM"}
 ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
 
@@ -32,7 +32,7 @@ ENT.SoundTbl_Pain = "vj_alienswarm/buzzer/pain.wav"
 ENT.SoundTbl_Death = {"vj_alienswarm/buzzer/death01.wav", "vj_alienswarm/buzzer/death02.wav"}
 
 ENT.MainSoundPitch = 100
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(10, 10, 10), Vector(-10, -10, -10))
 	self:SetSurroundingBounds(Vector(40, 40, 40), Vector(-40, -40, -40))
@@ -44,7 +44,7 @@ function ENT:Init()
 		end
 	end)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local defAng = Angle()
 --
 function ENT:OnDeath(dmginfo, hitgroup, status)

@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/cryoffear/Faceless2/faceless2.mdl"}
 ENT.StartHealth = GetConVarNumber("vj_cof_faceless2_h")
 ENT.HullType = HULL_TINY
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -35,7 +35,7 @@ ENT.SoundTbl_Pain = {"faceless/faceless_pain1.wav", "faceless/faceless_pain2.wav
 ENT.SoundTbl_Death = {"faceless/faceless_pain1.wav", "faceless/faceless_pain2.wav"}
 
 ENT.FootstepSoundLevel = 75
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(25, 25, 15), Vector(-25, -25, 0))
 end

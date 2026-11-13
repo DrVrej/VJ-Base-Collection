@@ -83,9 +83,9 @@ ENT.Zombie_IsCrawling = false
 ENT.Zombie_LegHP = 30
 ENT.Zombie_GibNumber = -1 -- "-1" = Do NOT gib!
 ENT.Zombie_CanRunOnFire = false
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:NMRIH_Init() end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	-- Setup sounds
 	if self.Zombie_Gender == 1 then -- Female
@@ -129,7 +129,7 @@ function ENT:Init()
 	
 	self:NMRIH_Init()
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
 	if self.Zombie_IsCrawling == true then
 		if act == ACT_IDLE then
@@ -142,7 +142,7 @@ function ENT:TranslateActivity(act)
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	//print("OnInput: ", key, activator, caller, data)
 	if key == "melee" then
@@ -160,14 +160,14 @@ function ENT:OnInput(key, activator, caller, data)
 		self:PlayFootstepSound(sdCrawling)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDamaged(dmginfo, hitgroup, status)
 	-- Headshots do 2.5x more damage!
-	if status == "PreDamage" && hitgroup == HITGROUP_HEAD then
+	if status == "PreDamage" and hitgroup == HITGROUP_HEAD then
 		dmginfo:ScaleDamage(2.5)
-	elseif status == "PostDamage" && self.Zombie_Gender != 2 then
+	elseif status == "PostDamage" and self.Zombie_Gender != 2 then
 		-- Make shamblers have a chance to run if on fire
-		if self.Zombie_CanRunOnFire && self:IsOnFire() then
+		if self.Zombie_CanRunOnFire and self:IsOnFire() then
 			self.Zombie_MoveAnim = ACT_RUN
 		end
 		
@@ -187,17 +187,17 @@ function ENT:OnDamaged(dmginfo, hitgroup, status)
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnFlinch(dmginfo, hitgroup, status)
 	if status == "Init" then
 		-- Shoving system
 		local dmgType = dmginfo:GetDamageType()
-		if dmginfo:GetDamageCustom() == VJ.DMG_FORCE_FLINCH or ((dmgType == DMG_CLUB or dmgType == DMG_SLASH) && dmginfo:GetDamageForce():Length() > 800 && dmginfo:GetDamage() > 10) then
+		if dmginfo:GetDamageCustom() == VJ.DMG_FORCE_FLINCH or ((dmgType == DMG_CLUB or dmgType == DMG_SLASH) and dmginfo:GetDamageForce():Length() > 800 and dmginfo:GetDamage() > 10) then
 			local attacker = dmginfo:GetAttacker()
 			if !IsValid(attacker) then
 				attacker = dmginfo:GetInflictor()
 			end
-			if IsValid(attacker) && attacker:IsPlayer() then
+			if IsValid(attacker) and attacker:IsPlayer() then
 				self.AnimTbl_Flinch = ACT_STEP_FORE
 				if self.Zombie_Gender != 2 then -- Child zombies only have forward animation
 					local playerAim = attacker:GetAimVector()
@@ -223,9 +223,9 @@ function ENT:OnFlinch(dmginfo, hitgroup, status)
 		return math.random(1, 16) != 1
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)
-	if self.Zombie_GibNumber != -1 && hitgroup == HITGROUP_HEAD && (dmginfo:GetDamageForce():Length() > 800 or dmginfo:GetDamage() > 75) then
+	if self.Zombie_GibNumber != -1 and hitgroup == HITGROUP_HEAD and (dmginfo:GetDamageForce():Length() > 800 or dmginfo:GetDamage() > 75) then
 		local attachData = self:GetAttachment(self:LookupAttachment("headshot_squirt"))
 		
 		self.HasDeathSounds = false -- No death sounds when head is blown off!
@@ -250,9 +250,9 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 		return true, {AllowCorpse = true, AllowSound = false}
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
-	if self.GibbedOnDeath && self.HasGibOnDeathEffects then
+	if self.GibbedOnDeath and self.HasGibOnDeathEffects then
 		local attach = corpse:LookupAttachment("headshot_squirt")
 		VJ.EmitSound(corpse, sdHeadshotDrain, 60, math.random(80, 100))
 		ParticleEffectAttach("vj_nmrih_blood_drain", PATTACH_POINT_FOLLOW, corpse, attach)

@@ -9,7 +9,7 @@ ENT.Model = "models/VJ_DARKMESSIAH/spider_regular.mdl"
 ENT.StartHealth = 200
 ENT.HullType = HULL_TINY
 ENT.EntitiesToNoCollide = {"npc_vj_dm_spider_queen"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.Immune_Toxic = true
@@ -53,13 +53,13 @@ local sdStrike = {"vj_darkmessiah/spider/spider_striking0.wav", "vj_darkmessiah/
 
 -- Custom
 ENT.Spider_AlwaysBurrow = false
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(25, 25, 25), Vector(-25, -25, 0))
 	self:SetSurroundingBounds(Vector(70, 70, 80), Vector(-70, -70, 0))
 	
 	-- Burrow out animation
-	if VJ_CVAR_AI_ENABLED && (math.random(1, 2) == 1 or self.Spider_AlwaysBurrow) then
+	if VJ_CVAR_AI_ENABLED and (math.random(1, 2) == 1 or self.Spider_AlwaysBurrow) then
 		self:SetNoDraw(true)
 		self:SetState(VJ_STATE_FREEZE)
 		timer.Simple(0.05, function()
@@ -75,7 +75,7 @@ function ENT:Init()
 		end)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data) 
 	//print(key)
 	if key == "event_mattack a" or key == "event_mattack b" or key == "event_mattack c" or key == "event_mattack d" or key == "event_mattack e" then
@@ -86,7 +86,7 @@ function ENT:OnInput(key, activator, caller, data)
 		self:PlaySoundSystem("BeforeMeleeAttack", sdStrike)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnRangeAttackExecute(status, enemy, projectile)
 	if status == "PreSpawn" then
 		-- Lower the damage and its radius for the regular spider
@@ -94,11 +94,11 @@ function ENT:OnRangeAttackExecute(status, enemy, projectile)
 		projectile.RadiusDamage = 20
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:RangeAttackProjPos(projectile)
 	return self:GetAttachment(self:LookupAttachment("attack_head")).Pos
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:RangeAttackProjVel(projectile)
 	return VJ.CalculateTrajectory(self, self:GetEnemy(), "Curve", projectile:GetPos(), 1, 1)
 end

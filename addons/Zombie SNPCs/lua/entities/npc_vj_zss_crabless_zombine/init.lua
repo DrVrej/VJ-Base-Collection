@@ -44,11 +44,11 @@ ENT.MainSoundPitch = 100
 
 -- Custom
 ENT.Zombie_GrenadeOut = false -- Can only do it once!
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(13, 13, 60), Vector(-13, -13, 0))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	//print(key)
 	if key == "step" then
@@ -57,17 +57,17 @@ function ENT:OnInput(key, activator, caller, data)
 		self:ExecuteMeleeAttack()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Controller_Initialize(ply)
 	ply:ChatPrint("JUMP: To Pull Grenade (One time event!)")
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
 	-- We have an active grenade
 	if IsValid(self.Zombie_Grenade) then
 		if act == ACT_IDLE then
 			return ACT_HANDGRENADE_THROW1
-		elseif (act == ACT_WALK or act == ACT_RUN) && IsValid(self:GetEnemy()) then
+		elseif (act == ACT_WALK or act == ACT_RUN) and IsValid(self:GetEnemy()) then
 			if self.EnemyData.Distance < 1024 then -- Make it run when close to the enemy
 				return ACT_HANDGRENADE_THROW3
 			else
@@ -87,7 +87,7 @@ function ENT:TranslateActivity(act)
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkActive()
 	-- Pull out the grenade
 	if !self.Zombie_GrenadeOut then
@@ -96,16 +96,16 @@ function ENT:OnThinkActive()
 				self.VJ_Controller:GetPlayer():PrintMessage(HUD_PRINTCENTER, "Pulling Grenade Out!")
 				self:Zombie_CreateGrenade()
 			end
-		elseif IsValid(self:GetEnemy()) && self.EnemyData.Distance <= 256 && self:Health() <= 40 then
+		elseif IsValid(self:GetEnemy()) and self.EnemyData.Distance <= 256 and self:Health() <= 40 then
 			self:Zombie_CreateGrenade()
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:MeleeAttackTraceDirection()
 	return self:GetForward()
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Zombie_CreateGrenade()
 	self.Zombie_GrenadeOut = true
 	self:PlayAnim(ACT_SLAM_DETONATOR_DRAW, true, false, true)
@@ -123,7 +123,7 @@ function ENT:Zombie_CreateGrenade()
 		end
 	end)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	if status == "Finish" then
 		local grenade = self.Zombie_Grenade

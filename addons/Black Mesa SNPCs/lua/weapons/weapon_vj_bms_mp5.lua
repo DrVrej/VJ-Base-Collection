@@ -5,17 +5,17 @@ SWEP.PrintName = "MP5"
 SWEP.Author = "DrVrej"
 SWEP.Contact = "http://steamcommunity.com/groups/vrejgaming"
 SWEP.Category = "VJ Base"
-	-- Main Settings ---------------------------------------------------------------------------------------------------------------------------------------------
+	-- Main Settings 
 SWEP.MadeForNPCsOnly = true
 SWEP.WorldModel = "models/vj_weapons/bms/w_mp5.mdl"
 SWEP.HoldType = "ar2"
-	-- NPC Settings ---------------------------------------------------------------------------------------------------------------------------------------------
+	-- NPC Settings 
 SWEP.NPC_NextPrimaryFire = 1
 SWEP.NPC_TimeUntilFireExtraTimers = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6}
 SWEP.NPC_ReloadSound = "vj_weapons/bms_mp5/reload.wav"
 SWEP.NPC_HasSecondaryFire = true
 SWEP.NPC_SecondaryFireSound = "vj_weapons/bms_mp5/double.wav"
-	-- Primary Fire ---------------------------------------------------------------------------------------------------------------------------------------------
+	-- Primary Fire 
 SWEP.Primary.Damage = 5
 SWEP.Primary.Force = 5
 SWEP.Primary.ClipSize = 30

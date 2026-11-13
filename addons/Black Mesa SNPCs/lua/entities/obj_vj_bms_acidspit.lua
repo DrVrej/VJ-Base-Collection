@@ -14,7 +14,7 @@ ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
 if (CLIENT) then
 	VJ.AddKillIcon("obj_vj_bms_acidspit", ENT.PrintName, VJ.KILLICON_PROJECTILE)
 end
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 if !SERVER then return end
 
 ENT.Model = {"models/vj_base/projectiles/spit_acid_small.mdl", "models/vj_base/projectiles/spit_acid_medium.mdl"}
@@ -27,15 +27,15 @@ ENT.RadiusDamageType = DMG_ACID
 ENT.CollisionDecal = "VJ_Splat_Acid"
 ENT.SoundTbl_Idle = "vj_base/ambience/acid_idle.wav"
 ENT.SoundTbl_OnCollide = "vj_base/ambience/acid_splat.wav"
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	ParticleEffectAttach("vj_acid_idle", PATTACH_ABSORIGIN_FOLLOW, self, 0)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThink()
 	ParticleEffectAttach("vj_acid_impact1", PATTACH_ABSORIGIN_FOLLOW, self, 0)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local defAng = Angle()
 --
 function ENT:OnDestroy(data, phys)

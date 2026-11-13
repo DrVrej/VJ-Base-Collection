@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/soviet/soviet_soldier1.mdl", "models/soviet/soviet_soldier2.mdl", "models/soviet/soviet_soldier3.mdl", "models/soviet/soviet_soldier4.mdl", "models/soviet/soviet_soldier5.mdl", "models/soviet/soviet_soldier6.mdl"}
 ENT.StartHealth = 60
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_RUSSIAN"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -28,7 +28,7 @@ ENT.SoundTbl_Pain = {"vj_military/russian/pain1.wav", "vj_military/russian/pain2
 ENT.SoundTbl_Death = {"vj_military/russian/die1.wav", "vj_military/russian/die2.wav", "vj_military/russian/die3.wav", "vj_military/russian/die4.wav", "vj_military/russian/die5.wav", "vj_military/russian/die6.wav"}
 
 ENT.IdleSoundLevel = 85
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	if math.random(1, 5) == 1 then self.IsMedic = true end
 end

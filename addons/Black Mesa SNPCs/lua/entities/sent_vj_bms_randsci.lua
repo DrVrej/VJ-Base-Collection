@@ -11,7 +11,7 @@ ENT.PrintName = "Random Scientist"
 ENT.Author = "DrVrej"
 ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
 ENT.Category = "Black Mesa"
----------------------------------------------------------------------------------------------------------------------------------------------
+
 if !SERVER then return end
 
 ENT.SingleSpawner = true

@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/humans/marine.mdl"
 ENT.StartHealth = 60
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_UNITED_STATES"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 
@@ -39,7 +39,7 @@ ENT.OnPlayerSightSoundChance = 2
 -- Custom
 ENT.HECU_Beret = false
 ENT.HECU_GasMask = false
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	-- Beret Hat
 	if math.random(1, 6) == 1 then
@@ -86,18 +86,18 @@ function ENT:Init()
 	end
 
 	-- Cigar
-	if self.HECU_GasMask == false && math.random(1, (IsValid(self.HECU_Beret) and 2) or 4) == 1 then
+	if self.HECU_GasMask == false and math.random(1, (IsValid(self.HECU_Beret) and 2) or 4) == 1 then
 		self:SetBodygroup(2, 1)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:SetAnimationTranslations(wepHoldType)
 	self.BaseClass.SetAnimationTranslations(self, wepHoldType)
 	if wepHoldType == "ar2" or wepHoldType == "smg" or wepHoldType == "rpg" then
 		self.AnimationTranslations[ACT_IDLE] = ACT_IDLE -- Uses default activity name for idle
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local colorRed = VJ.Color2Byte(Color(130, 19, 10))
 --
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)
@@ -130,7 +130,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	self:CreateGibEntity("obj_vj_gib", "UseHuman_Big", {Pos=self:LocalToWorld(Vector(0, 0, 35))})
 	return true
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
 	if self:GetBodygroup(2) == 1 then
 		corpse:SetBodygroup(2, 0)

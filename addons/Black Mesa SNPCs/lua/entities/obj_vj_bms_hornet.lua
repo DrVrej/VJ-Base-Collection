@@ -16,7 +16,7 @@ ENT.PhysicsSolidMask = MASK_SHOT
 if (CLIENT) then
 	VJ.AddKillIcon("obj_vj_bms_hornet", ENT.PrintName, VJ.KILLICON_PROJECTILE)
 end
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 if !SERVER then return end
 
 ENT.Model = "models/weapons/w_hornet.mdl"
@@ -33,7 +33,7 @@ ENT.IdleSoundPitch = VJ.SET(100, 100)
 
 -- Custom
 ENT.MyEnemy = NULL
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	timer.Simple(5, function() if IsValid(self) then self:Remove() end end)
 
@@ -58,10 +58,10 @@ function ENT:Init()
 	sprite:SetParent(self)
 	self:DeleteOnRemove(sprite)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThink()
 	-- Homing Behavior
-	if IsValid(self.MyEnemy) && self.MyEnemy:Alive() then
+	if IsValid(self.MyEnemy) and self.MyEnemy:Alive() then
 		local phys = self:GetPhysicsObject()
 		if IsValid(phys) then
 			phys:SetVelocity(VJ.CalculateTrajectory(self, self.MyEnemy, "Line", self:GetPos() + VectorRand(-50, 50), 1, 600))
@@ -75,7 +75,7 @@ function ENT:OnThink()
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnCollision(data, phys)
 	local lastvel = math.max(data.OurOldVelocity:Length(), data.Speed) -- Get the last velocity and speed
 	local newvel = phys:GetVelocity():GetNormal()
@@ -89,7 +89,7 @@ function ENT:OnCollision(data, phys)
 		self.CollisionBehavior = VJ.PROJ_COLLISION_REMOVE
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local defAng = Angle()
 --
 function ENT:OnDestroy(data, phys)

@@ -11,14 +11,14 @@ ENT.StartHealth = 150
 
 ENT.Zombie_Type = 1
 ENT.Zombie_Gender = 0
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:NMRIH_Init()
 	self:SetBodygroup(1, math.random(0, 1)) -- Helmet
 	self:SetBodygroup(4, math.random(0, 3)) -- Patches
 	
 	local randSkin = math.random(0, 3)
 	self:SetSkin(randSkin)
-	if (randSkin == 1 or randSkin == 3) && math.random(1, 2) == 1 then -- Dark skin can have a unique head
+	if (randSkin == 1 or randSkin == 3) and math.random(1, 2) == 1 then -- Dark skin can have a unique head
 		self:SetBodygroup(3, 1)
 	end
 	

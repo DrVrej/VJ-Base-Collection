@@ -10,7 +10,7 @@ ENT.Model = "models/cpthazama/l4d2/common/common_male_mud.mdl"
 ENT.CanGib = false
 
 ENT.SoundTbl_FootStep = {"vj_l4d_com/footstep/mud/concrete1.wav", "vj_l4d_com/footstep/mud/concrete2.wav", "vj_l4d_com/footstep/mud/concrete3.wav", "vj_l4d_com/footstep/mud/concrete4.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Zombie_OnInit()
 	self:SetBodygroup(1, 5)
 end

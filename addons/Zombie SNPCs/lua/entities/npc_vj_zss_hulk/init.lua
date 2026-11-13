@@ -39,12 +39,12 @@ ENT.MainSoundPitch = VJ.SET(75, 80)
 
 ENT.FootstepSoundLevel = 80
 
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(18, 18, 90), Vector(-18, -18, 0))
 	self:SetSkin(math.random(0, 3))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	if key == "step" then
 		self:PlayFootstepSound()
@@ -52,24 +52,24 @@ function ENT:OnInput(key, activator, caller, data)
 		self:ExecuteMeleeAttack()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
 	if act == ACT_RUN or act == ACT_WALK then
 		if self:IsOnFire() then
 			return ACT_WALK_ON_FIRE
 		-- Run if we are half health
-		elseif act == ACT_RUN && (self:GetMaxHealth() / 2) > self:Health() then
+		elseif act == ACT_RUN and (self:GetMaxHealth() / 2) > self:Health() then
 			return ACT_RUN
 		end
 		return ACT_WALK
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnFootstepSound(moveType, sdFile)
 	util.ScreenShake(self:GetPos(), 2, 5, 0.5, 250)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:MeleeAttackKnockbackVelocity(ent)
 	return self:GetForward() * math.random(100, 130) + self:GetUp() * math.random(250, 260)
 end

@@ -14,7 +14,7 @@ ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
 if (CLIENT) then
 	VJ.AddKillIcon("obj_eye_fireball", ENT.PrintName, VJ.KILLICON_PROJECTILE)
 end
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 if !SERVER then return end
 
 ENT.Model = "models/dav0r/hoverball.mdl"
@@ -28,7 +28,7 @@ ENT.RadiusDamageForce = 80
 ENT.CollisionDecal = "Scorch"
 ENT.SoundTbl_Idle = "ambient/fire/fire_small_loop1.wav"
 ENT.SoundTbl_OnCollide = "vj_base/ambience/fireball_explode.wav"
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetMaterial("models/effect/vol_light001")
 	self:SetNoDraw(true)
@@ -68,7 +68,7 @@ function ENT:Init()
 	dynLight:Fire("TurnOn")
 	self:DeleteOnRemove(dynLight)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDestroy(data, phys)
 	util.ScreenShake(data.HitPos, 16, 200, 1, 800)
 

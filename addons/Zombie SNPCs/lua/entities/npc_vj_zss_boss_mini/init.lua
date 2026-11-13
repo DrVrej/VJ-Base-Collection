@@ -10,7 +10,7 @@ ENT.Model = "models/vj_zombies/gal_boss_mini.mdl"
 ENT.StartHealth = 500
 
 local sdFootScuff = {"npc/zombie/foot_slide1.wav", "npc/zombie/foot_slide2.wav", "npc/zombie/foot_slide3.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	if key == "step" then
 		self:PlayFootstepSound()

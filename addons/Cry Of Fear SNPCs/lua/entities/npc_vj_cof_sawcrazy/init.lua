@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/cryoffear/sawcrazy/sawcrazy.mdl"}
 ENT.StartHealth = GetConVarNumber("vj_cof_sawcrazy_h")
 ENT.HullType = HULL_MEDIUM_TALL
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -35,7 +35,7 @@ ENT.SoundTbl_Death = {"sawcrazy/death.wav"}
 
 ENT.FootstepSoundLevel = 75
 ENT.BreathSoundLevel = 70
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(25, 25, 85), Vector(-25, -25, 0))
 end

@@ -5,16 +5,16 @@ SWEP.PrintName = "SPAS-12"
 SWEP.Author = "DrVrej"
 SWEP.Contact = "http://steamcommunity.com/groups/vrejgaming"
 SWEP.Category = "VJ Base"
-	-- Main Settings ---------------------------------------------------------------------------------------------------------------------------------------------
+	-- Main Settings 
 SWEP.MadeForNPCsOnly = true
 SWEP.WorldModel = "models/vj_weapons/bms/w_shotgun.mdl"
 SWEP.HoldType = "shotgun"
-	-- NPC Settings ---------------------------------------------------------------------------------------------------------------------------------------------
+	-- NPC Settings 
 SWEP.NPC_NextPrimaryFire = 0.9
 SWEP.NPC_TimeUntilFire = 0.2
 SWEP.NPC_ExtraFireSound = "vj_weapons/bms_shotgun/pump.wav"
 SWEP.NPC_FiringDistanceScale = 0.5
-	-- Primary Fire ---------------------------------------------------------------------------------------------------------------------------------------------
+	-- Primary Fire 
 SWEP.Primary.Damage = 4
 SWEP.Primary.Force = 1
 SWEP.Primary.NumberOfShots = 7

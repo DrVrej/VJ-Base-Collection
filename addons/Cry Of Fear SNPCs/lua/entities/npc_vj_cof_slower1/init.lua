@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/cryoffear/slower1/slower.mdl"}
 ENT.StartHealth = GetConVarNumber("vj_cof_slower1_h")
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -41,7 +41,7 @@ ENT.FootstepSoundLevel = 75
 
 -- Custom
 ENT.Slower1_TypeOfBodyGroup = 0
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	local orionisblack = math.random(0, 2)
 	if orionisblack == 0 then self:SetBodygroup(0, 0) self.Slower1_TypeOfBodyGroup = 0
@@ -49,7 +49,7 @@ function ENT:Init()
 	elseif orionisblack == 2 then self:SetBodygroup(0, 2) self.Slower1_TypeOfBodyGroup = 2
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkAttack(isAttacking, enemy)
 	if isAttacking then return end
 	local randattack = math.random(1, 5)
@@ -85,7 +85,7 @@ function ENT:OnThinkAttack(isAttacking, enemy)
 		self.MeleeAttackDamage = GetConVarNumber("vj_cof_slower1_d_reg")
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	if status == "DeathAnim" then
 		local buzzisstupid = math.random(1, 3)
@@ -100,7 +100,7 @@ function ENT:OnDeath(dmginfo, hitgroup, status)
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	if self.DeathAnimationCodeRan == false then return false end
 	

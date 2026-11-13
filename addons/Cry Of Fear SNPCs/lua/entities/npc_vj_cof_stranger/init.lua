@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/cryoffear/stranger/stranger.mdl"}
 ENT.StartHealth = GetConVarNumber("vj_cof_stranger_h")
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = false
@@ -39,18 +39,18 @@ ENT.Stranger_DamageDistance = 2500
 ENT.Stranger_NextEnemyDamage = 0
 
 util.AddNetworkString("vj_stranger_dodamage")
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(15, 15, 80), Vector(-15, -15, 0))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Stranger_StartDmg()
 	net.Start("vj_stranger_dodamage")
 	net.WriteEntity(self)
 	net.WriteEntity(self:GetEnemy())
 	net.Broadcast()
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkAttack(isAttacking, enemy)
 	if self.Dead or GetConVarNumber("vj_npc_range") == 0 then self.LimitChaseDistance = false return end
 	if self:GetPos():Distance(enemy:GetPos()) > self.Stranger_DamageDistance or !self.EnemyData.Visible then return end

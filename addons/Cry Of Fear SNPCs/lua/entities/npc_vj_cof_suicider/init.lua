@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/cryoffear/suicider/suicider.mdl"
 ENT.StartHealth = GetConVarNumber("vj_cof_suicider_h")
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = false
@@ -39,11 +39,11 @@ ENT.RangeAttackSoundLevel = 100
 -- Custom
 ENT.Suicider_DeathSuicide = false
 ENT.Suicider_FiredAtLeastOnce = false
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(15, 15, 80), Vector(-15, -15, 0))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Suicider_DoFireEffects()
 	local flash = ents.Create("env_muzzleflash")
 	flash:SetPos(self:GetAttachment(self:LookupAttachment(1)).Pos)
@@ -64,19 +64,19 @@ function ENT:Suicider_DoFireEffects()
 	FireLight1:Fire("Kill", "", 0.07)
 	self:DeleteOnRemove(FireLight1)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkActive()
 	if self.Dead == true then return end
 	if !IsValid(self:GetEnemy()) then return end
 	local EnemyDistance = self:GetPos():Distance(self:GetEnemy():GetPos())
-	if EnemyDistance <= 100 && self:GetEnemy():Visible(self) && self.Suicider_FiredAtLeastOnce == true then
+	if EnemyDistance <= 100 and self:GetEnemy():Visible(self) and self.Suicider_FiredAtLeastOnce == true then
 		self.Suicider_DeathSuicide = true
 		self.Bleeds = false
 		self:TakeDamage(999999999999999, self, self)
 		self.Bleeds = true
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnRangeAttackExecute(status, enemy, projectile)
 	if status == "Init" then
 		local bullet = {}
@@ -95,9 +95,9 @@ function ENT:OnRangeAttackExecute(status, enemy, projectile)
 		return true
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
-	if status == "DeathAnim" && self.Suicider_DeathSuicide then
+	if status == "DeathAnim" and self.Suicider_DeathSuicide then
 		self.AnimTbl_Death = ACT_DIE_GUTSHOT
 		timer.Simple(0.5, function()
 			if IsValid(self) then

@@ -19,7 +19,7 @@ ENT.VJ_ID_Grenade = true
 if CLIENT then
 	VJ.AddKillIcon("obj_vj_l4d_pipebomb", ENT.PrintName, VJ.KILLICON_GRENADE)
 end
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 if !SERVER then return end
 
 ENT.Model = "models/cpthazama/l4d1/weapons/pipebomb.mdl"
@@ -33,13 +33,13 @@ local sdExplosion = {"vj_l4d_com/pipe_bomb/explode3.wav", "vj_l4d_com/pipe_bomb/
 -- Custom
 ENT.FuseTime = 7
 ENT.Zombies = {}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	local myPos = self:GetPos()
 	local curTime = CurTime()
 	self:SetHealth(1)
 	for _, v in pairs(ents.FindInSphere(myPos, 4000)) do
-		if v:IsNPC() && v.IsVJL4DCommonInfected && v.Zombie_CanHearPipe && v.Zombie_NextPipBombT < curTime then
+		if v:IsNPC() and v.IsVJL4DCommonInfected and v.Zombie_CanHearPipe and v.Zombie_NextPipBombT < curTime then
 			v.Zombie_NextPipBombT = curTime + 6.9
 			v:ForceSetEnemy(self, true)
 			table.insert(self.Zombies, v)
@@ -111,7 +111,7 @@ function ENT:Init()
 	redLight:Fire("TurnOn")
 	self:DeleteOnRemove(redLight)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Beep(vol)
 	self:EmitSound("vj_l4d_com/pipe_bomb/beep.wav", vol, 100)
 
@@ -134,7 +134,7 @@ function ENT:Beep(vol)
 		end
 	end)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThink()
 	for _, v in ipairs(self.Zombies) do
 		if IsValid(v) then
@@ -143,11 +143,11 @@ function ENT:OnThink()
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDamaged(dmginfo)
 	self:GetPhysicsObject():AddVelocity(dmginfo:GetDamageForce() * 0.1)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnCollision(data, phys)
 	local getVel = phys:GetVelocity()
 	local curVelSpeed = getVel:Length()
@@ -158,7 +158,7 @@ function ENT:OnCollision(data, phys)
 		self:PlaySound("OnCollide")
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local defAng = Angle()
 local posUp100 = Vector(0, 0, 100)
 --

@@ -16,7 +16,7 @@ ENT.PhysicsSolidMask = MASK_SHOT
 if CLIENT then
 	VJ.AddKillIcon("obj_vj_dm_gas", ENT.PrintName, VJ.KILLICON_PROJECTILE)
 end
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 if !SERVER then return end
 
 ENT.Model = "models/vj_base/projectiles/spit_acid_medium.mdl"
@@ -27,16 +27,16 @@ ENT.RadiusDamage = 30
 ENT.RadiusDamageUseRealisticRadius = true
 ENT.RadiusDamageType = DMG_POISON
 ENT.SoundTbl_Idle = "vj_base/ambience/acid_idle.wav"
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetNoDraw(true)
 	ParticleEffectAttach("vj_acid_idle", PATTACH_ABSORIGIN_FOLLOW, self, 0)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThink()
 	ParticleEffectAttach("vj_acid_impact3_gas", PATTACH_ABSORIGIN_FOLLOW, self, 0)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local defAng = Angle()
 --
 function ENT:OnDestroy(data, phys)

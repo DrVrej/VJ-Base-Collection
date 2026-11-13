@@ -11,7 +11,7 @@ ENT.PrintName = "Random Zombie Spawner"
 ENT.Author = "DrVrej"
 ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
 ENT.Category = "Zombies"
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 if !SERVER then return end
 
 local entsList = {"npc_vj_zss_slow", "npc_vj_zss_panic:4", "npc_vj_zss_fast:8", "npc_vj_zss_crabless_fast:10", "npc_vj_zss_burnzie:10", "npc_vj_zss_crabless_poison:10", "npc_vj_zss_crabless_slow:10", "npc_vj_zss_crabless_torso:10", "npc_vj_zss_draggy:10", "npc_vj_zss_crabless_zombine:10", "npc_vj_zss_stalker:10", "npc_vj_zss_hulk:12", "npc_vj_zss_boss_mini:12", "npc_vj_zss_boss:18"}

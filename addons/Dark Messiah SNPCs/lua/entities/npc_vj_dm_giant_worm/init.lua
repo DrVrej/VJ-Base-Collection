@@ -10,7 +10,7 @@ ENT.StartHealth = 8000
 ENT.HullType = HULL_LARGE
 ENT.VJ_ID_Boss = true
 ENT.MovementType = VJ_MOVETYPE_STATIONARY
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasBloodPool = false
@@ -63,7 +63,7 @@ ENT.RangeAttackSoundLevel = 100
 
 -- Custom
 ENT.Worm_IdleAngryAnim = ACT_IDLE
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetPhysicsDamageScale(0)
 	self:SetCollisionBounds(Vector(185, 185, 1900), Vector(-185, -185, 0))
@@ -72,45 +72,45 @@ function ENT:Init()
 	self.Worm_CreateMouthEffect = GetConVar("vj_npc_reduce_vfx"):GetInt() == 0
 	PrintMessage(HUD_PRINTCENTER, "A Giant Worm Has Been Summoned!")
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
-	if act == ACT_IDLE && IsValid(self:GetEnemy()) then
+	if act == ACT_IDLE and IsValid(self:GetEnemy()) then
 		return self.Worm_IdleAngryAnim
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThink()
 	if self.Worm_CreateMouthEffect then
 		ParticleEffectAttach("vj_acid_impact3_gas", PATTACH_POINT_FOLLOW, self, 2)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local alertAnims = {"vjseq_worm_taunt_01", "vjseq_worm_taunt_02", "vjseq_worm_grunt"}
 --
 function ENT:OnAlert(ent)
 	if self.VJ_Controlled then return end
 	self:PlayAnim(alertAnims, true, false, true)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:MeleeAttackKnockbackVelocity(ent)
 	return self:GetForward() * math.random(700, 730) + self:GetUp() * math.random(500, 530)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnMeleeAttackExecute(status, ent, isProp)
 	if status == "Miss" then
 		util.ScreenShake(self:GetPos(), 16, 100, 1, 2500)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:RangeAttackProjPos(projectile)
 	return self:GetAttachment(self:LookupAttachment("poison")).Pos
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:RangeAttackProjVel(projectile)
 	return VJ.CalculateTrajectory(self, self:GetEnemy(), "Curve", projectile:GetPos(), 1, 10)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	if status == "Init" then
 		PrintMessage(HUD_PRINTCENTER, "A Giant Worm Has Been Defeated!")
@@ -121,7 +121,7 @@ function ENT:OnDeath(dmginfo, hitgroup, status)
 				local effectDust = EffectData()
 				effectDust:SetOrigin(self:GetPos())
 				util.Effect("VJ_Dust_Medium", effectDust)
-				if self.HasSounds == true && self.HasDeathSounds == true then VJ.EmitSound(self, "vj_darkmessiah/building_rubble5.wav", 100) end
+				if self.HasSounds == true and self.HasDeathSounds == true then VJ.EmitSound(self, "vj_darkmessiah/building_rubble5.wav", 100) end
 			end
 		end)
 	end

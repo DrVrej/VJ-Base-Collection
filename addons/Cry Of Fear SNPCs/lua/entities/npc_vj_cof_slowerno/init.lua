@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/cryoffear/slowerno/slowerno.mdl"}
 ENT.StartHealth = GetConVarNumber("vj_cof_slowerno_h")
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -38,7 +38,7 @@ ENT.SoundTbl_Pain = {"slower/slower_pain1.wav", "slower/slower_pain2.wav"}
 ENT.SoundTbl_Death = {"slower/scream1.wav"}
 
 ENT.FootstepSoundLevel = 75
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkAttack(isAttacking, enemy)
 	if isAttacking then return end
 	local randattack = math.random(1, 4)

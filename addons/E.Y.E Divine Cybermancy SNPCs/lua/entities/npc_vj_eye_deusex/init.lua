@@ -60,39 +60,39 @@ ENT.PainSoundLevel = 95
 ENT.DeathSoundLevel = 95
 
 ENT.RangeAttackPitch = VJ.SET(100, 100)
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetPhysicsDamageScale(0)
 	self:SetCollisionBounds(Vector(90, 90, 420), Vector(-90, -90, 0))
 	self:SetStepHeight(150)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
 	if ev == 2050 or ev == 2051 then -- Predefined by the engine, so IDs are always the same
 		self:PlayFootstepSound()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
-	if act == ACT_IDLE && (self:GetNPCState() == NPC_STATE_ALERT or self:GetNPCState() == NPC_STATE_COMBAT) then
+	if act == ACT_IDLE and (self:GetNPCState() == NPC_STATE_ALERT or self:GetNPCState() == NPC_STATE_COMBAT) then
 		return ACT_IDLE_ANGRY
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnFootstepSound(moveType, sdFile)
 	util.ScreenShake(self:GetPos(), 10, 100, 0.4, 4000)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:MeleeAttackKnockbackVelocity(ent)
 	return self:GetForward()*math.random(580, 620) + self:GetUp()*math.random(580, 610)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:RangeAttackProjPos(projectile)
 	self:RestartGesture(ACT_GESTURE_RANGE_ATTACK1)
 	return self:GetAttachment(self:LookupAttachment("missile")).Pos + self:GetForward()*50 + self:GetUp()*-35
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:RangeAttackProjVel(projectile)
 	return VJ.CalculateTrajectory(self, self:GetEnemy(), "Line", projectile:GetPos(), 1, 5000)
 end

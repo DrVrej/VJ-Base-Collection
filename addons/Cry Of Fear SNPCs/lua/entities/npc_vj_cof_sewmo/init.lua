@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/cryoffear/sewmo/sewmo.mdl"}
 ENT.StartHealth = GetConVarNumber("vj_cof_sewmo_h")
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -39,9 +39,9 @@ ENT.FootstepSoundLevel = 75
 
 -- Custom
 ENT.Sewmo_WireBroken = false
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkActive()
-	if self.Sewmo_WireBroken == false && self.Dead == false && (self.StartHealth *.50 > self:Health()) then
+	if self.Sewmo_WireBroken == false and self.Dead == false and (self.StartHealth *.50 > self:Health()) then
 		self.Sewmo_WireBroken = true
 		self:PlayAnim(ACT_SIGNAL1, true, 1, false)
 		timer.Simple(0.3, function() if IsValid(self) then
@@ -53,7 +53,7 @@ function ENT:OnThinkActive()
 		end)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkAttack(isAttacking, enemy)
 	if isAttacking then return end
 	if self:GetBodygroup(0) == 0 then

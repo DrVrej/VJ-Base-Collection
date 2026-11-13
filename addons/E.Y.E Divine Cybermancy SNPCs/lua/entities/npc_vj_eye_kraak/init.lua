@@ -31,12 +31,12 @@ ENT.SoundTbl_Death = {"vj_eye/kraak/kranagull_scream_7.wav", "vj_eye/kraak/krana
 
 local sdAlertRegular = "vj_eye/kraak/kranagull_scream_4.wav"
 local sdAlertAngry = "vj_eye/kraak/kranagull_scream_3.wav"
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(30, 30, 150), Vector(-30, -30, 0))
 	self:SetStepHeight(90)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local getEventName = util.GetAnimEventNameByID
 --
 function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
@@ -47,11 +47,11 @@ function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
 		self:PlayFootstepSound()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnFootstepSound(moveType, sdFile)
 	util.ScreenShake(self:GetPos(), 10, 100, 0.4, 500)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnAlert(ent)
 	if self.VJ_Controlled then return end
 	if math.random(1, 2) == 1 then
@@ -61,7 +61,7 @@ function ENT:OnAlert(ent)
 		self.SoundTbl_Alert = sdAlertRegular
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnMeleeAttackExecute(status, ent, isProp)
 	if status == "Init" then
 		local curSeq = self:GetSequenceName(self:GetSequence())
@@ -74,7 +74,7 @@ function ENT:OnMeleeAttackExecute(status, ent, isProp)
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:MeleeAttackKnockbackVelocity(ent)
 	return self:GetForward()*math.random(200, 230) + self:GetUp()*math.random(300, 330)
 end

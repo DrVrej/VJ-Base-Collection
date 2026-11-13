@@ -10,15 +10,15 @@ ENT.Model = {"models/cpthazama/l4d2/common/common_male_roadcrew.mdl", "models/cp
 ENT.CanGib = false
 
 ENT.Zombie_CanHearPipe = false
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Zombie_OnInit()
 	self:SetBodygroup(1, math.random(0, 6))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local orgDmgFunc = ENT.OnDamaged
 --
 function ENT:OnDamaged(dmginfo, hitgroup, status)
-	if status == "PreDamage" && hitgroup == HITGROUP_HEAD then
+	if status == "PreDamage" and hitgroup == HITGROUP_HEAD then
 		dmginfo:ScaleDamage(0.5)
 	end
 	orgDmgFunc(self, dmginfo, hitgroup, status)

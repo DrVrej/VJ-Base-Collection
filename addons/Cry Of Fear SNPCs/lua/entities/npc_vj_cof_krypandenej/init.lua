@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/cryoffear/crawler2/krypandenej.mdl"}
 ENT.StartHealth = GetConVarNumber("vj_cof_krypandenej_h")
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -40,7 +40,7 @@ ENT.SoundTbl_Death = {"slower/scream1.wav"}
 ENT.FootstepSoundLevel = 75
 
 ENT.MainSoundPitch = 70
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(15, 15, 40), Vector(-15, -15, 0))
 end

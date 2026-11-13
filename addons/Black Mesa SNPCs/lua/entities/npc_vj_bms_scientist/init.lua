@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/humans/scientist.mdl"
 ENT.StartHealth = 60
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_BLACK_MESA_PERSONNEL", "CLASS_PLAYER_ALLY"}
 ENT.Behavior = VJ_BEHAVIOR_PASSIVE
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
@@ -31,14 +31,14 @@ ENT.SoundTbl_FollowPlayer = {"vj_bms_scientistmale/startfollowing1.wav", "vj_bms
 ENT.SoundTbl_UnFollowPlayer = {"vj_bms_scientistmale/stopfollowing1.wav", "vj_bms_scientistmale/stopfollowing2.wav", "vj_bms_scientistmale/stopfollowing3.wav", "vj_bms_scientistmale/stopfollowing4.wav", "vj_bms_scientistmale/stopfollowing5.wav", "vj_bms_scientistmale/stopfollowing6.wav"}
 ENT.SoundTbl_OnPlayerSight = {"vj_bms_scientistmale/sawplayer1.wav", "vj_bms_scientistmale/sawplayer2.wav", "vj_bms_scientistmale/sawplayer3.wav", "vj_bms_scientistmale/sawplayer4.wav", "vj_bms_scientistmale/sawplayer5.wav", "vj_bms_scientistmale/sawplayer6.wav", }
 ENT.SoundTbl_DamageByPlayer = {"vj_bms_scientistmale/stupidplayer1.wav", "vj_bms_scientistmale/stupidplayer2.wav", "vj_bms_scientistmale/stupidplayer3.wav", "vj_bms_scientistmale/stupidplayer4.wav", "vj_bms_scientistmale/stupidplayer5.wav", "vj_bms_scientistmale/stupidplayer6.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetSkin(math.random(0, 14))
 	if math.random(1, 2) == 1 then
 		self:SetBodygroup(2, math.random(1, 5))
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local colorRed = VJ.Color2Byte(Color(130, 19, 10))
 --
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)
@@ -71,7 +71,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	self:CreateGibEntity("obj_vj_gib", "UseHuman_Big", {Pos=self:LocalToWorld(Vector(0, 0, 35))})
 	return true
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
 	if self:GetBodygroup(3) == 1 then
 		self:CreateExtraDeathCorpse("prop_physics", "models/humans/props/scientist_syringe.mdl", {Pos=self:LocalToWorld(Vector(0, 12, 0))})

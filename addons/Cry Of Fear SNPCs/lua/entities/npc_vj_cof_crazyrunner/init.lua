@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/cryoffear/runningcrazy/runningcrazy.mdl"}
 ENT.StartHealth = GetConVarNumber("vj_cof_crazyrunner_h")
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true

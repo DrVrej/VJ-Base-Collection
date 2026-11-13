@@ -36,11 +36,11 @@ ENT.SW_Droid_RHand = false
 ENT.SW_Droid_LHand = false
 ENT.SW_Droid_RLeg = false
 ENT.SW_Droid_LLeg = false
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnBleed(dmginfo, hitgroup)
 	-- Absorb bullet damage
 	if dmginfo:IsBulletDamage() then
-		if self.HasSounds && self.HasImpactSounds then VJ.EmitSound(self, "VJ.Impact.Armor") end
+		if self.HasSounds and self.HasImpactSounds then VJ.EmitSound(self, "VJ.Impact.Armor") end
 		if math.random(1, 3) == 1 then
 			dmginfo:ScaleDamage(0.50)
 			local spark = ents.Create("env_spark")
@@ -59,7 +59,7 @@ function ENT:OnBleed(dmginfo, hitgroup)
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	local doGib = false
 	self.DeathCorpseModel = {"models/hfg/starwars/droids/sw_bdroid_geo/torso_bg.mdl"}
@@ -99,7 +99,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 		return doGib, {AllowCorpse = true, AllowSound = false}
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local defAng = Angle()
 --
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)

@@ -8,7 +8,7 @@ include("shared.lua")
 -----------------------------------------------*/
 ENT.Model = {"models/cpthazama/l4d1/common/male_01.mdl", "models/cpthazama/l4d1/common/common_male_rural01.mdl", "models/cpthazama/l4d1/common/common_worker_male01_test.mdl", "models/cpthazama/l4d1/common/common_male_suit.mdl"}
 
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Zombie_OnInit()
 	if self:GetModel() == "models/cpthazama/l4d1/common/common_male_rural01.mdl" then
 		self:SetBodygroup(0, math.random(0, 4))
@@ -24,7 +24,7 @@ function ENT:Zombie_OnInit()
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Zombie_Gibs(gType)
 	if gType == "h" then
 		if self:GetModel() == "models/cpthazama/l4d1/common/common_male_rural01.mdl" then

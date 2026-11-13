@@ -11,7 +11,7 @@ ENT.HullType = HULL_HUMAN
 ENT.SightDistance = 1300
 ENT.MovementType = VJ_MOVETYPE_STATIONARY
 ENT.CanTurnWhileStationary = false
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_UNITED_STATES"}
 ENT.AlertTimeout = VJ.SET(8, 8)
 ENT.HasMeleeAttack = false
@@ -38,24 +38,24 @@ ENT.HECUTurret_StandDown = true
 ENT.HECUTurret_CurrentParameter = 0
 ENT.HECUTurret_NextAlarmT = 0
 ENT.HECUTurret_AnimIdleAngry = ACT_INVALID
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(13, 13, 60), Vector(-13, -13, 0))
 	self.HECUTurret_AnimIdleAngry = VJ.SequenceToActivity(self, "idl")
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
-	if act == ACT_IDLE && (self:GetNPCState() == NPC_STATE_ALERT or self:GetNPCState() == NPC_STATE_COMBAT or !self.HECUTurret_StandDown) then
+	if act == ACT_IDLE and (self:GetNPCState() == NPC_STATE_ALERT or self:GetNPCState() == NPC_STATE_COMBAT or !self.HECUTurret_StandDown) then
 		return self.HECUTurret_AnimIdleAngry
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThink()
 	local parameter = self:GetPoseParameter("aim_yaw")
 	local curTurnSD = self.HECUTurret_TurningSD
 	if parameter != self.HECUTurret_CurrentParameter then
-		if !curTurnSD or (curTurnSD && !curTurnSD:IsPlaying()) then
+		if !curTurnSD or (curTurnSD and !curTurnSD:IsPlaying()) then
 			VJ.STOPSOUND(curTurnSD)
 			self.HECUTurret_TurningSD = VJ.CreateSound(self, "vj_bms_groundturret/motor_loop.wav", 70, 100)
 		end
@@ -64,7 +64,7 @@ function ENT:OnThink()
 	end
 	self.HECUTurret_CurrentParameter = parameter
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkActive()
 	local ene = self:GetEnemy()
 	if IsValid(ene) or (self:GetNPCState() == NPC_STATE_ALERT or self:GetNPCState() == NPC_STATE_COMBAT) then
@@ -99,13 +99,13 @@ function ENT:OnThinkActive()
 			VJ.EmitSound(self, "vj_bms_groundturret/ping.wav", 75, 100)
 		end
 		
-		if IsValid(ene) && self:OnRangeAttack("PreInit", ene) != true && (self.AttackType == VJ.ATTACK_TYPE_RANGE or self.EnemyData.Visible) then
+		if IsValid(ene) and self:OnRangeAttack("PreInit", ene) != true and (self.AttackType == VJ.ATTACK_TYPE_RANGE or self.EnemyData.Visible) then
 			self:SetSkin(0)
 		else
 			self:SetSkin(1)
 		end
 	else
-		if self:GetNPCState() != NPC_STATE_ALERT && self:GetNPCState() != NPC_STATE_COMBAT then
+		if self:GetNPCState() != NPC_STATE_ALERT and self:GetNPCState() != NPC_STATE_COMBAT then
 			self:SetSkin(0)
 			if self.HECUTurret_StandDown == false then
 				self.HECUTurret_StandDown = true
@@ -115,7 +115,7 @@ function ENT:OnThinkActive()
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnRangeAttack(status, enemy)
 	if status == "PreInit" then
 		local viewang = math.abs(((enemy:GetPos() + enemy:OBBCenter()) - (self:GetPos() + self:OBBCenter())):Angle().y - (self:GetAngles().y + self:GetPoseParameter("aim_yaw")))
@@ -124,11 +124,11 @@ function ENT:OnRangeAttack(status, enemy)
 		return true
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnAlert(ent)
 	self:PlayAnim("deploy", true, 0.7)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local bulletSpread = Vector(5, 5, 5)
 --
 function ENT:OnRangeAttackExecute(status, enemy, projectile)
@@ -165,13 +165,13 @@ function ENT:OnRangeAttackExecute(status, enemy, projectile)
 		return true
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	if status == "Finish" then
 		self:SetSkin(3)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local defAng = Angle()
 --
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
@@ -182,7 +182,7 @@ function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
 	ParticleEffect("explosion_turret_break_pre_smoke Version #2", spawnPos, defAng, corpse)
 	ParticleEffect("explosion_turret_break_sparks", spawnPos, defAng, corpse)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:CustomOnRemove()
 	VJ.STOPSOUND(self.HECUTurret_TurningSD)
 end

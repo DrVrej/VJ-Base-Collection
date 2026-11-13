@@ -50,12 +50,12 @@ ENT.SoundTbl_MeleeAttackMiss = {"vj_eye/swipe01.wav", "vj_eye/swipe02.wav", "vj_
 ENT.SoundTbl_RangeAttack = "vj_base/ambience/fireball_throw.wav"
 ENT.SoundTbl_Pain = {"vj_eye/manduco/pain1.wav", "vj_eye/manduco/pain2.wav"}
 ENT.SoundTbl_Death = {"vj_eye/manduco/die1.wav", "vj_eye/manduco/die2.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(18, 18, 65), Vector(-18, -18, 0))
 	self:SetSkin(math.random(0, 2))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local getEventName = util.GetAnimEventNameByID
 --
 function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
@@ -68,11 +68,11 @@ function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
 		self:PlayFootstepSound()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:RangeAttackProjPos(projectile)
 	return self:GetAttachment(self:LookupAttachment("fireball")).Pos
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:RangeAttackProjVel(projectile)
 	return VJ.CalculateTrajectory(self, self:GetEnemy(), "Curve", projectile:GetPos(), 1, 50)
 end

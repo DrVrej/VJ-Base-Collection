@@ -17,15 +17,15 @@ ENT.DeathLoot = {
     "item_ammo_crossbow",
 	"weapon_vj_l4d_pipebomb",
 }
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Zombie_OnInit()
 	self:SetBodygroup(1, math.random(0, 2))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local orgDmgFunc = ENT.OnDamaged
 --
 function ENT:OnDamaged(dmginfo, hitgroup, status)
-	if status == "PreDamage" && hitgroup == HITGROUP_HEAD then
+	if status == "PreDamage" and hitgroup == HITGROUP_HEAD then
 		dmginfo:ScaleDamage(0.75)
 	end
 	orgDmgFunc(self, dmginfo, hitgroup, status)

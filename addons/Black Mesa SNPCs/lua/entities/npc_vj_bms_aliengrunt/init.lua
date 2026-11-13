@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/VJ_BLACKMESA/agrunt.mdl"
 ENT.StartHealth = 200
 ENT.HullType = HULL_MEDIUM_TALL
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_XEN"}
 ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
 
@@ -37,24 +37,24 @@ ENT.SoundTbl_MeleeAttackMiss = {"vj_bms_zombies/claw_miss1.wav", "vj_bms_zombies
 ENT.SoundTbl_RangeAttack = {"vJ_bms_aliengrunt/range1.wav", "vJ_bms_aliengrunt/range2.wav"}
 ENT.SoundTbl_Pain = {"vJ_bms_aliengrunt/pain1.wav", "vJ_bms_aliengrunt/pain2.wav", "vJ_bms_aliengrunt/pain3.wav", "vJ_bms_aliengrunt/pain4.wav", "vJ_bms_aliengrunt/pain5.wav", "vJ_bms_aliengrunt/pain6.wav"}
 ENT.SoundTbl_Death = {"vJ_bms_aliengrunt/die1.wav", "vJ_bms_aliengrunt/die2.wav", "vJ_bms_aliengrunt/die3.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(25, 25, 85), Vector(-25, -25, 0))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local getEventName = util.GetAnimEventNameByID
 --
 function ENT:OnAnimEvent(ev, evTime, evCycle, evType, evOptions)
 	local eventName = getEventName(ev)
-	if (eventName == "AE_AGRUNT_MELEE_ATTACK_LOW" && self:GetActivity() != ACT_MELEE_ATTACK2) or eventName == "AE_AGRUNT_MELEE_ATTACK_HIGH" then
+	if (eventName == "AE_AGRUNT_MELEE_ATTACK_LOW" and self:GetActivity() != ACT_MELEE_ATTACK2) or eventName == "AE_AGRUNT_MELEE_ATTACK_HIGH" then
 		self:ExecuteMeleeAttack()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkAttack(isAttacking, enemy)
 	if isAttacking then return end
 	local eneData = self.EnemyData
-	if eneData.DistanceNearest > 150 && eneData.DistanceNearest < 210 && !self.PropInteraction_Found then
+	if eneData.DistanceNearest > 150 and eneData.DistanceNearest < 210 and !self.PropInteraction_Found then
 		self.MeleeAttackDistance = 210
 		self.MeleeAttackDamageDistance = 115
 		self.AnimTbl_MeleeAttack = ACT_MELEE_ATTACK2
@@ -68,21 +68,21 @@ function ENT:OnThinkAttack(isAttacking, enemy)
 		self.HasMeleeAttackKnockBack = false
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:MeleeAttackKnockbackVelocity(ent)
 	return self:GetForward()*math.random(270, 290) + self:GetUp()*300
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnRangeAttackExecute(status, enemy, projectile)
 	if status == "PostSpawn" then
 		projectile.MyEnemy = enemy
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:RangeAttackProjPos(projectile)
 	return self:GetAttachment(self:LookupAttachment("muzzle")).Pos
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local colorYellow = VJ.Color2Byte(Color(255, 221, 35))
 --
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)

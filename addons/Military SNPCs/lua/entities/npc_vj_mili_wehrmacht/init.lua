@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/VJ_WAFFEN/german_soldier1.mdl", "models/VJ_WAFFEN/german_soldier2.mdl", "models/VJ_WAFFEN/german_soldier3.mdl", "models/VJ_WAFFEN/german_soldier4.mdl", "models/VJ_WAFFEN/german_soldier5.mdl", "models/VJ_WAFFEN/german_soldier6.mdl"}
 ENT.StartHealth = 60
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_GERMAN"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -31,7 +31,7 @@ ENT.SoundTbl_KilledEnemy = {"vj_military/german/enemydown1.wav", "vj_military/ge
 ENT.SoundTbl_Pain = {"vj_military/german/wounded1.wav", "vj_military/german/wounded2.wav", "vj_military/german/wounded3.wav", "vj_military/german/wounded4.wav", "vj_military/german/wounded5.wav", "vj_military/german/wounded6.wav", "vj_military/german/wounded7.wav", "vj_military/german/wounded8.wav", "vj_military/german/wounded9.wav"}
 ENT.SoundTbl_DamageByPlayer = {"vj_military/german/friendlyfire1.wav", "vj_military/german/friendlyfire2.wav", "vj_military/german/friendlyfire3.wav", "vj_military/german/friendlyfire4.wav"}
 ENT.SoundTbl_Death = {"vj_military/german/death_distant1.wav", "vj_military/german/death_distant2.wav", "vj_military/german/death_distant3.wav", "vj_military/german/death_distant4.wav", "vj_military/german/death_distant5.wav", "vj_military/german/death_distant6.wav", "vj_military/german/death_distant7.wav", "vj_military/german/death_distant8.wav", "vj_military/german/death_distant9.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	if math.random(1, 5) == 1 then self.IsMedic = true end
 end

@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/cryoffear/sawer/chainsawguy.mdl"}
 ENT.StartHealth = GetConVarNumber("vj_cof_sawer_h")
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -40,11 +40,11 @@ ENT.SoundTbl_Death = {"boss/sawer/eye_open.wav"}
 
 ENT.AlertSoundLevel = 100
 ENT.FootstepSoundLevel = 75
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(20, 20, 110), Vector(-20, -20, 0))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkAttack(isAttacking, enemy)
 	if isAttacking then return end
 	local randattack = math.random(1, 3)
@@ -62,7 +62,7 @@ function ENT:OnThinkAttack(isAttacking, enemy)
 		self.NextAnyAttackTime_Melee = 0.48
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	if status == "DeathAnim" then
 		timer.Simple(2, function()
@@ -74,7 +74,7 @@ function ENT:OnDeath(dmginfo, hitgroup, status)
 		end)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	if self.DeathAnimationCodeRan == false then return false end
 	

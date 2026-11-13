@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/VJ_UNITEDSTATES/airbrone1.mdl", "models/VJ_UNITEDSTATES/airbrone2.mdl", "models/VJ_UNITEDSTATES/airbrone3.mdl", "models/VJ_UNITEDSTATES/airbrone4.mdl", "models/VJ_UNITEDSTATES/airbrone5.mdl", "models/VJ_UNITEDSTATES/airbrone6.mdl", "models/VJ_UNITEDSTATES/airbrone7.mdl", "models/VJ_UNITEDSTATES/airbrone8.mdl", "models/VJ_UNITEDSTATES/airbrone9.mdl"}
 ENT.StartHealth = 60
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_UNITED_STATES"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -29,12 +29,12 @@ ENT.SoundTbl_GrenadeSight = {"vj_military/english_american/grenade1.wav", "vj_mi
 ENT.SoundTbl_Pain = {"vj_military/english_american/pain1.wav", "vj_military/english_american/pain2.wav", "vj_military/english_american/pain3.wav", "vj_military/english_american/pain4.wav", "vj_military/english_american/pain5.wav", "vj_military/english_american/pain6.wav"}
 ENT.SoundTbl_DamageByPlayer = {"vj_military/english_american/friendlyfire1.wav", "vj_military/english_american/friendlyfire2.wav", "vj_military/english_american/friendlyfire3.wav", "vj_military/english_american/friendlyfire4.wav", "vj_military/english_american/friendlyfire5.wav", "vj_military/english_american/friendlyfire6.wav"}
 ENT.SoundTbl_Death = {"vj_military/english_american/death1.wav", "vj_military/english_american/death2.wav", "vj_military/english_american/death3.wav", "vj_military/english_american/death4.wav", "vj_military/english_american/death5.wav", "vj_military/english_american/death6.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetBodygroup(1, math.random(0, 2))
 	if math.random(1, 5) == 1 then self.IsMedic = true end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
 	if dmginfo:GetDamageType() == DMG_BLAST or hitgroup == HITGROUP_HEAD then
 		corpse:SetBodygroup(2, 1)

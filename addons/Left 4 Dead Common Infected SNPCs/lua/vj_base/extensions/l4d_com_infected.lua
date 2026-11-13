@@ -3,6 +3,14 @@
 	No parts of this code or any of its contents may be reproduced, copied, modified or adapted,
 	without the prior written consent of the author, unless otherwise indicated for stand-alone materials.
 -----------------------------------------------*/
+--[[---------------------------------------------------------
+	TODO:
+	- System to support shoving animations
+	- Requires model updates:
+		- Add "eyes" attachment to all models
+		- Rename some activities to use defined activities
+		- Simplify event names
+-----------------------------------------------------------]]
 ENT.StartHealth = 65
 ENT.VJ_NPC_Class = {"CLASS_ZOMBIE"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
@@ -101,142 +109,142 @@ ENT.Zombie_CanClimb = false
 ENT.Zombie_IsClimbing = false
 ENT.Zombie_NextClimbT = 0
 
-/* TODO:
-	- System to support shoving animations
-	- Requires model updates:
-		- Add "eyes" attachment to all models
-		- Rename some activities to use defined activities
-		- Simplify event names
-*/
----------------------------------------------------------------------------------------------------------------------------------------------
+local metaEntity = FindMetaTable("Entity")
+local fGetTable = metaEntity.GetTable
+local fGetClass = metaEntity.GetClass
+local fGetPoseParameter = metaEntity.GetPoseParameter
+local fSetPoseParameter = metaEntity.SetPoseParameter
+
 function ENT:Init()
-	if self.Zombie_Gender == 1 then -- Female
-		self.SoundTbl_CombatIdle = sdFemale_CombatIdle
-		self.SoundTbl_Investigate = sdFemale_Investigate
-		self.SoundTbl_Alert = sdFemale_Alert
-		self.SoundTbl_BeforeMeleeAttack = sdFemale_BeforeMeleeAttack
-		self.SoundTbl_Pain = sdFemale_Pain
-		self.SoundTbl_Death = sdFemale_Death
+	local selfData = fGetTable(self)
+	if selfData.Zombie_Gender == 1 then -- Female
+		selfData.SoundTbl_CombatIdle = sdFemale_CombatIdle
+		selfData.SoundTbl_Investigate = sdFemale_Investigate
+		selfData.SoundTbl_Alert = sdFemale_Alert
+		selfData.SoundTbl_BeforeMeleeAttack = sdFemale_BeforeMeleeAttack
+		selfData.SoundTbl_Pain = sdFemale_Pain
+		selfData.SoundTbl_Death = sdFemale_Death
 	else -- Male
-		self.SoundTbl_CombatIdle = sdMale_CombatIdle
-		self.SoundTbl_Investigate = sdMale_Investigate
-		self.SoundTbl_Alert = sdMale_Alert
-		self.SoundTbl_BeforeMeleeAttack = sdMale_BeforeMeleeAttack
-		self.SoundTbl_Pain = sdMale_Pain
-		self.SoundTbl_Death = sdMale_Death
+		selfData.SoundTbl_CombatIdle = sdMale_CombatIdle
+		selfData.SoundTbl_Investigate = sdMale_Investigate
+		selfData.SoundTbl_Alert = sdMale_Alert
+		selfData.SoundTbl_BeforeMeleeAttack = sdMale_BeforeMeleeAttack
+		selfData.SoundTbl_Pain = sdMale_Pain
+		selfData.SoundTbl_Death = sdMale_Death
 	end
 	
-	local initFunc = self.Zombie_OnInit
+	local initFunc = selfData.Zombie_OnInit
 	if initFunc then
 		initFunc(self)
 	end
 	
-	self.ZombieAnim_IdleSitting = VJ.SequenceToActivity(self, VJ.PICK(animSit)) -- Pick a sitting stance here and never change it again
-	self.ZombieAnim_IdleLying = VJ.SequenceToActivity(self, "lying01") -- "lying01" to "lying08"
-	self.ZombieAnim_IdleAlert = VJ.SequenceToActivity(self, "idle_alert_01a") -- Covers 7 sequences
-	self.ZombieAnim_IdleUnreachable = VJ.SequenceToActivity(self, VJ.PICK(animUnreachable)) -- Pick it here and never change it again
-	self.ZombieAnim_CallHelp = VJ.SequenceToActivity(self, "idle_acquire_05")-- "idle_acquire_05", "idle_acquire_06", "idle_acquire_11"
+	selfData.ZombieAnim_IdleSitting = VJ.SequenceToActivity(self, VJ.PICK(animSit)) -- Pick a sitting stance here and never change it again
+	selfData.ZombieAnim_IdleLying = VJ.SequenceToActivity(self, "lying01") -- "lying01" to "lying08"
+	selfData.ZombieAnim_IdleAlert = VJ.SequenceToActivity(self, "idle_alert_01a") -- Covers 7 sequences
+	selfData.ZombieAnim_IdleUnreachable = VJ.SequenceToActivity(self, VJ.PICK(animUnreachable)) -- Pick it here and never change it again
+	selfData.ZombieAnim_CallHelp = VJ.SequenceToActivity(self, "idle_acquire_05")-- "idle_acquire_05", "idle_acquire_06", "idle_acquire_11"
 	
-	self.Zombie_IdleStateChangeT = CurTime() + math.Rand(2, 80)
-	if GetConVar("vj_l4d_alllowclimbing"):GetInt() == 1 then self.Zombie_CanClimb = true end
+	selfData.Zombie_IdleStateChangeT = CurTime() + math.Rand(2, 80)
+	if GetConVar("vj_l4d_alllowclimbing"):GetInt() == 1 then selfData.Zombie_CanClimb = true end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
+	local selfData = fGetTable(self)
 	if act == ACT_IDLE then
-		if self.Zombie_IdleState == IDLE_STATE_SITTING then -- Sitting idle
-			return self.ZombieAnim_IdleSitting
-		elseif self.Zombie_IdleState == IDLE_STATE_LYING then -- Sleeping idle
-			return self.ZombieAnim_IdleLying
-		elseif self:IsOnFire() && !self.Immune_Fire then -- On fire idle
+		if selfData.Zombie_IdleState == IDLE_STATE_SITTING then -- Sitting idle
+			return selfData.ZombieAnim_IdleSitting
+		elseif selfData.Zombie_IdleState == IDLE_STATE_LYING then -- Sleeping idle
+			return selfData.ZombieAnim_IdleLying
+		elseif self:IsOnFire() and !selfData.Immune_Fire then -- On fire idle
 			return ACT_IDLE_ON_FIRE -- "standing_onfire"
 		elseif self:GetNPCState() == NPC_STATE_ALERT or self:GetNPCState() == NPC_STATE_COMBAT then -- Alert & Combat idle + Unreachable
 			local ene = self:GetEnemy()
-			if IsValid(ene) && self:IsUnreachable(ene) then
-				return self.ZombieAnim_IdleUnreachable
+			if IsValid(ene) and self:IsUnreachable(ene) then
+				return selfData.ZombieAnim_IdleUnreachable
 			else
-				return self.ZombieAnim_IdleAlert
+				return selfData.ZombieAnim_IdleAlert
 			end
 		end
 	elseif act == ACT_WALK or act == ACT_RUN then
-		if self:IsOnFire() && !self.Immune_Fire then -- On fire movement
+		if self:IsOnFire() and !selfData.Immune_Fire then -- On fire movement
 			return ACT_RUN_ON_FIRE -- "run_onfire", "run_onfire_01"
-		elseif self.VJ_L4D_IsMudMen then -- Mud man unique movement
+		elseif selfData.VJ_L4D_IsMudMen then -- Mud man unique movement
 			return ACT_RUN_STEALTH
 		end
 	end
-	return self.BaseClass.TranslateActivity(self, act)
+	return selfData.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	//print("OnInput: ", key, activator, caller, data)
 	if key == "event_emit step" then
 		self:PlayFootstepSound()
 	elseif key == "event_mattack" then
 		self:ExecuteMeleeAttack()
-	elseif key == "event_vomit" && self.Zombie_CanPuke then
+	elseif key == "event_vomit" and self.Zombie_CanPuke then
 		ParticleEffectAttach("vj_l4d_vomit", PATTACH_POINT_FOLLOW, self, 9)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 //function ENT:GetSightDirection()
 //	return self:GetAttachment(self:LookupAttachment("mouth")).Ang:Forward()
 //end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local math_clamp = math.Clamp
 local math_appAngle = math.ApproachAngle
 --
 function ENT:OnUpdatePoseParamTracking(pitch, yaw, roll)
 	local speed = self.PoseParameterLooking_TurningSpeed
-	self:SetPoseParameter("lean_pitch", math_clamp(math_appAngle(self:GetPoseParameter("lean_pitch"), -15, 15), pitch, speed))
-	self:SetPoseParameter("lean_yaw", math_clamp(math_appAngle(self:GetPoseParameter("lean_yaw"), -15, 15), yaw, speed))
+	fSetPoseParameter(self, "lean_pitch", math_clamp(math_appAngle(fGetPoseParameter(self, "lean_pitch"), -15, 15), pitch, speed))
+	fSetPoseParameter(self, "lean_yaw", math_clamp(math_appAngle(fGetPoseParameter(self, "lean_yaw"), -15, 15), yaw, speed))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInvestigate(ent)
 	self:PlayAnim("vjges_startled_delta_01", false) -- Makes their head look around (Gesture)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnAlert(ent)
-	if !self.Zombie_SkipAlertAnim && self.Zombie_IdleState == IDLE_STATE_NORMAL && !self:IsMoving() && math.random (1, 3) == 1 then
+	if !self.Zombie_SkipAlertAnim and self.Zombie_IdleState == IDLE_STATE_NORMAL and !self:IsMoving() and math.random (1, 3) == 1 then
 		self:PlayAnim("idle_alert_straight_05", true, math.Rand(1.5, 3), true) -- "idle_alert_straight_05", "idle_alert_straight_08"
 	end
 	self.Zombie_SkipAlertAnim = false
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Allies_CallHelp(dist)
 	-- Don't call for help if the enemy is a pipe bomb, this prevents infected with "Zombie_CanHearPipe" disabled from attacking the pipe bomb
-	if self:GetEnemy():GetClass() == "obj_vj_l4d_pipebomb" then return false end
+	if fGetClass(self:GetEnemy()) == "obj_vj_l4d_pipebomb" then return false end
 	self.BaseClass.Allies_CallHelp(self, dist)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnCallForHelp(ally, isFirst)
 	if !isFirst then return end
 	-- Play call for help anim only if its standing and is not busy with other activity
-	if self.Zombie_IdleState == IDLE_STATE_NORMAL && !self:IsBusy("Activities") then
+	if self.Zombie_IdleState == IDLE_STATE_NORMAL and !self:IsBusy("Activities") then
 		self:PlayAnim(self.ZombieAnim_CallHelp, true, math.Rand(1.5, 3), true)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnSetEnemyFromDamage(dmginfo, hitgroup)
-	if self.Zombie_IdleState == IDLE_STATE_NORMAL && math.random(1, 2) == 1 then
+	if self.Zombie_IdleState == IDLE_STATE_NORMAL and math.random(1, 2) == 1 then
 		self:PlayAnim(animDmgSetEnemy, true, math.Rand(1.5, 3), true)
 		self.Zombie_SkipAlertAnim = true
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnResetEnemy()
 	self.Zombie_IdleStateChangeT = CurTime() + math.Rand(10, 80)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkActive()
-	self:SetPoseParameter("move_x", 1) -- Kalelou hamar
+	fSetPoseParameter(self, "move_x", 1) -- Kalelou hamar
 	
 	local curTime = CurTime()
-	local selfData = self:GetTable()
+	local selfData = fGetTable(self)
 	local eneValid = IsValid(selfData.EnemyData.Target)
 	
 	-- Behavior: Sit / Sleep
 	if selfData.Zombie_IdleState == IDLE_STATE_NORMAL then
-		if !eneValid && !self:IsMoving() && curTime > selfData.Zombie_IdleStateChangeT then
+		if !eneValid and !self:IsMoving() and curTime > selfData.Zombie_IdleStateChangeT then
 			local sitTime = math.Rand(10, 30)
 			if math.random(1, 3) == 1 then
 				if math.random(1, 2) == 1 then
@@ -272,7 +280,7 @@ function ENT:OnThinkActive()
 	
 	----////// Experimental Climbing System \\\\\\----
 	-- NOTE: This is VERY old and unoptimized, recommended not to use but it's here if you want to play around with it
-	if selfData.Zombie_CanClimb && !selfData.Dead && !selfData.Zombie_IsClimbing && curTime > selfData.Zombie_NextClimbT then
+	if selfData.Zombie_CanClimb and !selfData.Dead and !selfData.Zombie_IsClimbing and curTime > selfData.Zombie_NextClimbT then
 		local myPos = self:GetPos()
 		local myPosUp = self:GetUp()
 		local tru = util.TraceLine({start = myPos, endpos = myPos + myPosUp * 200, filter = self})
@@ -328,32 +336,33 @@ function ENT:OnThinkActive()
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDamaged(dmginfo, hitgroup, status)
 	if status == "PostDamage" then
 		local curTime = CurTime()
+		local selfData = fGetTable(self)
 		
-		self.Zombie_IdleStandT = 0
-		self.Zombie_IdleQuickStand = true
-		self.Zombie_IdleStateChangeT = curTime + math.Rand(5, 10)
+		selfData.Zombie_IdleStandT = 0
+		selfData.Zombie_IdleQuickStand = true
+		selfData.Zombie_IdleStateChangeT = curTime + math.Rand(5, 10)
 		
 		-- Randomly stumble when damaged while running
-		if !self.Flinching && !self:IsOnFire() && self:IsMoving() && self:GetActivity() == ACT_RUN && self.Zombie_NextStumbleT < curTime && math.random(1, 16) == 1 then
-			if self:IsPlayingGesture(self.AttackAnim) then -- Stop the attack gesture!
-				self:RemoveGesture(self.AttackAnim)
+		if !selfData.Flinching and !self:IsOnFire() and self:IsMoving() and self:GetActivity() == ACT_RUN and selfData.Zombie_NextStumbleT < curTime and math.random(1, 16) == 1 then
+			if self:IsPlayingGesture(selfData.AttackAnim) then -- Stop the attack gesture!
+				self:RemoveGesture(selfData.AttackAnim)
 			end
 			self:PlayAnim("run_stumble_01", true, 2.4)
-			self.Zombie_NextStumbleT = curTime + math.Rand(8, 14)
+			selfData.Zombie_NextStumbleT = curTime + math.Rand(8, 14)
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnFlinch(dmginfo, hitgroup, status)
 	if status == "Init" then
 		return self:GetSequence() == self:LookupSequence("run_stumble_01") -- If we are stumbling then DO NOT flinch!
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	if self:IsGibDamage(dmginfo:GetDamageType()) then self.HasDeathAnimation = false return end
 	if dmginfo:GetDamageForce():Length() < 600 then return false end
@@ -403,16 +412,16 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	self:PlaySoundSystem("Gib", hitgroup == HITGROUP_HEAD and sdGoreHead or sdGoreReg)
 	return true, {AllowCorpse = true, AllowAnim = playDeathAnim, AllowSound = false}
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
-	if status == "Init" && self.Zombie_IsClimbing or self.Zombie_IdleState != IDLE_STATE_NORMAL or self:IsOnFire() or self:GetSequence() == self:LookupSequence("run_stumble_01") then
+	if status == "Init" and self.Zombie_IsClimbing or self.Zombie_IdleState != IDLE_STATE_NORMAL or self:IsOnFire() or self:GetSequence() == self:LookupSequence("run_stumble_01") then
 		self.HasDeathAnimation = false
 	elseif status == "DeathAnim" then
 		if /*dmginfo:GetDamageForce():Length() > 10000 or*/ bit.band(dmginfo:GetDamageType(), DMG_BUCKSHOT) != 0 then -- This is rarely ran...
 			self.AnimTbl_Death = animDeathShotgun
 			//self.DeathAnimationTime = 0.5
 			self.DeathAnimationDecreaseLengthAmount = 0.1
-		elseif self:IsMoving() && self:GetActivity() == ACT_RUN then
+		elseif self:IsMoving() and self:GetActivity() == ACT_RUN then
 			self.AnimTbl_Death = animDeathRunning
 		end
 		ParticleEffectAttach("vj_l4d_froth", PATTACH_POINT_FOLLOW, self, 9)

@@ -8,7 +8,7 @@ include("shared.lua")
 -----------------------------------------------*/
 ENT.StartHealth = 400
 ENT.MeleeAttackDamage = 45
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(30, 30, 70), Vector(-30, -30, 0))
 	self:SetSurroundingBounds(Vector(70, 70, 100), Vector(-70, -70, 0))

@@ -11,7 +11,7 @@ ENT.HullType = HULL_HUMAN
 ENT.SightDistance = 5000
 ENT.MovementType = VJ_MOVETYPE_STATIONARY
 ENT.CanTurnWhileStationary = false
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_GERMAN"}
 ENT.HasMeleeAttack = false
 
@@ -35,7 +35,7 @@ ENT.Emp_Reloading = false
 ENT.Emp_Lerp_Yaw = 0
 ENT.Emp_Lerp_Ptich = 0
 ENT.Emp_Lerp_Ptich_Previous = 0
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(20, 20, 60), Vector(-20, -20, 0))
 	
@@ -54,12 +54,12 @@ function ENT:Init()
 	
 	self.Emp_CurrentAmmo = self.Emp_MaxAmmo
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkActive()
 	if IsValid(self.GunModel) then
 		local ene = self:GetEnemy()
 		local gunModel = self.GunModel
-		if IsValid(ene) && (self:GetForward():Dot((ene:GetPos() -self:GetPos()):GetNormalized()) > math.cos(math.rad(self.RangeAttackAngleRadius))) then
+		if IsValid(ene) and (self:GetForward():Dot((ene:GetPos() -self:GetPos()):GetNormalized()) > math.cos(math.rad(self.RangeAttackAngleRadius))) then
 			self.Emp_Lerp_Yaw = Lerp(25 * FrameTime(), self.Emp_Lerp_Yaw, (ene:GetPos() - gunModel:GetPos()):Angle().y - 90)
 			local pitch = -((ene:GetPos() + ene:OBBCenter()) - (gunModel:GetPos()  + gunModel:OBBCenter())):Angle().p
 			self.Emp_Lerp_Ptich = Lerp(25 * FrameTime(), self.Emp_Lerp_Ptich, pitch)
@@ -73,7 +73,7 @@ function ENT:OnThinkActive()
 			end
 			self.Emp_Lerp_Ptich_Previous = self.Emp_Lerp_Ptich
 		end
-		if self.Emp_CurrentAmmo <= 0 && self.Emp_Reloading == false then
+		if self.Emp_CurrentAmmo <= 0 and self.Emp_Reloading == false then
 			self.Emp_Reloading = true
 			gunModel:SetBodygroup(2, 1)
 			VJ.EmitSound(self, "vj_weapons/mg42/mg42_reload.wav")
@@ -105,7 +105,7 @@ function ENT:OnThinkActive()
 				end
 			end)
 			timer.Simple(1.8, function()
-				if IsValid(self) && IsValid(gunModel) then
+				if IsValid(self) and IsValid(gunModel) then
 					gunModel:SetBodygroup(1, 0)
 					gunModel:SetBodygroup(2, 0)
 				end
@@ -119,13 +119,13 @@ function ENT:OnThinkActive()
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnRangeAttack(status, enemy)
 	if status == "PreInit" then
 		return self.Emp_CurrentAmmo <= 0
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 //local angX90 = Angle(90, 0, 0)
 --
 function ENT:OnRangeAttackExecute(status, enemy, projectile)
@@ -207,7 +207,7 @@ function ENT:OnRangeAttackExecute(status, enemy, projectile)
 		return true
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:CustomOnRemove()
 	if IsValid(self.ReloadAmmoBox) then self.ReloadAmmoBox:Remove() end
 	if IsValid(self.GunModel) then

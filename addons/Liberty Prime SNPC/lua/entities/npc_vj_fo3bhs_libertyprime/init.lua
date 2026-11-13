@@ -83,22 +83,22 @@ ENT.LibertyPrime_NextNukeAttackT = 0
 
 local defVector = Vector()
 local defAngle = Angle()
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:PreInit()
 	self:SetPhysicsDamageScale(0)
 	table.insert(self.TimersToRemove, "timer_range_finished_libertylaser")
 	table.insert(self.TimersToRemove, "timer_range_start_libertylaser")
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(100, 100, 490), Vector(-100, -100, 0))
 	PrintMessage(HUD_PRINTCENTER, "A Liberty Prime is now Online!")
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Controller_Initialize(ply, controlEnt)
 	ply:ChatPrint("MOUSE2 + JUMP: Throw Mininuke")
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:LibertyPrime_DoFootstep(at)
 	self:PlayFootstepSound()
 	VJ.EmitSound(self, "vj_fo3_libertyprime/foot" .. math.random(1, 2) .. "_move.mp3", 100, 100)
@@ -109,7 +109,7 @@ function ENT:LibertyPrime_DoFootstep(at)
 	dustEffect:SetScale(1000)
 	util.Effect("ThumperDust", dustEffect)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	if key == "event_lfoot" then
 		self:LibertyPrime_DoFootstep("lfoot")
@@ -131,13 +131,13 @@ function ENT:OnInput(key, activator, caller, data)
 		self:ExecuteRangeAttack()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThink()
 	if self.AttackType != VJ.ATTACK_TYPE_RANGE then
 		self:SetBodygroup(1, 0)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnAlert(ent)
 	if !self.LibertyPrime_PlayedAlert then
 		self.LibertyPrime_AlertSound = VJ.CreateSound(self, "vj_fo3_libertyprime/alert.mp3", self.AlertSoundLevel, self:GetSoundPitch())
@@ -145,10 +145,10 @@ function ENT:OnAlert(ent)
 		self.LibertyPrime_PlayedAlert = true
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkAttack(isAttacking, enemy)
 	if isAttacking then return end
-	if self.EnemyData.Distance > 600 && CurTime() > self.LibertyPrime_NextNukeAttackT && ((!self.VJ_Controlled) or (self.VJ_Controlled && self.VJ_Controller:GetPlayer():KeyDown(IN_JUMP))) then
+	if self.EnemyData.Distance > 600 and CurTime() > self.LibertyPrime_NextNukeAttackT and ((!self.VJ_Controlled) or (self.VJ_Controlled and self.VJ_Controller:GetPlayer():KeyDown(IN_JUMP))) then
 		self.LibertyPrime_DoingNukeAttack = true
 		self.RangeAttackProjectiles = "obj_fo3_libertymininuke"
 		self.RangeAttackMaxDistance = 2700
@@ -165,7 +165,7 @@ function ENT:OnThinkAttack(isAttacking, enemy)
 		self.RangeAttackAnimationFaceEnemy = false
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnMeleeAttackExecute(status, ent, isProp)
 	if status == "Miss" then
 		local attachPos = self:GetAttachment(self:LookupAttachment("rfoot")).Pos
@@ -176,7 +176,7 @@ function ENT:OnMeleeAttackExecute(status, ent, isProp)
 		util.ScreenShake(attachPos, 30, 100, 1, 5000)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnRangeAttack(status, enemy)
 	if status == "Init" then
 		if self.LibertyPrime_DoingNukeAttack then
@@ -191,7 +191,7 @@ function ENT:OnRangeAttack(status, enemy)
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnRangeAttackExecute(status, enemy, projectile)
 	if status == "Init" then
 		if self.LibertyPrime_DoingNukeAttack then
@@ -216,15 +216,15 @@ function ENT:OnRangeAttackExecute(status, enemy, projectile)
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:RangeAttackProjPos(projectile)
 	return self:GetAttachment(self:LookupAttachment("bomb")).Pos
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:RangeAttackProjVel(projectile)
 	return VJ.CalculateTrajectory(self, self:GetEnemy(), "Line", projectile:GetPos(), 1, 5000)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnBleed(dmginfo, hitgroup)
 	local dmgPos = dmginfo:GetDamagePosition()
 	if dmgPos == defVector then return end
@@ -243,7 +243,7 @@ function ENT:OnBleed(dmginfo, hitgroup)
 		self:DeleteOnRemove(dmgSpark)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local gibMdls = {"models/props_debris/metal_panelchunk01a.mdl", "models/props_debris/metal_panelchunk01b.mdl", "models/props_debris/metal_panelchunk01d.mdl", "models/props_debris/metal_panelchunk01e.mdl", "models/props_debris/metal_panelchunk01f.mdl", "models/props_debris/metal_panelchunk01g.mdl", "models/props_debris/metal_panelchunk02d.mdl", "models/props_debris/metal_panelchunk02e.mdl"}
 local gibColor = Color(50, 50, 50)
 --
@@ -258,7 +258,7 @@ function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	end
 	return true, {AllowAnim = true, AllowSound = false}
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	if status == "DeathAnim" then
 		timer.Simple(0.5, function()
@@ -321,7 +321,7 @@ function ENT:OnDeath(dmginfo, hitgroup, status)
 		self:GibOnDeath(DamageInfo(), hitgroup) -- Declare a new DamageInfo because by this time, it's NULL!
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:CustomOnRemove()
 	VJ.STOPSOUND(self.CurrentDeathSound)
 	VJ.STOPSOUND(self.LibertyPrime_AlertSound)

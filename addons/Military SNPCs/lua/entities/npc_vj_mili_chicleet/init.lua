@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/VJ_Terrorist/chicleet.mdl"
 ENT.StartHealth = 200
 ENT.HullType = HULL_MEDIUM_TALL
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_TERRORIST"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -27,12 +27,12 @@ ENT.SoundTbl_MeleeAttack = {"vj_military/chicleet/attack1.wav", "vj_military/chi
 ENT.SoundTbl_MeleeAttackMiss = {"npc/zombie/claw_miss1.wav", "npc/zombie/claw_miss2.wav"}
 ENT.SoundTbl_Pain = {"vj_military/chicleet/pain1.wav", "vj_military/chicleet/pain2.wav", "vj_military/chicleet/pain3.wav"}
 ENT.SoundTbl_Death = "vj_military/chicleet/death1.wav"
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(13, 13, 90), Vector(-13, -13, 0))
 	self:CapabilitiesAdd(CAP_MOVE_CLIMB)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
 	if act == ACT_CLIMB_UP or act == ACT_CLIMB_DOWN then
 		return ACT_RUN_AIM_PISTOL
@@ -41,13 +41,13 @@ function ENT:TranslateActivity(act)
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnMeleeAttackExecute(status, ent, isProp)
 	if status == "PreDamage" then
 		self:TakeDamage(self:GetMaxHealth(), self, self)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local colorRed = VJ.Color2Byte(Color(130, 19, 10))
 --
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)

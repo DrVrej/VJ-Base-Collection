@@ -29,11 +29,11 @@ ENT.SoundTbl_MeleeAttackMiss = {"vj_zombies/miss1.wav", "vj_zombies/miss2.wav", 
 ENT.SoundTbl_Pain = {"vj_zombies/special/pain1.wav", "vj_zombies/special/pain2.wav", "vj_zombies/special/pain3.wav", "vj_zombies/special/pain4.wav", "vj_zombies/special/pain5.wav", "vj_zombies/special/pain6.wav"}
 ENT.SoundTbl_Death = {"vj_zombies/special/die1.wav", "vj_zombies/special/die2.wav", "vj_zombies/special/die3.wav"}
 
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(13, 13, 60), Vector(-13, -13, 0))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data) 
 	if key == "step" then
 		self:PlayFootstepSound()
@@ -41,7 +41,7 @@ function ENT:OnInput(key, activator, caller, data)
 		self:ExecuteMeleeAttack()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Controller_Initialize(ply, controlEnt)
 	ply:ChatPrint("JUMP: Ignite or Extinguish the Fire")
 	
@@ -58,7 +58,7 @@ function ENT:Controller_Initialize(ply, controlEnt)
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
 	if self:IsOnFire() then
 		if act == ACT_IDLE then
@@ -69,7 +69,7 @@ function ENT:TranslateActivity(act)
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnStateChange(oldState, newState)
 	-- Set fire when its been alerted or seen an enemy
 	if !self.VJ_Controlled then
@@ -81,9 +81,9 @@ function ENT:OnStateChange(oldState, newState)
 	end
 	self.BaseClass.OnStateChange(self, oldState, newState)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnMeleeAttackExecute(status, ent, isProp)
-	if status == "PreDamage" && self:IsOnFire() then
+	if status == "PreDamage" and self:IsOnFire() then
 		ent:Ignite(math.Rand(3, 5))
 	end
 end

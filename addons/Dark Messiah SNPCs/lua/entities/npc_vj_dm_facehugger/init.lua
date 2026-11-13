@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/VJ_DARKMESSIAH/facehugger.mdl"
 ENT.StartHealth = 100
 ENT.HullType = HULL_TINY
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 
@@ -33,7 +33,7 @@ ENT.SoundTbl_Death = {"vj_darkmessiah/facehugger/facehugger_dying0.wav", "vj_dar
 
 -- Custom
 ENT.FaceH_IdleAnims = {ACT_IDLE}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(13, 13, 40), Vector(-13, -13, 0))
 	self:SetSurroundingBounds(Vector(50, 50, 100), Vector(-50, -50, 0))
@@ -41,7 +41,7 @@ function ENT:Init()
 	self:SetStepHeight(50)
 	self.FaceH_IdleAnims = {ACT_IDLE, self:GetSequenceActivity(self:LookupSequence("search_1"))}
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
 	if act == ACT_IDLE or act == ACT_JUMP or act == ACT_GLIDE then
 		return self:ResolveAnimation(self.FaceH_IdleAnims)
@@ -50,7 +50,7 @@ function ENT:TranslateActivity(act)
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnMeleeAttack(status, enemy)
 	if status == "Init" then
 		local randAttack = math.random(1, 4)

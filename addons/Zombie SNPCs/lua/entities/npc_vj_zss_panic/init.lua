@@ -56,7 +56,7 @@ local ZOMBIE_TYPE_FEMALE = 2
 
 -- Custom
 ENT.Zombie_Type = ZOMBIE_TYPE_CARRIER -- 0 = Carrier | 1 = Male | 2 = Female
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	local myModel = self:GetModel()
 	if myModel == "models/vj_zombies/panic_carrier.mdl" then
@@ -84,7 +84,7 @@ function ENT:Init()
 		self.SoundTbl_Death = sdMale_Death
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	if key == "step" then
 		self:PlayFootstepSound()
@@ -96,19 +96,19 @@ function ENT:OnInput(key, activator, caller, data)
 		self:ExecuteMeleeAttack()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
 	if act == ACT_GLIDE then -- Because there is no jumping animation, so just use idle!
 		return ACT_IDLE
-	elseif act == ACT_RUN && self.Zombie_Type == ZOMBIE_TYPE_CARRIER && self.EnemyData.Distance < 400 && IsValid(self:GetEnemy()) then -- Carriers can go berserk when close to enemy!
+	elseif act == ACT_RUN and self.Zombie_Type == ZOMBIE_TYPE_CARRIER and self.EnemyData.Distance < 400 and IsValid(self:GetEnemy()) then -- Carriers can go berserk when close to enemy!
 		//VJ.EmitSound(self, "vj_zombies/panic/Activate.wav", 50)
 		return ACT_SPRINT
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)
-	if hitgroup == HITGROUP_HEAD && dmginfo:GetDamageForce():Length2D() > 800 then
+	if hitgroup == HITGROUP_HEAD and dmginfo:GetDamageForce():Length2D() > 800 then
 		self:CreateGibEntity("obj_vj_gib", "UseHuman_Small", {Pos = self:GetAttachment(self:LookupAttachment("anim_attachment_head")).Pos})
 		if self.Zombie_Type == ZOMBIE_TYPE_MALE then -- Only males have a single bodygroup set
 			self:SetBodygroup(0, math.random(1, 3))

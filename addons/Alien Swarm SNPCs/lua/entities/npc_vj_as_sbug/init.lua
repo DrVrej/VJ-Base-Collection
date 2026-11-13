@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/vj_alienswarm/shieldbug.mdl"
 ENT.StartHealth = 800
 ENT.HullType = HULL_LARGE
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_ALIENSWARM"}
 ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
 
@@ -42,7 +42,7 @@ ENT.Shieldbug_Defending = false
 ENT.Shieldbug_AnimAttackDef = -1
 ENT.Shieldbug_AnimTurnLeft = -1
 ENT.Shieldbug_AnimTurnRight = -1
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(70, 70, 100), Vector(-70, -70, 0))
 	self:SetStepHeight(50)
@@ -50,7 +50,7 @@ function ENT:Init()
 	self.Shieldbug_AnimTurnLeft = VJ.SequenceToActivity(self, "turn_left_defend")
 	self.Shieldbug_AnimTurnRight = VJ.SequenceToActivity(self, "turn_right_defend")
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local defAng = Angle()
 --
 function ENT:OnInput(key, activator, caller, data)
@@ -58,9 +58,9 @@ function ENT:OnInput(key, activator, caller, data)
 		self:PlayFootstepSound()
 	elseif key == "ASW_ShieldBug.Hit" then
 		self:ExecuteMeleeAttack()
-	elseif key == "ASW_ShieldBug.Stomp" && self:GetActivity() == ACT_ARM then
+	elseif key == "ASW_ShieldBug.Stomp" and self:GetActivity() == ACT_ARM then
 		util.ScreenShake(self:GetPos(), 16, 200, 0.5, 1500)
-		if self.HasSounds == true && self.HasAlertSounds == true then
+		if self.HasSounds == true and self.HasAlertSounds == true then
 			VJ.EmitSound(self, "vj_alienswarm/shieldbug/stomp01.wav", 80, math.random(90, 100))
 		end
 	elseif key == "ASW_ShieldBug.GibSplat" then
@@ -80,7 +80,7 @@ function ENT:OnInput(key, activator, caller, data)
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Controller_Initialize(ply, controlEnt)
 	ply:ChatPrint("JUMP: Toggle defense mode")
 	self.Shieldbug_Defending = false
@@ -124,10 +124,10 @@ function ENT:Controller_Initialize(ply, controlEnt)
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
 	-- Defense mode
-	if self.EnemyData.Distance < 1000 && (self:GetNPCState() == NPC_STATE_ALERT or self:GetNPCState() == NPC_STATE_COMBAT) then
+	if self.EnemyData.Distance < 1000 and (self:GetNPCState() == NPC_STATE_ALERT or self:GetNPCState() == NPC_STATE_COMBAT) then
 		self.Shieldbug_Defending = true
 		if act == ACT_IDLE then
 			return ACT_COWER
@@ -143,7 +143,7 @@ function ENT:TranslateActivity(act)
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnAlert(ent)
 	if self.VJ_Controlled then return end
 	if math.random(1, 2) == 1 then
@@ -151,7 +151,7 @@ function ENT:OnAlert(ent)
 		self:PlaySoundSystem("Alert", "vj_alienswarm/shieldbug/roar.wav")
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnMeleeAttack(status, enemy)
 	if status == "Init" then
 		if self.Shieldbug_Defending then
@@ -161,23 +161,23 @@ function ENT:OnMeleeAttack(status, enemy)
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:MeleeAttackKnockbackVelocity(ent)
 	return self:GetForward() * math.random(470, 490) + self:GetUp() * 50
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnMeleeAttackExecute(status, ent, isProp)
 	if status == "Miss" then
 		util.ScreenShake(self:GetPos(), 16, 100, 0.5, 1500)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDamaged(dmginfo, hitgroup, status)
-	if status == "PreDamage" && hitgroup == 11 then
+	if status == "PreDamage" and hitgroup == 11 then
 		dmginfo:SetDamage(0)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	if status == "Finish" then
 		self:SetBodygroup(0, 1)

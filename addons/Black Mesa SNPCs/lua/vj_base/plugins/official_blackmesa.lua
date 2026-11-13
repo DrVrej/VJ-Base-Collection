@@ -96,7 +96,7 @@ VJ.AddConVar("vj_bms_blackopsassassin_cloak", 1, FCVAR_ARCHIVE) -- Enable Black 
 -- Menu --
 if CLIENT then
 	local function VJ_BMSMENU_MAIN(panel)
-		if !game.SinglePlayer() && !LocalPlayer():IsAdmin() then
+		if !game.SinglePlayer() and !LocalPlayer():IsAdmin() then
 			panel:Help("#vjbase.menu.general.admin.not")
 			panel:Help("#vjbase.menu.general.admin.only")
 			return

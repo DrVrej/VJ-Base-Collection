@@ -14,7 +14,7 @@ ENT.SoundTbl_FootStep = {"vj_l4d_com/footstep/clown/concrete1.wav", "vj_l4d_com/
 ENT.FootstepSoundLevel = 80
 
 local defPos = Vector()
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnBleed(dmginfo, hitgroup)
 	if math.random(1, 3) != 1 then return end
 	local pos = dmginfo:GetDamagePosition()

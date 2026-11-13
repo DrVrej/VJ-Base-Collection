@@ -15,7 +15,7 @@ local sdDeflate = {"vj_l4d_com/ceda/ceda_suit_deflate.wav", "vj_l4d_com/ceda/ced
 -- Custom
 ENT.Zombie_CanPuke = false
 ENT.Zombie_HazmatBroken = false
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Zombie_OnInit()
 	self:SetBodygroup(1, math.random(0, 5))
 	
@@ -31,17 +31,17 @@ function ENT:Zombie_OnInit()
 	mask:AddEffects(EF_BONEMERGE)
 	self.MaskModel = mask
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local orgDmgFunc = ENT.OnDamaged
 --
 function ENT:OnDamaged(dmginfo, hitgroup, status)
-	if status == "PostDamage" && !self.Zombie_HazmatBroken then
+	if status == "PostDamage" and !self.Zombie_HazmatBroken then
 		self.Zombie_HazmatBroken = true
 		VJ.EmitSound(self, sdDeflate, self.PainSoundLevel, math.random(90, 100))
 	end
 	orgDmgFunc(self, dmginfo, hitgroup, status)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnCreateDeathCorpse(dmginfo, hitgroup, corpse)
 	local mask = self.MaskModel
 	if IsValid(mask) then

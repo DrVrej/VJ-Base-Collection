@@ -21,7 +21,7 @@ VJ.AddConVar("vj_dm_babyspawnlimit", 9, FCVAR_ARCHIVE)
 if CLIENT then
 	hook.Add("PopulateToolMenu", "VJ_ADDTOMENU_DM", function()
 		spawnmenu.AddToolMenuOption("DrVrej", "SNPC Configures", "Dark Messiah", "Dark Messiah", "", "", function(panel)
-			if !game.SinglePlayer() && !LocalPlayer():IsAdmin() then
+			if !game.SinglePlayer() and !LocalPlayer():IsAdmin() then
 				panel:Help("#vjbase.menu.general.admin.not")
 				panel:Help("#vjbase.menu.general.admin.only")
 				return

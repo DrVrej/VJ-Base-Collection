@@ -14,7 +14,7 @@ ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
 if (CLIENT) then
 	VJ.AddKillIcon("obj_fo3_libertymininuke", ENT.PrintName, VJ.KILLICON_PROJECTILE)
 end
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 if !SERVER then return end
 
 ENT.Model = "models/VJ_FALLOUT3/libertyprime_mininuke.mdl"
@@ -26,7 +26,7 @@ ENT.RadiusDamageType = DMG_BLAST
 ENT.RadiusDamageForce = 140
 ENT.CollisionDecal = "Scorch"
 ENT.SoundTbl_OnCollide = "ambient/explosions/explode_8.wav"
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local defAngle = Angle()
 --
 function ENT:OnDestroy(data, phys)

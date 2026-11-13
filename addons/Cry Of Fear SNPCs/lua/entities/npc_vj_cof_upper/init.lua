@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/cryoffear/upper/upper.mdl"}
 ENT.StartHealth = GetConVarNumber("vj_cof_upper_h")
 ENT.HullType = HULL_MEDIUM_TALL
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -42,11 +42,11 @@ ENT.AlertSoundLevel = 80
 
 -- Custom
 ENT.Slower1_TypeOfBodyGroup = 0
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(18, 18, 90), Vector(-18, -18, 0))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkAttack(isAttacking, enemy)
 	if isAttacking then return end
 	local randattack = math.random(1, 4)

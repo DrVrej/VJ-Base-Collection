@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/cryoffear/baby/baby.mdl"}
 ENT.StartHealth = GetConVarNumber("vj_cof_baby_h")
 ENT.HullType = HULL_WIDE_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -37,11 +37,11 @@ ENT.FootstepSoundLevel = 75
 
 -- Custom
 ENT.Baby_DeathFromMeleeAttack = false
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(15, 15, 50), Vector(-15, -15, 0))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnMeleeAttackExecute(status, ent, isProp)
 	if status == "Init" then
 		if self.Dead or !IsValid(self:GetEnemy()) then return end
@@ -51,7 +51,7 @@ function ENT:OnMeleeAttackExecute(status, ent, isProp)
 		self:TakeDamage(999999999999999, self, self)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	if status == "DeathAnim" then
 		if self.Baby_DeathFromMeleeAttack == false then
@@ -60,7 +60,7 @@ function ENT:OnDeath(dmginfo, hitgroup, status)
 		self:SetBodygroup(0, 1)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:HandleGibOnDeath(dmginfo, hitgroup)
 	if self.HasGibOnDeathEffects then
 		local bloodeffect = EffectData()

@@ -10,7 +10,7 @@ ENT.StartHealth = 10000
 ENT.HullType = HULL_LARGE
 ENT.VJ_ID_Boss = true
 ENT.EntitiesToNoCollide = {"npc_vj_dm_spider"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_DARK_MESSIAH"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.Immune_Toxic = true
@@ -73,7 +73,7 @@ ENT.DeathSoundLevel = 100
 -- Custom
 ENT.SpiderQ_AllowSpawning = true
 ENT.SpiderQ_NextBirthT = 0
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetPhysicsDamageScale(0)
 	self:SetCollisionBounds(Vector(120, 120, 230), Vector(-120, -120, 0))
@@ -87,11 +87,11 @@ function ENT:Init()
 	self.SpiderQ_BabySpidersTbl = {}
 	PrintMessage(HUD_PRINTCENTER, "A Spider Queen Has Been Summoned!")
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Controller_Initialize(ply, controlEnt)
 	ply:ChatPrint("JUMP: Spawn Baby Spiders")
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	//print(key)
 	if key == "event_emit Foot" then
@@ -114,19 +114,19 @@ function ENT:OnInput(key, activator, caller, data)
 		self:PlaySoundSystem("MeleeAttackMiss", sdOnMeleeWind)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnFootstepSound(moveType, sdFile)
 	util.ScreenShake(self:GetPos(), 10, 100, 0.4, 2000)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkActive()
-	if self.SpiderQ_AllowSpawning && IsValid(self:GetEnemy()) && CurTime() > self.SpiderQ_NextBirthT && ((!self.VJ_Controlled) or (self.VJ_Controlled && self.VJ_Controller:GetPlayer():KeyDown(IN_JUMP))) then
+	if self.SpiderQ_AllowSpawning and IsValid(self:GetEnemy()) and CurTime() > self.SpiderQ_NextBirthT and ((!self.VJ_Controlled) or (self.VJ_Controlled and self.VJ_Controller:GetPlayer():KeyDown(IN_JUMP))) then
 		local babyTbl = self.SpiderQ_BabySpidersTbl
 		for k, v in pairs(babyTbl) do
 			if !IsValid(v) then table.remove(babyTbl, k) continue end
 		end
 		babyTbl = self.SpiderQ_BabySpidersTbl
-		if (#babyTbl % 3 == 0) && #babyTbl < self.SpiderQ_SpiderLimit then
+		if (#babyTbl % 3 == 0) and #babyTbl < self.SpiderQ_SpiderLimit then
 			local myPos = self:GetPos()
 			if self.VJ_Controlled then
 				self.VJ_Controller:GetPlayer():PrintMessage(HUD_PRINTCENTER, "Spawning Spiders! Cooldown: " .. self.SpiderQ_NextBirthTime .. " seconds!")
@@ -151,18 +151,18 @@ function ENT:OnThinkActive()
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnAlert(ent)
 	if self.VJ_Controlled then return end
 	self:PlayAnim(ACT_IDLE_ANGRY, true, false, true)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:MeleeAttackKnockbackVelocity(ent)
 	return self:GetForward() * math.random(700, 730) + self:GetUp() * math.random(500, 530)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnMeleeAttackExecute(status, ent, isProp)
-	if status == "Miss" && self:IsOnGround() && self:GetActivity() != ACT_MELEE_ATTACK2 then
+	if status == "Miss" and self:IsOnGround() and self:GetActivity() != ACT_MELEE_ATTACK2 then
 		local spawnPos = self:GetPos() + self:GetForward() * 200
 		util.ScreenShake(spawnPos, 16, 100, 1, 2000)
 		for _ = 1, 3 do
@@ -173,15 +173,15 @@ function ENT:OnMeleeAttackExecute(status, ent, isProp)
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:RangeAttackProjPos(projectile)
 	return self:GetAttachment(self:LookupAttachment("mm_mouth")).Pos
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:RangeAttackProjVel(projectile)
 	return VJ.CalculateTrajectory(self, self:GetEnemy(), "Curve", projectile:GetPos(), 1, 10)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnFlinch(dmginfo, hitgroup, status)
 	if status == "Init" then
 		-- Can always flinch from DMB_BLAST or from any damage type as long as it does high damage
@@ -191,7 +191,7 @@ function ENT:OnFlinch(dmginfo, hitgroup, status)
 		return true
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	if status == "Init" then
 		PrintMessage(HUD_PRINTCENTER, "A Spider Queen Has Been Defeated!")
@@ -199,7 +199,7 @@ function ENT:OnDeath(dmginfo, hitgroup, status)
 		util.ScreenShake(self:GetPos(), 100, 200, 5, 3000)
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:CustomOnRemove()
 	if !self.Dead then
 		for _, v in pairs(self.SpiderQ_BabySpidersTbl) do

@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/cryoffear/slower2/slower2.mdl"}
 ENT.StartHealth = GetConVarNumber("vj_cof_croucher_h")
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -38,7 +38,7 @@ ENT.SoundTbl_Pain = {"slower/slower_pain1.wav", "slower/slower_pain2.wav"}
 ENT.SoundTbl_Death = {"slower/scream1.wav"}
 
 ENT.FootstepSoundLevel = 75
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetBodygroup(0, math.random(0, 2))
 	self:SetCollisionBounds(Vector(20, 20, 30), Vector(-20, -20, 0))

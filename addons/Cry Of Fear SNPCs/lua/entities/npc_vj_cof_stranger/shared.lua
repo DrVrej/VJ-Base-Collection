@@ -5,7 +5,7 @@ ENT.Author = "DrVrej"
 ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
 ENT.Category = "Cry Of Fear"
 
----------------------------------------------------------------------------------------------------------------------------------------------
+
 if (CLIENT) then
 	net.Receive("vj_stranger_dodamage", function(len)
 		local selfEntity = net.ReadEntity()

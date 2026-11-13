@@ -13,7 +13,7 @@ ENT.Contact = "http://steamcommunity.com/groups/vrejgaming"
 ENT.Category = "Black Mesa"
 ENT.AutomaticFrameAdvance = true
 
----------------------------------------------------------------------------------------------------------------------------------------------
+
 if CLIENT then
 	VJ.AddKillIcon("sent_vj_bms_snarknest", ENT.PrintName)
 
@@ -21,14 +21,14 @@ if CLIENT then
 		self:DrawModel()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 if !SERVER then return end
 
 ENT.Dead = false
 
 local defVec = Vector()
 local defAng = Angle()
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Initialize()
 	self:SetModel("models/VJ_BLACKMESA/snarknest.mdl")
 	self:SetHealth(10)
@@ -37,14 +37,14 @@ function ENT:Initialize()
 	self:SetMoveType(MOVETYPE_NONE)
 	self:SetSolid(SOLID_BBOX)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnTakeDamage(dmginfo, data)
 	self:SpawnBloodParticles(dmginfo)
 	self:SpawnBloodDecals(dmginfo)
 	self:EmitSound("vj_base/impact/flesh_alien.wav", 80, math.random(80, 100))
 
 	self:SetHealth(self:Health() -dmginfo:GetDamage())
-	if self:Health() <= 0 && !self.Dead then
+	if self:Health() <= 0 and !self.Dead then
 		local myPos = self:GetPos()
 		self.Dead = true
 		self:SetHealth(self:GetMaxHealth())
@@ -67,7 +67,7 @@ function ENT:OnTakeDamage(dmginfo, data)
 		self:Remove()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:SpawnBloodParticles(dmginfo, hitgroup)
 	local damagePos = dmginfo:GetDamagePosition()
 	if damagePos == defVec then damagePos = self:GetPos() + self:OBBCenter() end
@@ -80,7 +80,7 @@ function ENT:SpawnBloodParticles(dmginfo, hitgroup)
 	bloodParticle:Fire("Start")
 	bloodParticle:Fire("Kill", "", 0.1)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:SpawnBloodDecals(dmginfo, hitgroup)
 	local force = dmginfo:GetDamageForce()
 	local length = math.Clamp(force:Length() *10, 100, 300)

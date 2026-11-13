@@ -44,7 +44,7 @@ ENT.SoundTbl_LeapAttackDamage = {"npc/zombie/claw_strike1.wav", "npc/zombie/claw
 ENT.SoundTbl_Pain = {"vj_zombies/fast/pain1.wav", "vj_zombies/fast/pain2.wav", "vj_zombies/fast/pain3.wav"}
 ENT.SoundTbl_Death = {"vj_zombies/fast/die1.wav", "vj_zombies/fast/die2.wav"}
 
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:PreInit()
 	if !self.Model then
 		-- Have to randomize it here soo all types spawn equally since some are only skins
@@ -69,11 +69,11 @@ function ENT:PreInit()
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(13, 13, 50), Vector(-13, -13, 0))
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	if key == "step" then
 		self:PlayFootstepSound()
@@ -81,10 +81,10 @@ function ENT:OnInput(key, activator, caller, data)
 		self:ExecuteMeleeAttack()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:TranslateActivity(act)
 	if act == ACT_IDLE then
-		if !self:OnGround() && !self:IsMoving() then
+		if !self:OnGround() and !self:IsMoving() then
 			return ACT_GLIDE
 		elseif self:IsOnFire() then
 			return ACT_IDLE_ON_FIRE
@@ -94,7 +94,7 @@ function ENT:TranslateActivity(act)
 	end
 	return self.BaseClass.TranslateActivity(self, act)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnLeapAttack(status, enemy)
 	if status == "Jump" then
 		return VJ.CalculateTrajectory(self, enemy, "Curve", self:GetPos() + self:OBBCenter(), enemy:GetPos() + enemy:OBBCenter(), 25) + self:GetForward() * 80

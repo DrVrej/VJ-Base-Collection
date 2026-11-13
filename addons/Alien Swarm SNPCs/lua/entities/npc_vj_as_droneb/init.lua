@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = "models/vj_alienswarm/betadrone.mdl"
 ENT.StartHealth = 80
 ENT.HullType = HULL_MEDIUM
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_ALIENSWARM"}
 ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
 
@@ -39,12 +39,12 @@ ENT.SoundTbl_Pain = {"vj_alienswarm/drone/pain01.wav", "vj_alienswarm/drone/pain
 ENT.SoundTbl_Death = {"vj_alienswarm/drone/deathfire01.wav", "vj_alienswarm/drone/deathfire02.wav", "vj_alienswarm/drone/deathfire03.wav", "vj_alienswarm/drone/deathfire04.wav", "vj_alienswarm/drone/death01.wav"}
 
 ENT.FootstepSoundLevel = 55
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetSurroundingBounds(Vector(60, 60, 100), Vector(-60, -60, 0))
 	self:SetSkin((math.random(1, 2) == 1 and 0) or 2)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	if key == "move" then
 		self:PlayFootstepSound()
@@ -52,7 +52,7 @@ function ENT:OnInput(key, activator, caller, data)
 		self:ExecuteMeleeAttack()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnFlinch(dmginfo, hitgroup, status)
 	if status == "Init" then
 		if dmginfo:GetDamage() > 20 then
@@ -62,10 +62,10 @@ function ENT:OnFlinch(dmginfo, hitgroup, status)
 		end
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	-- High damage force, don't play death animation
-	if status == "Init" && dmginfo:GetDamageForce():Length() > 10000 then
+	if status == "Init" and dmginfo:GetDamageForce():Length() > 10000 then
 		self.HasDeathAnimation = false
 	end
 end

@@ -14,11 +14,11 @@ ENT.MeleeAttackDamageDistance = 85
 ENT.ZBoss_NextMiniBossSpawnT = 0
 
 local sdFootScuff = {"npc/zombie/foot_slide1.wav", "npc/zombie/foot_slide2.wav", "npc/zombie/foot_slide3.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Controller_Initialize(ply, controlEnt)
 	ply:ChatPrint("JUMP: Spawn Mini Zombie Bosses")
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	if key == "step" then
 		self:PlayFootstepSound()
@@ -32,11 +32,11 @@ function ENT:OnInput(key, activator, caller, data)
 		self:ExecuteMeleeAttack()
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 local defAng = Angle()
 --
 function ENT:OnThinkActive()
-	if IsValid(self:GetEnemy()) && CurTime() > self.ZBoss_NextMiniBossSpawnT && !IsValid(self.MiniBoss1) && !IsValid(self.MiniBoss2) && ((!self.VJ_Controlled) or (self.VJ_Controlled && self.VJ_Controller:GetPlayer():KeyDown(IN_JUMP))) then
+	if IsValid(self:GetEnemy()) and CurTime() > self.ZBoss_NextMiniBossSpawnT and !IsValid(self.MiniBoss1) and !IsValid(self.MiniBoss2) and ((!self.VJ_Controlled) or (self.VJ_Controlled and self.VJ_Controller:GetPlayer():KeyDown(IN_JUMP))) then
 		if self.VJ_Controlled then
 			self.VJ_Controller:GetPlayer():PrintMessage(HUD_PRINTCENTER, "Spawning Mini Zombie Bosses! Cool Down: 20 seconds!")
 		end
@@ -66,7 +66,7 @@ function ENT:OnThinkActive()
 		self.ZBoss_NextMiniBossSpawnT = CurTime() + 20
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:CustomOnRemove()
 	if !self.Dead then -- Remove mini bosses if we were removed (Undo, remover tool, etc.)
 		if IsValid(self.MiniBoss1) then self.MiniBoss1:Remove() end

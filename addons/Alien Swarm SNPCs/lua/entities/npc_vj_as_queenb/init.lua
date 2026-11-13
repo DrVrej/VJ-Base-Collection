@@ -9,7 +9,7 @@ ENT.Model = "models/vj_alienswarm/queen.mdl"
 ENT.StartHealth = 8000
 ENT.HullType = HULL_MEDIUM_TALL
 ENT.VJ_ID_Boss = true
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_ALIENSWARM"}
 ENT.BloodColor = VJ.BLOOD_COLOR_YELLOW
 
@@ -46,12 +46,12 @@ ENT.MeleeAttackMissSoundLevel = 150
 ENT.BeforeLeapAttackSoundLevel = 100
 ENT.PainSoundLevel = 100
 ENT.DeathSoundLevel = 100
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:Init()
 	self:SetCollisionBounds(Vector(100, 100, 250), Vector(-100, -100, 5))
 	self:SetStepHeight(78)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnInput(key, activator, caller, data)
 	if key == "move" then
 		self:PlayFootstepSound()
@@ -61,12 +61,12 @@ function ENT:OnInput(key, activator, caller, data)
 		self:PlaySoundSystem("Alert", "vj_alienswarm/shieldbug/roar.wav")
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnAlert(ent)
 	if self.VJ_Controlled then return end
 	self:PlayAnim("high_scream", true, false, true)
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:MeleeAttackKnockbackVelocity(ent)
 	return self:GetForward() * math.random(250, 300) + self:GetUp() * math.random(250, 300)
 end

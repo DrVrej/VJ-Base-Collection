@@ -8,7 +8,7 @@ include("shared.lua")
 ENT.Model = {"models/cryoffear/faster/faster.mdl"}
 ENT.StartHealth = GetConVarNumber("vj_cof_faster_h")
 ENT.HullType = HULL_HUMAN
----------------------------------------------------------------------------------------------------------------------------------------------
+
 ENT.VJ_NPC_Class = {"CLASS_CRY_OF_FEAR"}
 ENT.BloodColor = VJ.BLOOD_COLOR_RED
 ENT.HasMeleeAttack = true
@@ -34,7 +34,7 @@ ENT.SoundTbl_MeleeAttackMiss = {"faster/faster_miss.wav"}
 ENT.SoundTbl_MeleeAttackExtra = {"faster/faster_hit1.wav", "faster/faster_hit2.wav", "faster/faster_hit3.wav", "faster/faster_hit4.wav"}
 ENT.SoundTbl_Pain = {"faster/faster_pain.wav"}
 ENT.SoundTbl_Death = {"faster/faster_death.wav"}
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnThinkAttack(isAttacking, enemy)
 	if isAttacking then return end
 	local randattack = math.random(1, 3)
@@ -55,7 +55,7 @@ function ENT:OnThinkAttack(isAttacking, enemy)
 		self.MeleeAttackDamage = GetConVarNumber("vj_cof_faster_d_jump")
 	end
 end
----------------------------------------------------------------------------------------------------------------------------------------------
+
 function ENT:OnDeath(dmginfo, hitgroup, status)
 	if status == "DeathAnim" then
 		if self.HasSounds == false then return end
